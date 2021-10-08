@@ -1,6 +1,6 @@
 # Capstone Project: eVentures - Activities App
 
-## App: eVentures - A web application designed to help you find new activites to try with friends, family, or on your own
+## App: eVentures - Find new activites to try with friends, family, or on your own
 
 App Link:
 
