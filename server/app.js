@@ -7,14 +7,43 @@ const cors = require('cors')
 const bcrypt = require('bcryptjs')
 const salt = 10
 
+// import dotenv package (DB)
+require('dotenv').config()
+
 // import sequelize models (DB)
 const models = require('./models')
+
+// import jsonwebtoken package (DB)
+const jwt = require('jsonwebtoken')
 
 app.use(cors())
 app.use(express.json())
 
 
+app.post('/api/login', async (req, res) => {
+    const email = req.body.email
+    const password = req.body.password
 
+    let user = await models.User.findOne({
+        where: {
+            email: email
+        }
+    })
+
+    if(user != null) {
+        bcrypt.compare(password, user.password, (error, result) => {
+            if(result) {
+                // generate web token (DB)
+                const token = jwt.sign({ email: user.email }, process.env.ENCODER_KEY)
+                res.json({success: true, token: token})
+            } else {
+                res.json({success: false, message: 'Password Incorrect'})
+            }
+        })
+    } else {
+        res.json({success: false, message: 'Email Incorrect'})
+    }
+})
 
 app.post('/api/register', async (req, res) => {
     const email = req.body.email
