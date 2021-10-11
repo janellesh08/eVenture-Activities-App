@@ -3,7 +3,7 @@
     "username": "sxqvlvms",
     "password": "itf3nRfPq1r14uN8mftoIxwFPBz22Lmt",
     "database": "sxqvlvms",
-    "host": "127.0.0.1",
+    "host": "fanny.db.elephantsql.com",
     "dialect": "postgres"
   },
   "test": {
