@@ -1,7 +1,10 @@
 import { Container } from "react-bootstrap"
+import { connect } from "react-redux"
 
 
-function ActivitiesList() {
+function ActivitiesList(props) {
+
+    
 
     return (
         <div>
@@ -13,4 +16,10 @@ function ActivitiesList() {
     )
 }
 
-export default ActivitiesList
+const mapStateToProps = (state) => {
+    return{
+        activites: state.fetchActivityRed.activities
+    }
+}
+
+export default connect(mapStateToProps)(ActivitiesList)

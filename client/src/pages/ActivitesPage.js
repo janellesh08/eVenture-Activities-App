@@ -1,3 +1,4 @@
+import { useEffect } from "react"
 import { Container } from "react-bootstrap"
 import { connect } from "react-redux"
 import ActivitiesList from "../components/ActivitiesList"
@@ -5,6 +6,10 @@ import * as actionCreator from '../store/creators/actionCreators'
 
 
 function ActivitesPage(props) {
+
+    useEffect(() => {
+        props.onFetchActivities()
+    }, [])
 
     return (
         <div>
@@ -17,11 +22,6 @@ function ActivitesPage(props) {
     )
 }
 
-const mapStateToProps = (state) => {
-    return{
-
-    }
-}
 
 const mapDispatchToProps = (dispatch) => {
     return{
@@ -29,4 +29,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ActivitesPage)
+export default connect(null, mapDispatchToProps)(ActivitesPage)
