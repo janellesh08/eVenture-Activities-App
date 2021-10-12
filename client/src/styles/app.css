@@ -2,3 +2,33 @@
     height: 80%;
     width: 10%;
 }
+
+.icon-img{
+    height: 5% !important;
+    width: 10%;
+}
+
+
+#socialIconContainer{
+    display: flex;
+    flex-direction: row;
+    
+}
+
+div.col-md-4{
+    height: 5%;
+}
+
+.img-thumbnail{
+height: 55px;
+}
+
+#cardGroup{
+    padding-bottom: 5%;
+    padding-top: 5%;
+}
+
+#welcomeText{
+    text-align: center;
+}
+
