@@ -12,6 +12,7 @@ import About from './pages/About';
 import MyEventures from './pages/MyEventures';
 import AddNewEventure from './pages/AddNewEventure';
 import App from './pages/App';
+import ActivitesPage from './pages/ActivitesPage';
 
 
 const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
@@ -19,9 +20,6 @@ const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window
 
 ReactDOM.render(
   <React.StrictMode>
-    <HomePage />
-    <SignUp />
-    <Login />
     <Provider store={store}>
       <BrowserRouter>
         <BaseLayout>
@@ -31,6 +29,7 @@ ReactDOM.render(
             <Route path='/about' component={About} />
             <Route path='/my-eventures' component={MyEventures} />
             <Route path='/add-new-eventure' component={AddNewEventure} />
+            <Route path='/activities' component={ActivitesPage} />
           </Switch>
         </BaseLayout>
       </BrowserRouter>
