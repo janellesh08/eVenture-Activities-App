@@ -11,7 +11,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      models.Journal.belongsTo(models.User, {as: 'user', foreignKey: 'user_id'})
+      models.Journal.belongsTo(models.User, {as: 'users', foreignKey: 'user_id'})
+      models.Journal.belongsTo(models.Activity, {as: 'activities', foreignKey: 'activity_id'})
     }
   };
   Journal.init({
