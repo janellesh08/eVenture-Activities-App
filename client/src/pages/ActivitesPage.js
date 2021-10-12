@@ -1,6 +1,7 @@
 import { Container } from "react-bootstrap"
 import { connect } from "react-redux"
 import ActivitiesList from "../components/ActivitiesList"
+import * as actionCreator from '../store/creators/actionCreators'
 
 
 function ActivitesPage(props) {
@@ -24,7 +25,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return{
-
+        onFetchActivities: () => dispatch(actionCreator.fetchAllActivities())
     }
 }
 
