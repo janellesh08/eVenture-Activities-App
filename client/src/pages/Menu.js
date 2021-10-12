@@ -15,12 +15,13 @@ function Menu(){
                     <img id="menu-logo" src="/images/logo.png" alt="image" />
                     {/* <Navbar.Brand href="#home">eVentures</Navbar.Brand> */}
                     <Nav className="me-auto">
-                    <NavLink to="/Login" className="nav-link">Login</NavLink>
+                        <NavLink to="/SignUp" className="nav-link">Sign Up</NavLink>
+                        <NavLink to="/Login" className="nav-link">Login</NavLink>
                         <NavLink to="/about" className="nav-link">About</NavLink>
+                        <NavLink to="/all-eventures" className="nav-link">eVentures</NavLink>
                         <NavLink to="/my-eventures" className="nav-link">My eVentures</NavLink>
                         <NavLink to="/add-new-eventure" className="nav-link">Add New eVenture</NavLink>
-                        <NavLink to="#logout" className="nav-link">Logout</NavLink>
-                        <NavLink to="/SignUp" className="nav-link">Sign Up</NavLink>
+                        <NavLink to="#logout" className="nav-link">Logout</NavLink>  
                     </Nav>
                 </Container>
             </Navbar>

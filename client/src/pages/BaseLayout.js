@@ -4,6 +4,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom'
 
 import Menu from "./Menu";
+import Footer from './Footer';
 
 function BaseLayout (props) {
 
@@ -11,6 +12,8 @@ function BaseLayout (props) {
         <>
             <Menu/>
             {props.children}
+            <Footer/>
+            
 
         </>   
     )
