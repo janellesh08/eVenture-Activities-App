@@ -80,6 +80,14 @@ app.post('/api/register', async (req, res) => {
     }
 })
 
+app.get('/api/activities', async (req, res) => {
+
+    const allActivities = await models.Activity.findAll()
+
+    res.json(allActivities)
+})
+
+
 app.listen(8080, () => {
     console.log('Server is running... you better go catch it!')
 })
