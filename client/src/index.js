@@ -4,18 +4,24 @@ import HomePage from './pages/HomePage';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-import reducer from './store/reducer';
+import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import BaseLayout from './pages/BaseLayout';
 import About from './pages/About';
 import MyEventures from './pages/MyEventures';
 import AddNewEventure from './pages/AddNewEventure';
-import App from './pages/App';
 import ActivitesPage from './pages/ActivitesPage';
+import fetchActivitiesReducer from './store/reducers/FetchActivitiesReducer';
+import AuthenticatedReducer from './store/reducers/AuthenticatedReducer';
 
+const reducer = combineReducers({
+  fetchActivityRed: fetchActivitiesReducer,
+  authRed: AuthenticatedReducer
+})
 
-const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+const store = createStore(reducer, composeEnhancers(applyMiddleware(thunk)))
 
 
 ReactDOM.render(
@@ -30,7 +36,7 @@ ReactDOM.render(
             <Route path='/add-new-eventure' component={AddNewEventure} />
             <Route path='/activities' component={ActivitesPage} />
             <Route path='/Login' component={Login} />
-            <Route path='SignUp' component={SignUp} />
+            <Route path='/SignUp' component={SignUp} />
           </Switch>
         </BaseLayout>
       </BrowserRouter>
