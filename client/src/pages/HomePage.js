@@ -1,12 +1,24 @@
+import { Navbar, Nav, Container, Row, Col } from 'react-bootstrap'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
 function HomePage() {
 
-    return(
+    // const name = req.params.name
+
+    return (
         <div>
-            <h1>Home Page</h1>
-            <p>Basic React setup. Feel free to change as needed</p>
+            <Container>
+                <Row>
+                    <Col fluid> <h1>Welcome!</h1></Col>
+                </Row>
+                <Row>
+                    <Col ></Col>
+                    <Col ></Col>
+                </Row>
+            </Container>
+
         </div>
     )
 }
