@@ -24,12 +24,13 @@ ReactDOM.render(
       <BrowserRouter>
         <BaseLayout>
           <Switch>
-            <Route exact path='/' component={App} />
-            <Route path='/home' component={HomePage}/>
+            <Route exact path='/' component={HomePage} />
             <Route path='/about' component={About} />
             <Route path='/my-eventures' component={MyEventures} />
             <Route path='/add-new-eventure' component={AddNewEventure} />
             <Route path='/activities' component={ActivitesPage} />
+            <Route path='/Login' component={Login} />
+            <Route path='SignUp' component={SignUp} />
           </Switch>
         </BaseLayout>
       </BrowserRouter>
