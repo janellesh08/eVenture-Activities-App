@@ -45,18 +45,26 @@ app.post('/api/add-journal-entry', (req, res) => {
     })
 })
 
+
+// journal list page
 app.get('/api/journal-entries/:userId', (req, res) => {
     const userId = req.params.userId
     console.log(userId)
         models.Journal.findAll({
             where: {user_id: userId},
-            include: [{model: models.User, as: 'users'}]
-        })
+            include: [
+                {model: models.User, as: 'users'}, 
+                {model: models.Activity, as: 'activities'}
+               
+                    ] },
+            
+   )
     .then(journals => {
         res.json(journals)
     })
 })
 
+// journal details page
 app.get('/api/journal-entries-info/:id', (req, res) => {
     const id = req.params.id
         models.Journal.findByPk(id)
@@ -65,7 +73,17 @@ app.get('/api/journal-entries-info/:id', (req, res) => {
         })
 })
 
+app.delete('/api/journal-entries/:id', (req, res) => {
+    const id = req.params.id
 
+    models.Journal.destroy({
+        where: {
+            id: id
+        }
+    }).then(journals => {
+        res.json({success: true})
+    })
+})
 
 
 app.post('/api/login', async (req, res) => {
