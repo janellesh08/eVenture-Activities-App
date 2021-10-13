@@ -23,6 +23,7 @@ app.use(express.json())
 app.post('/api/login', async (req, res) => {
     const email = req.body.email
     const password = req.body.password
+    
 
     let user = await models.User.findOne({
         where: {
@@ -35,7 +36,7 @@ app.post('/api/login', async (req, res) => {
             if(result) {
                 // generate web token (DB)
                 const token = jwt.sign({ email: user.email }, process.env.ENCODER_KEY)
-                res.json({success: true, token: token})
+                res.json({success: true, token: token, user:user})
             } else {
                 res.json({success: false, message: 'Password Incorrect'})
             }
