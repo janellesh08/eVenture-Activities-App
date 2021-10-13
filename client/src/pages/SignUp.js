@@ -1,4 +1,7 @@
 import {useState} from 'react'
+import {Container, Button} from 'react-bootstrap'
+import '../pages/styles/SignUp.css'
+
 
 
 function SignUp(props) {
@@ -38,23 +41,31 @@ function SignUp(props) {
     }
 
     return (
-        <div>
-            <h1>Sign Up</h1>
-            <label>First Name</label>
-                <input name = 'firstName' type = 'text' placeholder = 'Enter first name'onChange = {handleOnChange}/>
-            <label>Last Name</label>
-                <input name = 'lastName' type = 'text' placeholder = 'Enter last name'onChange = {handleOnChange}/>
-            <label>Email</label>
-                <input name = 'email' type = 'text' placeholder = 'Enter email'onChange = {handleOnChange}/>
-            <label>Password</label>
-                <input name = 'password' type = 'password' placeholder = 'Enter first password' onChange = {handleOnChange}/>
-            <button onClick={signUp}>Sign Me Up!</button>
-            {errormsg ? <p>{errormsg}</p> : ''}
-
-        </div>
+        <Container fluid>
+            <div className='inputDiv'>
+                <h1 className='signUpheader'>Sign up, your next eVenture awaits!</h1>
+                <label>First Name</label>
+                <input name='firstName' type='text' placeholder='Enter first name' onChange={handleOnChange} />
+                <br></br>
+                <label>Last Name</label>
+                <input name='lastName' type='text' placeholder='Enter last name' onChange={handleOnChange} />
+                <br></br>
+                <label>Email</label>
+                <input name='email' type='text' placeholder='Enter email' onChange={handleOnChange} />
+                <br></br>
+                <label>Password</label>
+                <input name='password' type='password' placeholder='Enter first password' onChange={handleOnChange} />
+                <br></br>
+                <br></br>
+                <button onClick={signUp}>Sign Me Up!</button>{' '}
+                {errormsg ? <p>{errormsg}</p> : ''}
+            </div>
+        </Container>
     )
 
 
     }
+
+ 
     
-export default SignUp
+export default (SignUp)
