@@ -1,10 +1,19 @@
 #menu-logo{
-    height: 80%;
-    width: 10%;
+    height: 100%;
+    width: 20%;
+}
+
+#navBarContainer{
+    display: flex;
+    flex-direction: row;
+    justify-items: center;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
 }
 
 .icon-img{
-    height: 5% !important;
+    height: 15% !important;
     width: 10%;
 }
 
