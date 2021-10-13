@@ -11,9 +11,9 @@ import BaseLayout from './pages/BaseLayout';
 import About from './pages/About';
 import MyEventures from './pages/MyEventures';
 import AddNewEventure from './pages/AddNewEventure';
-import ActivitesPage from './pages/ActivitesPage';
 import fetchActivitiesReducer from './store/reducers/FetchActivitiesReducer';
 import AuthenticatedReducer from './store/reducers/AuthenticatedReducer';
+import EventuresPage from './pages/eVenturesPage';
 
 const reducer = combineReducers({
   fetchActivityRed: fetchActivitiesReducer,
@@ -34,7 +34,7 @@ ReactDOM.render(
             <Route path='/about' component={About} />
             <Route path='/my-eventures' component={MyEventures} />
             <Route path='/add-new-eventure' component={AddNewEventure} />
-            <Route path='/activities' component={ActivitesPage} />
+            <Route path='/all-eventures' component={EventuresPage} />
             <Route path='/Login' component={Login} />
             <Route path='/SignUp' component={SignUp} />
           </Switch>
