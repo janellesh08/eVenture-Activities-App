@@ -9,10 +9,10 @@ import thunk from 'redux-thunk'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import BaseLayout from './pages/BaseLayout';
 import About from './pages/About';
-import MyEventures from './pages/MyEventures';
 import AddNewEventure from './pages/AddNewEventure';
 import fetchActivitiesReducer from './store/reducers/FetchActivitiesReducer';
 import AuthenticatedReducer from './store/reducers/AuthenticatedReducer';
+import MyEventureProfile from './components/MyEventureProfile';
 import EventuresPage from './pages/eVenturesPage';
 
 const reducer = combineReducers({
@@ -32,7 +32,7 @@ ReactDOM.render(
           <Switch>
             <Route exact path='/' component={HomePage} />
             <Route path='/about' component={About} />
-            <Route path='/my-eventures' component={MyEventures} />
+            <Route path='/my-eventures' component={MyEventureProfile} />
             <Route path='/add-new-eventure' component={AddNewEventure} />
             <Route path='/all-eventures' component={EventuresPage} />
             <Route path='/Login' component={Login} />

@@ -10,3 +10,10 @@ export const fetchAllActivities = () => {
         })
     }
 }
+
+export const submitToMyActivities = (activity) => {
+    return {
+        type: actionType.FETCH_MY_ACTIVITIES,
+        payload: activity
+    }
+}
