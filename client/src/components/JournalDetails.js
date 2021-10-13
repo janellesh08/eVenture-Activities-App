@@ -1,9 +1,9 @@
 import { Container } from "react-bootstrap"
 import { connect } from "react-redux"
 import { useEffect } from'react'
-import { response } from "express"
 
-function JournalListPage(props) {
+
+function JournalDetails(props) {
 
 
     useEffect(() => {
@@ -22,7 +22,7 @@ function JournalListPage(props) {
 
     const journalItems = props.journals.map(journal => {
         return <li key = {journal.id}>
-            <h1>{journal.</h1>
+            
         </li>
     })
 

@@ -64,14 +64,31 @@ app.get('/api/journal-entries/:userId', (req, res) => {
     })
 })
 
+
+
+
 // journal details page
-app.get('/api/journal-entries-info/:id', (req, res) => {
+app.get('/api/journal-entries-info/:id/:userId', (req, res) => {
+    const userId = req.params.userId
     const id = req.params.id
-        models.Journal.findByPk(id)
-        .then(journal => {
-            res.json(journal)
-        })
+
+    models.Journal.findAll({
+        where: {
+            id: id,
+            user_id: userId
+        },
+        include: [
+            {
+                model: models.User,
+                as: 'users'
+            }
+        ]
+
+    }).then(journals => {
+        res.json(journals)
+    })
 })
+
 
 app.delete('/api/journal-entries/:id', (req, res) => {
     const id = req.params.id
@@ -152,6 +169,7 @@ app.get('/api/activities', async (req, res) => {
 
     res.json(allActivities)
 })
+
 
 
 app.listen(8080, () => {
