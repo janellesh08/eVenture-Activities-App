@@ -16,7 +16,7 @@ function Menu(){
                     {/* <Navbar.Brand href="#home">eVentures</Navbar.Brand> */}
                     <Nav className="me-auto">
                         <NavLink to="/SignUp" className="nav-link">Sign Up</NavLink>
-                        <NavLink to="/Login" className="nav-link">Login</NavLink>
+                        <NavLink to="/login" className="nav-link">Login</NavLink>
                         <NavLink to="/about" className="nav-link">About</NavLink>
                         <NavLink to="/all-eventures" className="nav-link">eVentures</NavLink>
                         <NavLink to="/my-eventures" className="nav-link">My eVentures</NavLink>

@@ -35,7 +35,7 @@ ReactDOM.render(
             <Route path='/my-eventures' component={MyEventures} />
             <Route path='/add-new-eventure' component={AddNewEventure} />
             <Route path='/activities' component={ActivitesPage} />
-            <Route path='/Login' component={Login} />
+            <Route path='/login' component={Login} />
             <Route path='/SignUp' component={SignUp} />
           </Switch>
         </BaseLayout>
