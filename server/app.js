@@ -20,6 +20,54 @@ app.use(cors())
 app.use(express.json())
 
 
+app.post('/api/add-journal-entry', (req, res) => {
+
+    const entry = req.body.entry
+    const image = req.body.image
+    const video = req.body.video
+    const rating = req.body.rating
+    const activityId = req.body.activityId
+    const userId = req.body.userId
+    const activity = req.body.activity
+
+    let journalEntry = models.Journal.build({
+        activity: activity,
+        entry: entry,
+        image: image,
+        video: video,
+        rating: rating,
+        activity_id: activityId,
+        user_id: userId
+    })
+    journalEntry.save()
+    .then(savedEntry => {
+        res.json({success: true, journalId: savedEntry.id})
+    })
+})
+
+app.get('/api/journal-entries/:userId', (req, res) => {
+    const userId = req.params.userId
+    console.log(userId)
+        models.Journal.findAll({
+            where: {user_id: userId},
+            include: [{model: models.User, as: 'users'}]
+        })
+    .then(journals => {
+        res.json(journals)
+    })
+})
+
+app.get('/api/journal-entries-info/:id', (req, res) => {
+    const id = req.params.id
+        models.Journal.findByPk(id)
+        .then(journal => {
+            res.json(journal)
+        })
+})
+
+
+
+
 app.post('/api/login', async (req, res) => {
     const email = req.body.email
     const password = req.body.password
@@ -80,6 +128,14 @@ app.post('/api/register', async (req, res) => {
         res.json({message: 'Email is already in use.'})
     }
 })
+
+app.get('/api/activities', async (req, res) => {
+
+    const allActivities = await models.Activity.findAll()
+
+    res.json(allActivities)
+})
+
 
 app.listen(8080, () => {
     console.log('Server is running... you better go catch it!')

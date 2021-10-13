@@ -1,0 +1,2 @@
+export const FETCH_ALL_ACTIVITIES = 'FETCH_ALL_ACTIVITIES'
+export const ON_LOGIN = 'ON_LOGIN'
