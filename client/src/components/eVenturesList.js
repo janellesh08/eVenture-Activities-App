@@ -1,8 +1,8 @@
-import { Container } from "react-bootstrap"
+import { Container, Form } from "react-bootstrap"
 import { connect } from "react-redux"
 
 
-function ActivitiesList(props) {
+function EventuresList(props) {
 
     
 
@@ -10,7 +10,9 @@ function ActivitiesList(props) {
         <div>
             <Container>
                 <h4>Filter</h4>
-
+                <div>
+                    <label></label>
+                </div>
             </Container>
         </div>
     )
@@ -22,4 +24,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(ActivitiesList)
+export default connect(mapStateToProps)(EventuresList)

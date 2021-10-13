@@ -1,11 +1,11 @@
 import { useEffect } from "react"
 import { Container } from "react-bootstrap"
 import { connect } from "react-redux"
-import ActivitiesList from "../components/ActivitiesList"
 import * as actionCreator from '../store/creators/actionCreators'
+import EventuresList from "../components/eVenturesList"
 
 
-function ActivitesPage(props) {
+function EventuresPage(props) {
 
     useEffect(() => {
         props.onFetchActivities()
@@ -16,7 +16,7 @@ function ActivitesPage(props) {
             <Container>
                 <h1>Find an Activity!</h1>
 
-                <ActivitiesList />
+                <EventuresList />
             </Container>
         </div>
     )
@@ -29,4 +29,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(null, mapDispatchToProps)(ActivitesPage)
+export default connect(null, mapDispatchToProps)(EventuresPage)
