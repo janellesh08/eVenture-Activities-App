@@ -3,7 +3,7 @@ import { Container } from "react-bootstrap"
 import { connect } from "react-redux"
 import * as actionCreator from '../store/creators/actionCreators'
 import EventuresList from "../components/eVenturesList"
-
+import '../styles/eVenturesPage.css'
 
 function EventuresPage(props) {
 
