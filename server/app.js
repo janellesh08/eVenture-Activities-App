@@ -136,6 +136,19 @@ app.get('/api/activities', async (req, res) => {
     res.json(allActivities)
 })
 
+//display activites based on the number of participants
+app.get('/api/activities/:participants', (req, res) => {
+    const participants = req.params.participants
+
+    models.Activity.findOne({
+        where: {
+            participants: participants
+        }
+    }).then(activities => {
+        res.json(activities)
+    })
+})
+
 
 app.listen(8080, () => {
     console.log('Server is running... you better go catch it!')
