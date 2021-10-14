@@ -1,16 +1,11 @@
 import { Container, Card, Button } from "react-bootstrap"
 import { connect } from "react-redux"
-import ActivitiesList from "../components/ActivitiesList"
 import { useEffect } from "react"
 import * as actionCreator from '../store/creators/actionCreators'
 import EventuresList from "../components/eVenturesList"
 import '../styles/eVenturesPage.css'
 
 function EventuresPage(props) {
-
-    useEffect(() => {
-        props.onFetchActivities()
-    }, [])
 
     useEffect(() => {
         props.onFetchActivities()
@@ -65,4 +60,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(null, mapDispatchToProps)(EventuresPage)
+export default connect(mapStateToProps, mapDispatchToProps)(EventuresPage)
