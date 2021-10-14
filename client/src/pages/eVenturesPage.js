@@ -1,16 +1,28 @@
-import { Container, Card, Button } from "react-bootstrap"
+import { Container, Card, Button, Popover } from "react-bootstrap"
 import { connect } from "react-redux"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import * as actionCreator from '../store/creators/actionCreators'
 import EventuresList from "../components/eVenturesList"
 import '../styles/eVenturesPage.css'
 
 function EventuresPage(props) {
 
+    const [twist, setTwist] = useState({})
+
     useEffect(() => {
         props.onFetchActivities()
     }, [])
 
+
+// const twist = () => {
+//     fetch('http://localhost:8080')
+//     .then(response => {return response.json()})
+//     .then(twist => {
+//         setTwist(twist)
+//     })
+// }
+
+   
 
     const activityItems = props.activities.map((activity) => {
         return <li key={activity.id}>
@@ -22,8 +34,10 @@ function EventuresPage(props) {
                     <Card.Text>
                         {activity.description}
                     </Card.Text>
-                    <Button variant="secondary" onClick={() => props.onAddToMyActivities(activity)}>Add to My eVentrues</Button>{' '}
-
+                    <Button variant="secondary" onClick={() => props.onAddToMyActivities(activity)}>Add to My eVentures</Button>{' '}
+                    <Card.Footer>
+                           {/* {popover} */}
+                        </Card.Footer>
                 </Card.Body>
             </Card>
             <br />
