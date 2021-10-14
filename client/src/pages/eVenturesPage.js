@@ -37,11 +37,13 @@ function EventuresPage(props) {
         <div>
             <Container>
                 <h1>Find an Activity!</h1>
+
+                <EventuresList />
                 <ul>
                     {activityItems}
                 </ul>
 
-                <EventuresList />
+                
             </Container>
         </div>
     )
