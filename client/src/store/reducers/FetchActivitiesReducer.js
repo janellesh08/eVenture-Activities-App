@@ -1,7 +1,8 @@
 import * as actionType from '../actions/actionTypes'
 
 const initialState = {
-    activities: []
+    activities: [],
+    myActivities: []
 }
 
 const fetchActivitiesReducer = (state=initialState, action) => {
@@ -12,6 +13,12 @@ const fetchActivitiesReducer = (state=initialState, action) => {
                 activities: action.payload
             }
 
+        case actionType.FETCH_MY_ACTIVITIES:
+            return{
+                ...state,
+                myActivities: state.myActivities.concat(action.payload)
+            }
+            
         default:
             return state
     }
