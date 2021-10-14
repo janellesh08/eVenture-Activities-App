@@ -1,5 +1,5 @@
 import {useState} from 'react'
-import {Container, Button} from 'react-bootstrap'
+import {Container} from 'react-bootstrap'
 import '../pages/styles/SignUp.css'
 
 
@@ -42,24 +42,26 @@ function SignUp(props) {
 
     return (
         <Container fluid>
-            <div className='inputDiv'>
-                <h1 className='signUpheader'>Sign up, your next eVenture awaits!</h1>
-                <label>First Name</label>
-                <input name='firstName' type='text' placeholder='Enter first name' onChange={handleOnChange} />
-                <br></br>
-                <label>Last Name</label>
-                <input name='lastName' type='text' placeholder='Enter last name' onChange={handleOnChange} />
-                <br></br>
-                <label>Email</label>
-                <input name='email' type='text' placeholder='Enter email' onChange={handleOnChange} />
-                <br></br>
-                <label>Password</label>
-                <input name='password' type='password' placeholder='Enter first password' onChange={handleOnChange} />
-                <br></br>
-                <br></br>
-                <button onClick={signUp}>Sign Me Up!</button>{' '}
-                {errormsg ? <p>{errormsg}</p> : ''}
-            </div>
+            <body className='signupBody'>
+                <div className='inputDiv'>
+                    <h1 className='signUpheader'>Sign up, your next eVenture awaits!</h1>
+                    <label className = 'signuplabel'>First Name</label>
+                    <input name='firstName' type='text' placeholder='Enter first name' onChange={handleOnChange} />
+                    <br></br>
+                    <label className = 'signuplabel'>Last Name</label>
+                    <input name='lastName' type='text' placeholder='Enter last name' onChange={handleOnChange} />
+                    <br></br>
+                    <label className = 'signuplabel'>Email</label>
+                    <input name='email' type='text' placeholder='Enter email' onChange={handleOnChange} />
+                    <br></br>
+                    <label className = 'signuplabel'>Password</label>
+                    <input name='password' type='password' placeholder='Enter first password' onChange={handleOnChange} />
+                    <br></br>
+                    <br></br>
+                    <button onClick={signUp}>Sign Me Up!</button>{' '}
+                    {errormsg ? <p>{errormsg}</p> : ''}
+                </div>
+            </body>
         </Container>
     )
 

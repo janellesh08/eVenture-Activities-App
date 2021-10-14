@@ -45,27 +45,62 @@ app.post('/api/add-journal-entry', (req, res) => {
     })
 })
 
+
+// journal list page
 app.get('/api/journal-entries/:userId', (req, res) => {
     const userId = req.params.userId
     console.log(userId)
         models.Journal.findAll({
             where: {user_id: userId},
-            include: [{model: models.User, as: 'users'}]
-        })
+            include: [
+                {model: models.User, as: 'users'}, 
+                {model: models.Activity, as: 'activities'}
+               
+                    ] },
+            
+   )
     .then(journals => {
         res.json(journals)
     })
 })
 
-app.get('/api/journal-entries-info/:id', (req, res) => {
+
+
+
+// journal details page
+app.get('/api/journal-entries-info/:id/:userId', (req, res) => {
+    const userId = req.params.userId
     const id = req.params.id
-        models.Journal.findByPk(id)
-        .then(journal => {
-            res.json(journal)
-        })
+
+    models.Journal.findAll({
+        where: {
+            id: id,
+            user_id: userId
+        },
+        include: [
+            {
+                model: models.User,
+                as: 'users'
+            }
+        ]
+
+    }).then(journals => {
+        res.json(journals)
+    })
 })
 
 
+app.delete('/api/journal-entries/:id', (req, res) => {
+    const id = req.params.id
+
+    models.Journal.destroy({
+        where: {
+            id: id
+        }
+    }).then(journals => {
+        res.json({success: true})
+    })
+})
 
 
 app.post('/api/login', async (req, res) => {
@@ -148,6 +183,7 @@ app.get('/api/activities/:participants', (req, res) => {
         res.json(activities)
     })
 })
+
 
 
 app.listen(8080, () => {
