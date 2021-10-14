@@ -1,12 +1,15 @@
-.signuplabel {
-    padding: 20px;
+.loginLabel {
+    background-color: white;
+    width:120px;
+    height:20px;
+    border-radius: 8px;
+    
 }
 
 Container fluid {
     display: flex;
     flex-direction: column;
-    
-    
+       
 }
 
 Button {
@@ -19,17 +22,26 @@ Button {
     font-size:20px;
     border-radius: 25px;
 }
-
-.signUpheader {
+.loginHeader {
     font-weight: bolder;
     font-style:italic;
+    background-color: white;
+    width:128px;
+    height:60px;
+    border-radius: 8px;
 
 }
 
+.loginBody {
+    background-image:url('./images/family_adventure.png') ;
+    background-size: cover;
+
+}
 .inputDiv {
     display: flex;
     flex-direction: column;
     width:30%;
+    height: 800px;
     padding: 30px;
     border-radius: 10px;
     font-family: sans-serif; 
@@ -37,11 +49,6 @@ Button {
     font-size: large;
     
 }
-
-
-
-.signupBody {
-    background-image: url("https://source.unsplash.com/my1mDMraGf0");
-    background-size: cover;
-    
+.loginbuttondiv{
+    display: flex;
 }
