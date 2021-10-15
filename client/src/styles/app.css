@@ -41,3 +41,29 @@ height: 55px;
     text-align: center;
 }
 
+#abtH1{
+    text-align: center;
+}
+
+.abtText{
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+#aboutDiv{
+    padding-bottom: 7%;
+}
+
+#twistBtnDiv{
+    padding: 5%;
+}
+
+#cardBody{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.eventureBtn{
+    width: 80%;
+}

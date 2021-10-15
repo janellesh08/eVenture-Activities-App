@@ -1,3 +1,4 @@
+
 import { Container, Card, Button } from "react-bootstrap"
 import Free from './styles/images/Free.png'
 import Inexpensive from './styles/images/Inexpensive.png'
@@ -18,11 +19,13 @@ import twotofourhours from'./styles/images/twotofourhours.png'
 import fourhoursplus from'./styles/images/fourhoursplus.png'
 import Home from './styles/images/Home.png'
 import Outside_Home from './styles/images/Outside_Home.png'
+import { Container, Card, Button, Modal } from "react-bootstrap"
 import { connect } from "react-redux"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import * as actionCreator from '../store/creators/actionCreators'
 import EventuresList from "../components/eVenturesList"
 import '../styles/eVenturesPage.css'
+import React from "react"
 
 
 function EventuresPage(props) {
@@ -105,21 +108,90 @@ function EventuresPage(props) {
             return <img className='iconimg' src = {Outside_Home} />
         }
         else return <h1>{location}</h1>
+        }
+        
+    
+
+    function MyVerticallyCenteredModal(props) {
+        return (
+            <Modal
+                {...props}
+                size="lg"
+                aria-labelledby="contained-modal-title-vcenter"
+                centered
+            >
+                <Modal.Header closeButton>
+                    <Modal.Title id="contained-modal-title-vcenter">
+                        Twist
+                    </Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <h4>Try This eVenture...</h4>
+                    <p>
+                        {props.type}
+                    </p>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button onClick={props.onHide}>Close</Button>
+                </Modal.Footer>
+            </Modal>
+        );
+    }
+
+
+
+    function TwistModal(props){
+        const [twist, setTwist] = useState({})
+
+        const fetchTwistItem = () => {
+            fetch('http://localhost:8080/api/twists')
+                .then(response => { return response.json() })
+                .then(twist => {
+                    setTwist(twist)
+                })
+        }
+
+        useEffect(() => {
+            fetchTwistItem()
+        }, [])
+       
+        
+        const updateTwistItem = () => {
+            fetchTwistItem();
+            setModalShow(true)
+        }
+
+        const [modalShow, setModalShow] = React.useState(false);
+        return (
+            <div id="twistBtnDiv" > <Button class="eventureBtn" variant="primary" onClick={() => updateTwistItem()}>
+                Click for a fun twist!
+            </Button>
+
+                <MyVerticallyCenteredModal type={twist.type} show={modalShow} onHide={() => setModalShow(false)} />
+            </div>
+        );
     }
 
 
     const activityItems = props.activities.map((activity) => {
+
         return <li className = 'eVenturesList' key={activity.id}>
          
             <Card border="secondary" style={{ width: '25rem' }}>
                 <Card.Header className = 'activityCardHeader'>{priceIcon(activity.price_range)}{participantIcon(activity.participants)}{timeOfDayIcon(activity.time_of_day)}{durationIcon(activity.duration_range)}{locationIcon(activity.location)}</Card.Header>
                 <Card.Body>
+
+        return <li key={activity.id}>
+            <Card border="secondary" style={{ width: '18rem' }}>
+                <Card.Header>Icon Placeholder</Card.Header>
+                <Card.Body id="cardBody">
+
                     <Card.Title>{activity.activity}</Card.Title>
                     <Card.Text>
                         {activity.description}
                     </Card.Text>
-                    <Button variant="secondary" onClick={() => props.onAddToMyActivities(activity)}>Add to My eVentrues</Button>{' '}
-
+                    <Button  class="eventureBtn" variant="secondary" onClick={() => props.onAddToMyActivities(activity)}>Add to My eVentures</Button>{' '}
+                    <TwistModal/>
                 </Card.Body>
             </Card>
             <br />
@@ -139,7 +211,7 @@ function EventuresPage(props) {
                     {activityItems}
                 </ul>
 
-                
+
             </Container>
         </div>
     )
