@@ -1,5 +1,4 @@
 
-import { Container, Card, Button } from "react-bootstrap"
 import Free from './styles/images/Free.png'
 import Inexpensive from './styles/images/Inexpensive.png'
 import Moderatley_Expensive from './styles/images/Moderately_Expensive.png'
@@ -180,12 +179,6 @@ function EventuresPage(props) {
             <Card border="secondary" style={{ width: '25rem' }}>
                 <Card.Header className = 'activityCardHeader'>{priceIcon(activity.price_range)}{participantIcon(activity.participants)}{timeOfDayIcon(activity.time_of_day)}{durationIcon(activity.duration_range)}{locationIcon(activity.location)}</Card.Header>
                 <Card.Body>
-
-        return <li key={activity.id}>
-            <Card border="secondary" style={{ width: '18rem' }}>
-                <Card.Header>Icon Placeholder</Card.Header>
-                <Card.Body id="cardBody">
-
                     <Card.Title>{activity.activity}</Card.Title>
                     <Card.Text>
                         {activity.description}
