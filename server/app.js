@@ -20,7 +20,7 @@ app.use(cors())
 app.use(express.json())
 
 
-app.post('/api/add-journal-entry', (req, res) => {
+app.post('/api/add-journal-entry/:activityId', (req, res) => {
 
     const entry = req.body.entry
     const image = req.body.image
@@ -45,6 +45,39 @@ app.post('/api/add-journal-entry', (req, res) => {
     })
 })
 
+app.post('/api/add-my-eventure', (req, res) => {
+    console.log(req.body)
+    const userId = req.body.userId
+    const activityId = req.body.activityId
+    const activityTitle = req.body.activityTitle
+
+    const myActivity = models.MyActivity.build({
+        user_id: userId,
+        activity_id: activityId,
+        activity_title: activityTitle
+    })
+    myActivity.save()
+    .then(savedMyActivity => {
+        res.json({success: true, myActivityId: savedMyActivity.id})
+    })
+})
+
+
+app.get('/api/my-eventures/:userId',(req, res) => {
+
+    const userId = req.params.userId
+    
+    models.MyActivity.findAll({
+        where: {user_id: userId},
+        include: [
+            {model: models.User, as: 'users'},
+            {model: models.Activity, as: 'activities'}
+        ]
+    })
+    .then(myActivities => {
+        res.json(myActivities)
+    })
+})
 
 // journal list page
 app.get('/api/journal-entries/:userId', (req, res) => {
@@ -68,20 +101,20 @@ app.get('/api/journal-entries/:userId', (req, res) => {
 
 
 // journal details page
-app.get('/api/journal-entries-info/:id/:userId', (req, res) => {
+app.get('/api/journal-entries-info/:id/:activityId/:userId', (req, res) => {
     const userId = req.params.userId
     const id = req.params.id
+    const activityId = req.params.activityId
 
     models.Journal.findAll({
         where: {
             id: id,
-            user_id: userId
+            user_id: userId,
+            activity_id: activityId
         },
         include: [
-            {
-                model: models.User,
-                as: 'users'
-            }
+            {model: models.User, as: 'users'}, 
+            {model: models.Activity, as: 'activities'}
         ]
 
     }).then(journals => {
@@ -170,6 +203,8 @@ app.get('/api/activities', async (req, res) => {
 
     res.json(allActivities)
 })
+
+
 
 //display activites based on the number of participants
 app.get('/api/activities/:participants', (req, res) => {

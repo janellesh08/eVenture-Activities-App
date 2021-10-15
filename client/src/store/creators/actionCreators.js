@@ -1,4 +1,6 @@
+
 import * as actionType from '../actions/actionTypes'
+
 
 export const fetchAllActivities = () => {
     return async (dispatch) => {
@@ -11,9 +13,29 @@ export const fetchAllActivities = () => {
     }
 }
 
-export const submitToMyActivities = (activity) => {
-    return {
-        type: actionType.FETCH_MY_ACTIVITIES,
-        payload: activity
+export const submitToMyActivities = (myActivity) => {
+
+   
+    return async (dispatch) => {
+        console.log(myActivity)
+        fetch('http://localhost:8080/api/add-my-eventure', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            }, 
+            body: JSON.stringify({
+                activityId: myActivity.id,
+                userId: localStorage.getItem('userId'),
+                activityTitle: myActivity.activityTitle
+            })
+        }).then(response => response.json())
+            .then(result => {
+                
+            dispatch({
+                type: actionType.FETCH_MY_ACTIVITIES,
+                payload: myActivity
+            })
+            })
+        
     }
 }
