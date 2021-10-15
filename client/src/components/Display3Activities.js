@@ -10,7 +10,7 @@ function Display3Activities(){
 
     useEffect(() => {
         activityItemSolo()
-        activityItemCouples()
+        activityItemCouple()
         activityItemFriends()
     }, [])
 
@@ -23,7 +23,7 @@ const activityItemSolo = () => {
     })
 }
 
-const activityItemCouples = () => {
+const activityItemCouple = () => {
     fetch('http://localhost:8080/api/activities/Couple')
     .then(response => { return response.json()})
     .then(couplesActivity => {
