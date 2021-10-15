@@ -1,5 +1,6 @@
 const express = require('express')
 const app = express()
+const Sequelize = require('sequelize')
 
 const cors = require('cors')
 
@@ -15,6 +16,7 @@ const models = require('./models')
 
 // import jsonwebtoken package (DB)
 const jwt = require('jsonwebtoken')
+const { sequelize } = require('./models')
 
 app.use(cors())
 app.use(express.json())
@@ -181,6 +183,15 @@ app.get('/api/activities/:participants', (req, res) => {
         }
     }).then(activities => {
         res.json(activities)
+    })
+})
+
+
+app.get('/api/twists', (req, res)=>{
+    models.Twist.findAll({
+        order: [Sequelize.fn('RANDOM')]
+    }).then(twists => {
+        res.json(twists[0])
     })
 })
 

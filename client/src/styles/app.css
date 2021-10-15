@@ -53,3 +53,17 @@ height: 55px;
 #aboutDiv{
     padding-bottom: 7%;
 }
+
+#twistBtnDiv{
+    padding: 5%;
+}
+
+#cardBody{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.eventureBtn{
+    width: 80%;
+}
