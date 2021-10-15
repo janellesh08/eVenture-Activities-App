@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { connect } from 'react-redux'
-import {Container} from 'react-bootstrap'
+import {Container, Card} from 'react-bootstrap'
+import SnowLake from './styles/images/snowLake.jpg'
+import ZCooking from './styles/images/zCooking.jpg'
 import '../pages/styles/login.css'
 
 
@@ -68,27 +70,35 @@ function Login(props) {
 
 
     return (
-        <Container fluid>
-            <body className='loginBody'>
-                <div className='inputDiv'>
-                    <h1 className='loginHeader'>Login</h1>
-                    <label className='loginLabel'>User Email</label>
-                    <br></br>
-                    <input name='email' type='text' placeholder='Enter User Email Here' onChange={handleOnChange} />
-                    <br></br>
-                    <label className='loginLabel'>Password</label>
-                    <br></br>
-                    <input name='password' type='password' placeholder='Enter Password' onChange={handleOnChange} />
-                    <br></br>
-                    <div className='loginbuttondiv'>
-                    <button onClick={login}>Login</button>
-                    {errormsg ? <p>{errormsg}</p> : ''}
-                    <button onClick={handleLoginAsGuest}>Login as Guest</button>
-                    </div>
-                </div>
-            </body>
+        <Container className='loginDiv'fluid>
+            <div className='inputDiv'>
+                <Card>
+                    <Card.Header>Login</Card.Header>
+                    <Card.Img variant="top" src={SnowLake} />
+                    <Card.Body>
+                        <Card.Text className='loginText'>
+                            <label className='loginLabel'>User Email</label>
+                            <br></br>
+                            <input name='email' type='text' placeholder='Enter User Email Here' onChange={handleOnChange} />
+                            <br></br>
+                            <br></br>
+                            <label className='loginLabel'>Password</label>
+                            <br></br>
+                            <input name='password' type='password' placeholder='Enter Password' onChange={handleOnChange} />
+                            <br></br>
+                            <br></br>
+                            <div className='loginbuttondiv'>
+                            <button className ='loginBtn'onClick={login}>Login</button>
+                             {errormsg?<p>{errormsg}</p>: ''}
+                             <br></br>
+                            <button className ='loginBtn'onClick={handleLoginAsGuest}>Login as Guest</button>
+                            </div>
+                        </Card.Text>
+                    </Card.Body>
+                </Card>
+            </div>
         </Container>
-        )
+            )
 
     
 }
