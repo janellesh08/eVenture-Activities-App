@@ -1,43 +1,92 @@
-import { Container, Card, Button, Popover } from "react-bootstrap"
+import { Container, Card, Button, Modal } from "react-bootstrap"
 import { connect } from "react-redux"
 import { useEffect, useState } from "react"
 import * as actionCreator from '../store/creators/actionCreators'
 import EventuresList from "../components/eVenturesList"
 import '../styles/eVenturesPage.css'
+import React from "react"
 
 function EventuresPage(props) {
-
-    const [twist, setTwist] = useState({})
 
     useEffect(() => {
         props.onFetchActivities()
     }, [])
 
 
-// const twist = () => {
-//     fetch('http://localhost:8080')
-//     .then(response => {return response.json()})
-//     .then(twist => {
-//         setTwist(twist)
-//     })
-// }
+    
 
-   
+    function MyVerticallyCenteredModal(props) {
+        return (
+            <Modal
+                {...props}
+                size="lg"
+                aria-labelledby="contained-modal-title-vcenter"
+                centered
+            >
+                <Modal.Header closeButton>
+                    <Modal.Title id="contained-modal-title-vcenter">
+                        Twist
+                    </Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <h4>Try This eVenture...</h4>
+                    <p>
+                        {props.type}
+                    </p>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button onClick={props.onHide}>Close</Button>
+                </Modal.Footer>
+            </Modal>
+        );
+    }
+
+
+
+    function TwistModal(props){
+        const [twist, setTwist] = useState({})
+
+        const fetchTwistItem = () => {
+            fetch('http://localhost:8080/api/twists')
+                .then(response => { return response.json() })
+                .then(twist => {
+                    setTwist(twist)
+                })
+        }
+
+        useEffect(() => {
+            fetchTwistItem()
+        }, [])
+       
+        
+        const updateTwistItem = () => {
+            fetchTwistItem();
+            setModalShow(true)
+        }
+
+        const [modalShow, setModalShow] = React.useState(false);
+        return (
+            <div id="twistBtnDiv" > <Button class="eventureBtn" variant="primary" onClick={() => updateTwistItem()}>
+                Click for a fun twist!
+            </Button>
+
+                <MyVerticallyCenteredModal type={twist.type} show={modalShow} onHide={() => setModalShow(false)} />
+            </div>
+        );
+    }
+
 
     const activityItems = props.activities.map((activity) => {
         return <li key={activity.id}>
-
             <Card border="secondary" style={{ width: '18rem' }}>
                 <Card.Header>Icon Placeholder</Card.Header>
-                <Card.Body>
+                <Card.Body id="cardBody">
                     <Card.Title>{activity.activity}</Card.Title>
                     <Card.Text>
                         {activity.description}
                     </Card.Text>
-                    <Button variant="secondary" onClick={() => props.onAddToMyActivities(activity)}>Add to My eVentures</Button>{' '}
-                    <Card.Footer>
-                           {/* {popover} */}
-                        </Card.Footer>
+                    <Button  class="eventureBtn" variant="secondary" onClick={() => props.onAddToMyActivities(activity)}>Add to My eVentures</Button>{' '}
+                    <TwistModal/>
                 </Card.Body>
             </Card>
             <br />
@@ -57,7 +106,7 @@ function EventuresPage(props) {
                     {activityItems}
                 </ul>
 
-                
+
             </Container>
         </div>
     )

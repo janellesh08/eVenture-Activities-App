@@ -188,8 +188,8 @@ app.get('/api/activities/:participants', (req, res) => {
 
 
 app.get('/api/twists', (req, res)=>{
-    models.Twists.findAll({
-        order: Sequelize.random()
+    models.Twist.findAll({
+        order: [Sequelize.fn('RANDOM')]
     }).then(twists => {
         res.json(twists[0])
     })
