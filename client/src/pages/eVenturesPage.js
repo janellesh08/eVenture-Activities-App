@@ -200,10 +200,6 @@ function EventuresPage(props) {
                 <h1>Find an Activity!</h1>
 
                 <EventuresList />
-                <ul>
-                    {activityItems}
-                </ul>
-
 
             </Container>
         </div>
