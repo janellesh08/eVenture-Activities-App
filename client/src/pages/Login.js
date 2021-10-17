@@ -36,6 +36,7 @@ function Login(props) {
                     const token = result.token
                     localStorage.setItem('jsonwebtoken', token)
                     localStorage.setItem('firstName', result.user.first_name)
+                    localStorage.setItem('userId', result.user.id)
                     props.onLogin()
                     props.history.push('/my-eventures')
                     console.log("login was successful!")

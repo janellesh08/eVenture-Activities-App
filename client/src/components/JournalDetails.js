@@ -1,47 +1,50 @@
-import { Container } from "react-bootstrap"
-import { connect } from "react-redux"
-import { useEffect } from'react'
+
+import { useState, useEffect } from'react'
 
 
-function JournalDetails(props) {
+function JournalDetails({match}) {
+
+    const id = match.params.id
+    const activityId = match.params.activityId
+    const userId = match.params.userId
+    const [journal, setJournal] = useState({})
 
 
     useEffect(() => {
-        loadJournals()
+        loadJournalEntry()
     }, [])
 
-    const handleJournalEntryDelete = (id) => {
-        fetch(`http://localhost:8080/api/journl-entries/${id}`, {
-            method: 'DELETE'
+    
 
-    }).then(response => response.json())
-    .then(result => {
-        loadJournals()
+    const loadJournalEntry = () => {
+        fetch(`http://localhost:8080/api/journal-entries-info/${id}/${activityId}/${userId}`)
+        .then(response => response.json())
+        .then(result => {
+            setJournal(result)
+
         })
     }
 
-    const journalItems = props.journals.map(journal => {
-        return <li key = {journal.id}>
-            
-        </li>
-    })
+        return (
 
-    return (
+            <div>
+                
+                <h1>{journal.activities.activity}</h1>
+                
+                <img src = {journal.image}/>
+                <video width="500" controls>
+                    <source src= {journal.video} type="video/mp4"></source>
+                    {/* <source src="movie.ogg" type="video/ogg"></source> */}
+                    Your browser does not support the video displayed.
+                </video>
+                <p>{journal.entry}</p>
+                <h3>{journal.rating}</h3>
 
-        <div>
-            <Container>
-                <h1>My Journal Entries</h1>
-
-            </Container>
-
-        </div>
-    )
-}
-
-const mapStateToProps = (state) => {
-    return {
+            </div>
+        ) 
 
     }
-} 
 
-const 
+   
+
+export default JournalDetails

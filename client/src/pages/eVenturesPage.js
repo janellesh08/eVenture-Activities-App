@@ -215,7 +215,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         onFetchActivities: () => dispatch(actionCreator.fetchAllActivities()),
-        onAddToMyActivities: (activity) => dispatch(actionCreator.submitToMyActivities(activity))
+        onAddToMyActivities: (myActivity) => dispatch(actionCreator.submitToMyActivities(myActivity))
     }
 }
 
