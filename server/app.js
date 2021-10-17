@@ -19,14 +19,14 @@ const jwt = require('jsonwebtoken')
 app.use(cors())
 app.use(express.json())
 
-
+// add journal entry
 app.post('/api/add-journal-entry/:activityId', (req, res) => {
 
     const entry = req.body.entry
     const image = req.body.image
     const video = req.body.video
     const rating = req.body.rating
-    const activityId = req.body.activityId
+    const activityId = req.params.activityId
     const userId = req.body.userId
     const activity = req.body.activity
 
@@ -106,7 +106,7 @@ app.get('/api/journal-entries-info/:id/:activityId/:userId', (req, res) => {
     const id = req.params.id
     const activityId = req.params.activityId
 
-    models.Journal.findAll({
+    models.Journal.findOne({
         where: {
             id: id,
             user_id: userId,

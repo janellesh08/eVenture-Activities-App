@@ -33,7 +33,7 @@ function MyEventureProfile(props) {
                     <Card.Text>
                         {myActivity.activities.description}
                     </Card.Text>
-                    <Button variant="secondary" onClick={() => onCreateJournalEntry(myActivity.id)}>Create a Journal Entry</Button>{' '}
+                    <Button variant="secondary" onClick={() => onCreateJournalEntry(myActivity.activities.id)}>Create a Journal Entry</Button>{' '}
                 </Card.Body>
             </Card>
             <br />
