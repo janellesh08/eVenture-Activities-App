@@ -26,7 +26,7 @@ export const submitToMyActivities = (myActivity) => {
             body: JSON.stringify({
                 activityId: myActivity.id,
                 userId: localStorage.getItem('userId'),
-                activityTitle: myActivity.activityTitle
+                activityTitle: myActivity.activity
             })
         }).then(response => response.json())
             .then(result => {

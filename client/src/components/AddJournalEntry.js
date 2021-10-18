@@ -3,7 +3,11 @@ import { Container, Button } from 'react-bootstrap'
 
 
 function AddJournalEntry(props) {
-    const [journal, setJournal] = useState({})
+    const [journal, setJournal] = useState({
+        userId: localStorage.getItem('userId'),
+        activityId: localStorage.getItem('activityId'),
+        activity: localStorage.getItem('activity')
+    })
     
     const handleOnChange = (e) => {
         
