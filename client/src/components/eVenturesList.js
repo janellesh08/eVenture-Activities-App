@@ -1,23 +1,26 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { Col, Container, Form, Row, Button, Card } from "react-bootstrap"
 import { connect } from "react-redux"
 import * as actionCreators from  '../store/creators/actionCreators'
+import { priceIcon, participantIcon, timeOfDayIcon, durationIcon, locationIcon } from '../components/Icon'
+import TwistModal from "./TwistModal"
 
 
 function EventuresList(props) {
 
     const [activityItems = (props.activities.map((activity) => {
-        return <li key={activity.id}>
 
-            <Card border="secondary" style={{ width: '18rem' }}>
-                <Card.Header>Icon Placeholder</Card.Header>
+        return <li className = 'eVenturesList' key={activity.id}>
+         
+            <Card border="secondary" style={{ width: '25rem' }}>
+                <Card.Header className = 'activityCardHeader'>{priceIcon(activity.price_range)}{participantIcon(activity.participants)}{timeOfDayIcon(activity.time_of_day)}{durationIcon(activity.duration_range)}{locationIcon(activity.location)}</Card.Header>
                 <Card.Body>
                     <Card.Title>{activity.activity}</Card.Title>
                     <Card.Text>
                         {activity.description}
                     </Card.Text>
-                    <Button variant="secondary" onClick={() => props.onAddToMyActivities(activity)}>Add to My eVentrues</Button>{' '}
-
+                    <Button  class="eventureBtn" variant="secondary" onClick={() => props.onAddToMyActivities(activity)}>Add to My eVentures</Button>{' '}
+                    <TwistModal/>
                 </Card.Body>
             </Card>
             <br />
@@ -46,21 +49,21 @@ function EventuresList(props) {
         console.log(filteredActivities)
         
         setActivityItems(filteredActivities.map((activity) => {
-            return <li key={activity.id}>
-
-                <Card border="secondary" style={{ width: '18rem' }}>
-                    <Card.Header>Icon Placeholder</Card.Header>
-                    <Card.Body>
-                        <Card.Title>{activity.activity}</Card.Title>
-                        <Card.Text>
-                            {activity.description}
-                        </Card.Text>
-                        <Button variant="secondary" onClick={() => props.onAddToMyActivities(activity)}>Add to My eVentrues</Button>{' '}
-
-                    </Card.Body>
-                </Card>
-                <br />
-            </li>
+            return <li className = 'eVenturesList' key={activity.id}>
+         
+            <Card border="secondary" style={{ width: '25rem' }}>
+                <Card.Header className = 'activityCardHeader'>{priceIcon(activity.price_range)}{participantIcon(activity.participants)}{timeOfDayIcon(activity.time_of_day)}{durationIcon(activity.duration_range)}{locationIcon(activity.location)}</Card.Header>
+                <Card.Body>
+                    <Card.Title>{activity.activity}</Card.Title>
+                    <Card.Text>
+                        {activity.description}
+                    </Card.Text>
+                    <Button  class="eventureBtn" variant="secondary" onClick={() => props.onAddToMyActivities(activity)}>Add to My eVentures</Button>{' '}
+                    <TwistModal/>
+                </Card.Body>
+            </Card>
+            <br />
+        </li>
         })
         )
     }
@@ -69,17 +72,18 @@ function EventuresList(props) {
         clearDropdowns()
         setFilter({})
         setActivityItems(props.activities.map((activity) => {
-            return <li key={activity.id}>
-    
-                <Card border="secondary" style={{ width: '18rem' }}>
-                    <Card.Header>Icon Placeholder</Card.Header>
+
+            return <li className = 'eVenturesList' key={activity.id}>
+             
+                <Card border="secondary" style={{ width: '25rem' }}>
+                    <Card.Header className = 'activityCardHeader'>{priceIcon(activity.price_range)}{participantIcon(activity.participants)}{timeOfDayIcon(activity.time_of_day)}{durationIcon(activity.duration_range)}{locationIcon(activity.location)}</Card.Header>
                     <Card.Body>
                         <Card.Title>{activity.activity}</Card.Title>
                         <Card.Text>
                             {activity.description}
                         </Card.Text>
-                        <Button variant="secondary" onClick={() => props.onAddToMyActivities(activity)}>Add to My eVentrues</Button>{' '}
-    
+                        <Button  class="eventureBtn" variant="secondary" onClick={() => props.onAddToMyActivities(activity)}>Add to My eVentures</Button>{' '}
+                        <TwistModal/>
                     </Card.Body>
                 </Card>
                 <br />
@@ -112,7 +116,7 @@ function EventuresList(props) {
                             <option>Relaxation</option>
                             <option>Music</option>
                             <option>Education</option>
-                            <option>DIY/Arts and Crafts</option>
+                            <option>DIY/ Arts & Crafts</option>
                             <option>Social</option>
                             <option>Charity</option>
                             <option>Organization</option>
