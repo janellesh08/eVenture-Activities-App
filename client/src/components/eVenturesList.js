@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { Col, Container, Form, Row, Button, Card } from "react-bootstrap"
 import { connect } from "react-redux"
+import * as actionCreators from  '../store/creators/actionCreators'
 
 
 function EventuresList(props) {
@@ -208,4 +209,10 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(EventuresList)
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onAddToMyActivities: (myActivity) => dispatch(actionCreators.submitToMyActivities(myActivity))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(EventuresList)

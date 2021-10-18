@@ -22,13 +22,13 @@ app.use(cors())
 app.use(express.json())
 
 // add journal entry
-app.post('/api/add-journal-entry/:activityId', (req, res) => {
+app.post('/api/add-journal-entry', (req, res) => {
 
     const entry = req.body.entry
     const image = req.body.image
     const video = req.body.video
     const rating = req.body.rating
-    const activityId = req.params.activityId
+    const activityId = req.body.activityId
     const userId = req.body.userId
     const activity = req.body.activity
 
@@ -43,7 +43,7 @@ app.post('/api/add-journal-entry/:activityId', (req, res) => {
     })
     journalEntry.save()
     .then(savedEntry => {
-        res.json({success: true, journalId: savedEntry.id})
+        res.json({success: true, journalId: savedEntry.id, activity: savedEntry.activity})
     })
 })
 
