@@ -4,10 +4,16 @@ import React from 'react';
 import { Link, NavLink } from 'react-router-dom'
 import '../styles/app.css'
 import { connect } from 'react-redux'
+import * as actionCreator from '../store/creators/actionCreators'
 
 
 
 function Menu(props) {
+
+    const handleLogout = () => {
+        localStorage.removeItem('jsonwebtoken')
+        props.onLogout()
+    }
 
     return (
 
@@ -23,7 +29,7 @@ function Menu(props) {
                            { props.isAuthenticated ? <div><NavLink to="/all-eventures" className="nav-link">eVentures</NavLink></div> : null}
                            { props.isAuthenticated ? <div><NavLink to="/my-eventures" className="nav-link">My eVentures</NavLink></div> : null}
                             {props.isAuthenticated ? null :<div><NavLink to="/SignUp" className="nav-link">Sign Up</NavLink></div>}
-                           {props.isAuthenticated ? <div><NavLink to="#logout" className="nav-link">Logout</NavLink></div> : null }
+                           {props.isAuthenticated ? <div><NavLink to="/" className="nav-link" onClick={() => handleLogout()}>Logout</NavLink></div> : null }
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
@@ -38,4 +44,10 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(Menu);
+const mapDispatchToProps = (dispatch) => {
+    return{
+        onLogout: () => dispatch(actionCreator.isLoggedOut())
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Menu);
