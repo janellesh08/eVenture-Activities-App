@@ -21,34 +21,106 @@ const { sequelize } = require('./models')
 app.use(cors())
 app.use(express.json())
 
+
+
+
+
+// journal list page
+app.get('/api/journal-entries/:userId', (req, res) => {
+    const userId = req.params.userId
+    console.log(userId)
+        models.Journal.findAll({
+            where: {user_id: userId},
+            include: [
+                {model: models.User, as: 'users'}, 
+                {model: models.Activity, as: 'activities'}
+               
+                    ] },
+            
+   )
+    .then(journals => {
+        res.json(journals)
+    })
+})
+
+
+// journal details page- see only user's private entries
+app.get('/api/journal-entries-info/:activityId/:userId', (req, res) => {
+    const activityId = req.params.activityId
+    const userId = req.params.userId
+    models.Activity.findOne({
+        where: {
+           id: activityId,
+          
+        },
+        include: [
+            {
+                model: models.Journal, as: 'journals',
+                where: { user_id: userId}
+            }
+        ]
+
+    }).then(activity => {
+        res.json(activity)
+    })
+})
+
+
+// journal details page- see all users journal entry for activity
+app.get('/api/journal-entries-info/:activityId', (req, res) => {
+    const activityId = req.params.activityId
+    
+    models.Activity.findOne({
+        where: {
+           id: activityId,
+        
+
+        },
+        include: [
+            {
+                model: models.Journal, as: 'journals',
+                where: {public:true},
+                include: [{model: models.User, as: 'users'}
+
+                ]
+                
+            },
+            
+        ]
+
+    }).then(activity => {
+        res.json(activity)
+    })
+})
+
+
+
 // add journal entry
 app.post('/api/add-journal-entry', (req, res) => {
-
-    const entry = req.body.entry
-    const image = req.body.image
-    const video = req.body.video
-    const rating = req.body.rating
-    const activityId = req.body.activityId
-    const userId = req.body.userId
-    const activity = req.body.activity
+    const { entry, image, video, rating, activityId, userId, public } = req.body.journal
+    
 
     let journalEntry = models.Journal.build({
-        activity: activity,
         entry: entry,
         image: image,
         video: video,
         rating: rating,
         activity_id: activityId,
-        user_id: userId
+        user_id: userId,
+        public: public
+
     })
     journalEntry.save()
     .then(savedEntry => {
-        res.json({success: true, journalId: savedEntry.id, activity: savedEntry.activity})
+    
+        res.json({success: true, journalId: savedEntry.id, public: savedEntry.public})
     })
 })
 
+
+
 app.post('/api/add-my-eventure', (req, res) => {
-    console.log(req.body)
+    console.log(req)
     const userId = req.body.userId
     const activityId = req.body.activityId
     const activityTitle = req.body.activityTitle
@@ -73,7 +145,7 @@ app.get('/api/my-eventures/:userId',(req, res) => {
         where: {user_id: userId},
         include: [
             {model: models.User, as: 'users'},
-            {model: models.Activity, as: 'activities'}
+            {model: models.Activity, as: 'activity'}
         ]
     })
     .then(myActivities => {
@@ -81,48 +153,10 @@ app.get('/api/my-eventures/:userId',(req, res) => {
     })
 })
 
-// journal list page
-app.get('/api/journal-entries/:userId', (req, res) => {
-    const userId = req.params.userId
-    console.log(userId)
-        models.Journal.findAll({
-            where: {user_id: userId},
-            include: [
-                {model: models.User, as: 'users'}, 
-                {model: models.Activity, as: 'activities'}
-               
-                    ] },
-            
-   )
-    .then(journals => {
-        res.json(journals)
-    })
-})
 
 
 
 
-// journal details page
-app.get('/api/journal-entries-info/:id/:activityId/:userId', (req, res) => {
-    const userId = req.params.userId
-    const id = req.params.id
-    const activityId = req.params.activityId
-
-    models.Journal.findOne({
-        where: {
-            id: id,
-            user_id: userId,
-            activity_id: activityId
-        },
-        include: [
-            {model: models.User, as: 'users'}, 
-            {model: models.Activity, as: 'activities'}
-        ]
-
-    }).then(journals => {
-        res.json(journals)
-    })
-})
 
 
 app.delete('/api/journal-entries/:id', (req, res) => {
