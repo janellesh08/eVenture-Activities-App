@@ -16,16 +16,30 @@ const models = require('./models')
 
 // import jsonwebtoken package (DB)
 const jwt = require('jsonwebtoken')
+
 const { sequelize } = require('./models')
+
+// import multer package for file upload
+const multer = require('multer')
+const upload = multer({ dest: 'uploads/' })
+
+// import functions for Amazon S3(Simple Storage Service)
+const { uploadFile, getFileStream } = require('./middleware/s3')
 
 app.use(cors())
 app.use(express.json())
 
+
+
+
 // add journal entry
-app.post('/api/add-journal-entry', (req, res) => {
+app.post('/api/add-journal-entry', upload.single('image'), async (req, res) => {
+
+    const file = req.file
+    const result = await uploadFile(file)
 
     const entry = req.body.entry
-    const image = req.body.image
+    const image = result.Location
     const video = req.body.video
     const rating = req.body.rating
     const activityId = req.body.activityId
