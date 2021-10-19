@@ -1,13 +1,14 @@
 import { useState } from "react"
-import { Col, Container, Form, Row, Button, Card } from "react-bootstrap"
+import { Col, Container, Form, Row, Button, Card, Alert} from "react-bootstrap"
 import { connect } from "react-redux"
 import * as actionCreators from  '../store/creators/actionCreators'
 import { priceIcon, participantIcon, timeOfDayIcon, durationIcon, locationIcon } from '../components/Icon'
 import TwistModal from "./TwistModal"
 
 
-function EventuresList(props) {
 
+function EventuresList(props) {
+    
     const [activityItems = (props.activities.map((activity) => {
 
         return <li className = 'eVenturesList' key={activity.id}>
@@ -19,7 +20,7 @@ function EventuresList(props) {
                     <Card.Text>
                         {activity.description}
                     </Card.Text>
-                    <Button  class="eventureBtn" variant="secondary" onClick={() => props.onAddToMyActivities(activity)}>Add to My eVentures</Button>{' '}
+                    <Button  class="eventureBtn" variant="secondary" onClick={() => handleAddMyActivity(activity)}>Add to My eVentures</Button>{' '}
                     <TwistModal/>
                 </Card.Body>
             </Card>
@@ -27,6 +28,16 @@ function EventuresList(props) {
         </li>
     })), setActivityItems] = useState()
     const [filter, setFilter] = useState({})
+
+    const [buttonPopup, setButtonPopup] = useState(false)
+
+    function handleAddMyActivity (activity) {
+
+        alert("Your eVenture has been added!")
+        props.onAddToMyActivities(activity)
+        
+    }
+
 
     const handleFilterOption = (e) => {
         setFilter({
@@ -58,7 +69,7 @@ function EventuresList(props) {
                     <Card.Text>
                         {activity.description}
                     </Card.Text>
-                    <Button  class="eventureBtn" variant="secondary" onClick={() => props.onAddToMyActivities(activity)}>Add to My eVentures</Button>{' '}
+                    <Button  class="eventureBtn" variant="secondary" onClick={() => handleAddMyActivity(activity)}>Add to My eVentures</Button>{' '}
                     <TwistModal/>
                 </Card.Body>
             </Card>
@@ -67,6 +78,8 @@ function EventuresList(props) {
         })
         )
     }
+
+    
 
     const handleResetFilter = () => {
         clearDropdowns()
@@ -82,7 +95,7 @@ function EventuresList(props) {
                         <Card.Text>
                             {activity.description}
                         </Card.Text>
-                        <Button  class="eventureBtn" variant="secondary" onClick={() => props.onAddToMyActivities(activity)}>Add to My eVentures</Button>{' '}
+                        <Button  class="eventureBtn" variant="secondary" onClick={() => handleAddMyActivity(activity)}>Add to My eVentures</Button>{' '}
                         <TwistModal/>
                     </Card.Body>
                 </Card>

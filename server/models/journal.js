@@ -21,7 +21,8 @@ module.exports = (sequelize, DataTypes) => {
     video: DataTypes.TEXT,
     rating: DataTypes.STRING,
     activity_id: DataTypes.INTEGER,
-    user_id: DataTypes.INTEGER
+    user_id: DataTypes.INTEGER,
+    public: DataTypes.BOOLEAN
   }, {
     sequelize,
     modelName: 'Journal',

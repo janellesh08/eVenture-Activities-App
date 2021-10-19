@@ -14,8 +14,11 @@ import fetchActivitiesReducer from './store/reducers/FetchActivitiesReducer';
 import AuthenticatedReducer from './store/reducers/AuthenticatedReducer';
 import MyEventureProfile from './components/MyEventureProfile';
 import EventuresPage from './pages/eVenturesPage';
-import JournalDetails from './components/JournalDetails';
+// import ActivityJournalListPrivate from './components/ActivityJournalListPrivate';
 import AddJournalEntry from './components/AddJournalEntry';
+import ActivityJournalListPublic from './components/ActivityJournalListPublic';
+import ActivityJournalPage from './pages/ActivityJournalPage';
+
 import requireAuth from './components/requireAuth';
 
 const reducer = combineReducers({
@@ -35,6 +38,9 @@ ReactDOM.render(
           <Switch>
             <Route exact path='/' component={HomePage} />
             <Route path='/about' component={About} />
+            {/* <Route path='/my-activity-journal-entries/:activityId/:userId' component={ActivityJournalListPrivate}/> */}
+            <Route path='/activity-journal-entries/:activityId' component= {ActivityJournalListPublic}/>
+            <Route path='/activity-journal-page/:activityId' component={ActivityJournalPage}/>
             <Route path='/my-eventures' component={requireAuth(MyEventureProfile)} />
             <Route path='/add-new-eventure' component={requireAuth(AddNewEventure)} />
             <Route path='/all-eventures' component={requireAuth(EventuresPage)} />
