@@ -29,11 +29,11 @@ function MyEventureProfile(props) {
             <Card border="secondary" style={{ width: '18rem' }}>
                 <Card.Header>Icon Placeholder</Card.Header>
                 <Card.Body>
-                    <Card.Title>{myActivity.activities.activity}</Card.Title>
+                    <Card.Title>{myActivity.activity.activity}</Card.Title>
                     <Card.Text>
-                        {myActivity.activities.description}
+                        {myActivity.activity.description}
                     </Card.Text>
-                    <Button variant="secondary" onClick={() => onCreateJournalEntry(myActivity.activities.id)}>Create a Journal Entry</Button>{' '}
+                    <Button variant="secondary" onClick={() => onCreateJournalEntry(myActivity.activity_id)}>Create a Journal Entry</Button>{' '}
                 </Card.Body>
             </Card>
             <br />

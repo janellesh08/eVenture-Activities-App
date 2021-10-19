@@ -14,8 +14,11 @@ import fetchActivitiesReducer from './store/reducers/FetchActivitiesReducer';
 import AuthenticatedReducer from './store/reducers/AuthenticatedReducer';
 import MyEventureProfile from './components/MyEventureProfile';
 import EventuresPage from './pages/eVenturesPage';
-import JournalDetails from './components/JournalDetails';
+// import ActivityJournalListPrivate from './components/ActivityJournalListPrivate';
 import AddJournalEntry from './components/AddJournalEntry';
+import ActivityJournalListPublic from './components/ActivityJournalListPublic';
+import ActivityJournalPage from './pages/ActivityJournalPage';
+
 
 const reducer = combineReducers({
   fetchActivityRed: fetchActivitiesReducer,
@@ -37,7 +40,9 @@ ReactDOM.render(
             <Route path='/my-eventures' component={MyEventureProfile} />
             <Route path='/add-new-eventure' component={AddNewEventure} />
             <Route path='/all-eventures' component={EventuresPage} />
-            <Route path='/journal-details' component={JournalDetails}/>
+            {/* <Route path='/my-activity-journal-entries/:activityId/:userId' component={ActivityJournalListPrivate}/> */}
+            <Route path='/activity-journal-entries/:activityId' component= {ActivityJournalListPublic}/>
+            <Route path='/activity-journal-page/:activityId' component={ActivityJournalPage}/>
             <Route path='/add-journal-entry/:activityId' component={AddJournalEntry}/>
             <Route path='/Login' component={Login} />
             <Route path='/SignUp' component={SignUp} />
