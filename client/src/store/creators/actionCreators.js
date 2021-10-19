@@ -40,3 +40,9 @@ export const submitToMyActivities = (myActivity) => {
     }
 }
 
+export const isLoggedOut = () => {
+    return{
+        type: actionType.ON_LOGOUT,
+        payload: false
+    }
+}

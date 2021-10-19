@@ -1,3 +1,4 @@
 export const FETCH_ALL_ACTIVITIES = 'FETCH_ALL_ACTIVITIES'
 export const ON_LOGIN = 'ON_LOGIN'
 export const FETCH_MY_ACTIVITIES = 'FETCH_MY_ACTIVITIES'
+export const ON_LOGOUT = 'ON_LOGOUT'

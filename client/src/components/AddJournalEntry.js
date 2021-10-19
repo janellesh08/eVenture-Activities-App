@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Container, Button } from 'react-bootstrap'
+import axios from 'axios'
 
 
 function AddJournalEntry(props) {
@@ -10,16 +11,29 @@ function AddJournalEntry(props) {
     })
     
     const handleOnChange = (e) => {
-        
         setJournal({
             ...journal,
             [e.target.name]: e.target.value
         })
     }
 
-    // const loadActivity = () => {
-    //    fetch(`http://localhost:8080/api/activities`) 
-    // }
+    const [file, setFile] = useState()
+    const [image, setImage] = useState()
+
+    const submit = async event => {
+        event.preventDefault()
+
+        const formData = new FormData()
+        formData.append('image', file)
+        
+        const result = await axios.post('/images', formData, {headers: {'Content-Type': 'multipart/form-data'}})
+        console.log(result.data)
+        // setImage(result.data.imagePath)
+    }
+
+    const loadActivity = () => {
+       fetch(`http://localhost:8080/api/activities`) 
+    }
 
 
     const handleSave = () => {
@@ -50,10 +64,21 @@ function AddJournalEntry(props) {
     return (
         <Container fluid>
             <h1>Add a Journal Entry</h1>
-            <label>Add an image</label>
-            <input type="text" name="image" onChange={handleOnChange} placeholder="Upload an image"></input>
+            <div className='imageupload'>
+                <label>Add an image</label>
+                    <form onSubmit={submit}>
+                        <input 
+                        type="file" 
+                        filename = {file}
+                        onChange={e => setFile(e.target.files[0])} 
+                        accept='image/*'
+                        placeholder="Upload an image"></input>
+                        <button type='submit'>submit</button>
+                    </form>
+                        {/* {imagePath && <img src={imagePath}>} */}
+            </div>
             <label>Add a video</label>
-            <input type="text" name="video" onChange={handleOnChange} placeholder="Upload a video"></input>
+            <input type="file" name="video" onChange={handleOnChange} placeholder="Upload a video"></input>
             <label>Add a rating</label>
             <input type="text" name="rating" onChange={handleOnChange}
             placeholder="Enter activity rating"></input>

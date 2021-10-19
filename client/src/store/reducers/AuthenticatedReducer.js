@@ -11,6 +11,11 @@ function AuthenticatedReducer(state = initialState, action) {
                 ...state,
                 isAuthenticated: true
             }
+        case actionType.ON_LOGOUT:
+            return{
+                ...state,
+                isAuthenticated: action.payload
+            }
 
         default:
             return state
