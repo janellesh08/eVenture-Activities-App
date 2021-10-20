@@ -36,7 +36,7 @@ function MyEventureProfile(props) {
         return <li key={myActivity.id}>
 
             <Card border="secondary" style={{ width: '18rem' }}>
-                <Card.Header>Icon Placeholder</Card.Header>
+                
                 <Card.Body>
                     <Card.Title>{myActivity.activity.activity}</Card.Title>
                     <Card.Text>

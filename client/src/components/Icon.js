@@ -16,6 +16,7 @@ import onetotwohours from '../pages/styles/images/onetotwohours.png'
 import twotofourhours from '../pages/styles/images/twotofourhours.png'
 import fourhoursplus from '../pages/styles/images/fourhoursplus.png'
 import Home from '../pages/styles/images/Home.png'
+import Cheap from '../pages/styles/images/Cheap.png'
 import Outside_Home from '../pages/styles/images/Outside_Home.png'
 
 
@@ -24,7 +25,7 @@ export const priceIcon = (price) => {
         case 'Free':
             return <img className='iconimg' src={Free} />
         case '$':
-            return <img className='iconimg' src={Inexpensive} />
+            return <img className='iconimg' src={Cheap} />
         case '$$':
             return <img className='iconimg' src={Moderatley_Expensive} />
         case '$$$':

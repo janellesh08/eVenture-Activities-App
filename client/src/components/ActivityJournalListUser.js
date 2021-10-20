@@ -1,6 +1,7 @@
 
 import { useState, useEffect } from'react'
 import JournalDetailsList from './JournalDetailsList'
+import { connect } from 'react-redux'
 
 
 

@@ -1,7 +1,9 @@
 import { useState, useEffect } from'react'
 import JournalDetailsList from './JournalDetailsList'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHeart } from '@fortawesome/free-solid-svg-icons'
 
-
+const element = <FontAwesomeIcon icon={faHeart} />
 
 function ActivityJournalListPublic(props) {
 
@@ -29,16 +31,31 @@ function ActivityJournalListPublic(props) {
 
         })
     }
-        return (
 
-            <>
-            
-            <h1>{activity.activity}</h1>
-            {/* <JournalDetailsList journals = {activity.journals}/> */}
-            {activity.journals.length== 0 ? <button onClick={()=>props.history.push(`/add-journal-entry/${activity.id}`)}>Add a Journal Entry</button> :   <JournalDetailsList journals = {activity.journals}/>}
-            </>
+        if (activity.likes > 0) {
+            return (
 
-        ) 
+                <>
+                
+                <h1>{activity.activity}</h1>
+                <p>{element}{activity.likes}</p>
+                {activity.journals.length== 0 ? <button onClick={()=>props.history.push(`/add-journal-entry/${activity.id}`)}>Add a Journal Entry</button> :   <JournalDetailsList journals = {activity.journals}/>}
+                
+                </>
+            )
+        } else {
+            return (
+
+                <>
+                
+                <h1>{activity.activity}</h1>
+                {activity.journals.length== 0 ? <button onClick={()=>props.history.push(`/add-journal-entry/${activity.id}`)}>Add a Journal Entry</button> :   <JournalDetailsList journals = {activity.journals}/>}
+                
+                </>
+            )
+        }
+  
+        
 
     }
 
