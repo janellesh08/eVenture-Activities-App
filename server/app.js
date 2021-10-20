@@ -118,29 +118,31 @@ app.post('/images', upload.single('image'), async (req, res) => {
 
 // add journal entry
 app.post('/api/add-journal-entry', (req, res) => {
-    const { entry, image, video, rating, activityId, userId, public, likes } = req.body.journal
-    
+    const { entry, image, video, rating, activityId, userId, public } = req.body.journal
 
-
-    let journalEntry = models.Journal.build({
-        entry: entry,
-        image: image,
-        video: video,
-        rating: rating,
-        activity_id: activityId,
-        user_id: userId,
-        public: public
-
-    })
-    journalEntry.save()
-    .then(savedEntry => {
-        models.Activity.update(
-            {likes: likes + rating}, 
-            {where: {id: activityId}}
-        ).then(updatedActivity => {
-            res.json({success: true, journalId: savedEntry.id, public: savedEntry.public})
+    models.Activity.findOne({
+        where: {
+           id: activityId,
+        }
+    }).then(activity => {
+        let journalEntry = models.Journal.build({
+            entry: entry,
+            image: image,
+            video: video,
+            rating: rating,
+            activity_id: activityId,
+            user_id: userId,
+            public: public
         })
-        
+        journalEntry.save()
+        .then(savedEntry => {
+            models.Activity.update(
+                {likes: activity.likes + rating}, 
+                {where: {id: activityId}}
+            ).then(updatedActivity => {
+                res.json({success: true, journalId: savedEntry.id, public: savedEntry.public})
+            })  
+        })
     })
 })
 
