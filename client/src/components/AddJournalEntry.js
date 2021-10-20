@@ -47,14 +47,17 @@ function AddJournalEntry(props) {
 
         const formData = new FormData()
         formData.append('image', file)
-        formData.append('journal', journal)
-
-        console.log(formData)
+        formData.append('entry', journal.entry)
+        formData.append('userId', journal.userId)
+        formData.append('activityId', journal.activityId)
+        formData.append('public', journal.public)
+        formData.append('rating', journal.rating)
+        
 
         const result = await axios.post('http://localhost:8080/api/add-journal-entry', formData, {headers: {'Content-Type': 'multipart/form-data'}})
         console.log(result)
         if (result.data.success && result.data.public ) {
-            //props.history.push(`/activity-journal-entries/${props.match.params.activityId}`)
+            props.history.push(`/activity-journal-entries/${props.match.params.activityId}`)
         } 
 
         /*
