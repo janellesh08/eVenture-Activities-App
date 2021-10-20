@@ -136,8 +136,13 @@ app.post('/api/add-journal-entry', upload.single('image'), (req, res) => {
     })
     journalEntry.save()
     .then(savedEntry => {
-    
-        res.send({success: true, journalId: savedEntry.id, public: savedEntry.public})
+        models.Activity.update(
+            {likes: likes + rating}, 
+            {where: {id: activityId}}
+        ).then(updatedActivity => {
+            res.json({success: true, journalId: savedEntry.id, public: savedEntry.public})
+        })
+        
     })
 })
 
