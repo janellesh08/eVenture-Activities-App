@@ -20,3 +20,28 @@ ul {
     justify-content: space-between;
 }
 
+.eventureBtn {
+
+    background-color:#004AAD ;
+    color: #FF60BF !important;
+    font-family: sans-serif;
+    height: 50px;
+    width: 80%;
+    font-size:20px;
+    border-radius: 25px;
+}
+
+.twistBtn {
+    background-color:#FF60BF !important ;
+    color:#004AAD ;
+    font-family: sans-serif;
+    height: 50px;
+    width: 80%;
+    font-size:20px;
+    border-radius: 25px;
+
+}
+
+#twistBtnDiv {
+    padding: 1%;
+}
