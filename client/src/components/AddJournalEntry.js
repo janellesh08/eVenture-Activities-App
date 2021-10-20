@@ -32,6 +32,7 @@ function AddJournalEntry(props) {
         const formData = new FormData()
         formData.append('image', file)
         
+        
         const result = await axios.post('http://localhost:8080/images', formData, {headers: {'Content-Type': 'multipart/form-data'}})
         console.log(result.data)
         setImage(result.data.imagePath)
@@ -42,8 +43,24 @@ function AddJournalEntry(props) {
     // }
 
 
-    const handleSave = () => {
+    const handleSave = async () => {
 
+        const formData = new FormData()
+        formData.append('image', file)
+        formData.append('entry', journal.entry)
+        formData.append('userId', journal.userId)
+        formData.append('activityId', journal.activityId)
+        formData.append('public', journal.public)
+        formData.append('rating', journal.rating)
+        
+
+        const result = await axios.post('http://localhost:8080/api/add-journal-entry', formData, {headers: {'Content-Type': 'multipart/form-data'}})
+        console.log(result)
+        if (result.data.success && result.data.public ) {
+            props.history.push(`/activity-journal-entries/${props.match.params.activityId}`)
+        } 
+
+        /*
         fetch(`http://localhost:8080/api/add-journal-entry`, {
             method: 'POST',
             headers: {
@@ -64,6 +81,12 @@ function AddJournalEntry(props) {
                 //     props.history.push
                 // }
             })
+
+        */
+    }
+    
+    function Alert () {
+        alert("Your photo is uploading please be patient!")
     }
 
     const addOne=() => {
@@ -92,22 +115,11 @@ function AddJournalEntry(props) {
                         onChange={e => setFile(e.target.files[0])}
                         accept='image/*'
                         placeholder="Upload an image"></input>
-                        <button type='submit'>submit</button>
+                        <button type='submit' onClick = {Alert}>submit</button>
                     </form>
                         {image && <img src={image} style={{width: 250}}/>}
             </div>
-            <label>Add a video</label>
-            <input type="file" name="video" onChange={handleOnChange} placeholder="Upload a video"></input>
-            <label>Like the activity</label>
-            <form style={{display: "inline"}}
-                ><button type="button" onClick={addOne}>
-                    {/* //  ><button type="button" > */}
-                <span class="button__text">Like</span>
-                <span class="button__icon">
-                    {element}
-                </span>
-            
-            </button></form>
+            <label>Add a rating</label>
             <input type="text" name="rating" onChange={handleOnChange}
                 placeholder="Enter activity rating"></input>
             <label>Journal Entry</label>
