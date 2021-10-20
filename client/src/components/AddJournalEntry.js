@@ -31,9 +31,7 @@ function AddJournalEntry(props) {
         setImage(result.data.imagePath)
     }
 
-    const loadActivity = () => {
-       fetch(`http://localhost:8080/api/activities`) 
-    }
+    
 
 
     const handleSave = () => {
@@ -44,8 +42,7 @@ function AddJournalEntry(props) {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(  {   
-                // userId: localStorage.getItem('userId'),
-                // activityId: props.match.params.activityId,
+               
                 journal
             })
         }).then(response => response.json())
@@ -54,9 +51,7 @@ function AddJournalEntry(props) {
                 if (result.success && result.public ) {
                     props.history.push(`/activity-journal-entries/${props.match.params.activityId}`)
                 } 
-                // else {
-                //     props.history.push
-                // }
+               
             })
     }
 
@@ -83,7 +78,6 @@ function AddJournalEntry(props) {
             <input type="text" name="rating" onChange={handleOnChange}
             placeholder="Enter activity rating"></input>
             <label>Journal Entry</label>
-            {/* <input type="text" name= "entry" onChange={handleOnChange} placeholder="Enter journal entry"></input> */}
             <textarea name="entry" onChange={handleOnChange} style = {{width:"400px", height:"200px"}} placeholder="Enter journal entry"></textarea>
             <label>Public or private journal entry</label>
             <select name="public" defaultValue={""} onChange={handleOnChange}>

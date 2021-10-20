@@ -1,5 +1,4 @@
 import { useState, useEffect } from'react'
-// import { connect } from 'react-redux'
 import JournalDetailsList from './JournalDetailsList'
 
 
@@ -25,7 +24,7 @@ function ActivityJournalListPublic(props) {
         .then(activity => {
            
         setActivity(activity)
-        // props.onActivitiesLoaded(activity)
+        
             
 
         })
@@ -35,21 +34,13 @@ function ActivityJournalListPublic(props) {
             <>
             
             <h1>{activity.activity}</h1>
-            <JournalDetailsList journals = {activity.journals}/>
-            
+            {/* <JournalDetailsList journals = {activity.journals}/> */}
+            {activity.journals.length== 0 ? <button onClick={()=>props.history.push(`/add-journal-entry/${activity.id}`)}>Add a Journal Entry</button> :   <JournalDetailsList journals = {activity.journals}/>}
             </>
 
         ) 
 
     }
 
-    // const mapDispatchToProps = (dispatch) => {
-    //     return {
-    //         onActivitiesLoaded: (activity) => dispatch({type:'ACTIVITY_LOADED', payload: activity})
-    //     }
-    // }
-
    
-
-// export default connect(null, mapDispatchToProps)(ActivityJournalListPublic)
 export default ActivityJournalListPublic
