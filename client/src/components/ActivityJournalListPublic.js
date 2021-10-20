@@ -1,8 +1,10 @@
 import { useState, useEffect } from'react'
 // import { connect } from 'react-redux'
 import JournalDetailsList from './JournalDetailsList'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHeart } from '@fortawesome/free-solid-svg-icons'
 
-
+const element = <FontAwesomeIcon icon={faHeart} />
 
 function ActivityJournalListPublic(props) {
 
@@ -30,16 +32,31 @@ function ActivityJournalListPublic(props) {
 
         })
     }
-        return (
 
-            <>
-            
-            <h1>{activity.activity}</h1>
-            <JournalDetailsList journals = {activity.journals}/>
-            
-            </>
+        if (activity.likes > 0) {
+            return (
 
-        ) 
+                <>
+                
+                <h1>{activity.activity}</h1>
+                <p>{element}{activity.likes}</p>
+                <JournalDetailsList journals = {activity.journals}/>
+                
+                </>
+            )
+        } else {
+            return (
+
+                <>
+                
+                <h1>{activity.activity}</h1>
+                <JournalDetailsList journals = {activity.journals}/>
+                
+                </>
+            )
+        }
+  
+        
 
     }
 
