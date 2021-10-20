@@ -71,7 +71,7 @@ function AddJournalEntry(props) {
        
         setActivity({
             ...activity,
-           likes: activity.likes
+           likes: activity.likes 
           
         })
         
