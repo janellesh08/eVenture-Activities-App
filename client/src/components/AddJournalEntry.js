@@ -84,6 +84,10 @@ function AddJournalEntry(props) {
 
         */
     }
+    
+    function Alert () {
+        alert("Your photo is uploading please be patient!")
+    }
 
     const addOne=() => {
         journal.rating = 1
@@ -111,22 +115,11 @@ function AddJournalEntry(props) {
                         onChange={e => setFile(e.target.files[0])}
                         accept='image/*'
                         placeholder="Upload an image"></input>
-                        <button type='submit'>submit</button>
+                        <button type='submit' onClick = {Alert}>submit</button>
                     </form>
                         {image && <img src={image} style={{width: 250}}/>}
             </div>
-            <label>Add a video</label>
-            <input type="file" name="video" onChange={handleOnChange} placeholder="Upload a video"></input>
-            <label>Like the activity</label>
-            <form style={{display: "inline"}}
-                ><button type="button" onClick={addOne}>
-                    {/* //  ><button type="button" > */}
-                <span class="button__text">Like</span>
-                <span class="button__icon">
-                    {element}
-                </span>
-            
-            </button></form>
+            <label>Add a rating</label>
             <input type="text" name="rating" onChange={handleOnChange}
                 placeholder="Enter activity rating"></input>
             <label>Journal Entry</label>

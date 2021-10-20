@@ -21,9 +21,9 @@ function TwistModal(props){
 
     const [modalShow, setModalShow] = React.useState(false);
     return (
-        <div id="twistBtnDiv" > <Button class="eventureBtn" variant="primary" onClick={() => updateTwistItem()}>
+        <div id="twistBtnDiv" > <button class="twistBtn" variant="primary" onClick={() => updateTwistItem()}>
             Click for a fun twist!
-        </Button>
+        </button>
 
             <MyVerticallyCenteredModal type={twist.type} show={modalShow} onHide={() => setModalShow(false)} />
         </div>
