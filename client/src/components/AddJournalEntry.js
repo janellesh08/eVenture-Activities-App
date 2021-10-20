@@ -15,6 +15,7 @@ function AddJournalEntry(props) {
         activityId: props.match.params.activityId,
         rating: 0
     })
+    // const [activity, setActivity] = useState({})
 
     const handleOnChange = (e) => {
         setJournal({
@@ -32,6 +33,7 @@ function AddJournalEntry(props) {
         const formData = new FormData()
         formData.append('image', file)
         
+        
         const result = await axios.post('http://localhost:8080/images', formData, {headers: {'Content-Type': 'multipart/form-data'}})
         console.log(result.data)
         setImage(result.data.imagePath)
@@ -42,14 +44,34 @@ function AddJournalEntry(props) {
     // }
 
 
-    const handleSave = () => {
+    const handleSave = async () => {
 
+        const formData = new FormData()
+        formData.append('image', file)
+        formData.append('entry', journal.entry)
+        formData.append('userId', journal.userId)
+        formData.append('activityId', journal.activityId)
+        formData.append('public', journal.public)
+        formData.append('rating', journal.rating)
+        
+
+        const result = await axios.post('http://localhost:8080/api/add-journal-entry', formData, {headers: {'Content-Type': 'multipart/form-data'}})
+        console.log(result)
+        if (result.data.success && result.data.public ) {
+            props.history.push(`/activity-journal-entries/${props.match.params.activityId}`)
+        } 
+
+        /*
         fetch(`http://localhost:8080/api/add-journal-entry`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({journal})
+            body: JSON.stringify({
+                // userId: localStorage.getItem('userId'),
+                // activityId: props.match.params.activityId,
+                journal
+            })
         }).then(response => response.json())
             .then(result => {
                 console.log(result)
@@ -60,10 +82,25 @@ function AddJournalEntry(props) {
                 //     props.history.push
                 // }
             })
+
+        */
+    }
+    
+    function Alert () {
+        alert("Your photo is uploading please be patient!")
     }
 
-    const addOne = () => {
+    const addOne=() => {
         journal.rating = 1
+       
+        // setActivity({
+        //     ...activity,
+        //    likes: activity.likes 
+          
+        // })
+        
+    console.log(activity.likes)
+
     }
     
 
@@ -79,13 +116,10 @@ function AddJournalEntry(props) {
                         onChange={e => setFile(e.target.files[0])}
                         accept='image/*'
                         placeholder="Upload an image"></input>
-                        <button type='submit'>submit</button>
+                        <button type='submit' onClick = {Alert}>submit</button>
                     </form>
                         {image && <img src={image} style={{width: 250}}/>}
             </div>
-            <label>Add a video</label>
-            <input type="file" name="video" onChange={handleOnChange} placeholder="Upload a video"></input>
-            <label>Like the activity</label>
             <form style={{display: "inline"}}
                 ><button type="button" onClick={addOne}>
                     {/* //  ><button type="button" > */}
@@ -95,8 +129,6 @@ function AddJournalEntry(props) {
                 </span>
             
             </button></form>
-            <input type="text" name="rating" onChange={handleOnChange}
-                placeholder="Enter activity rating"></input>
             <label>Journal Entry</label>
             {/* <input type="text" name= "entry" onChange={handleOnChange} placeholder="Enter journal entry"></input> */}
             <textarea name="entry" onChange={handleOnChange} style={{ width: "400px", height: "200px" }} placeholder="Enter journal entry"></textarea>
