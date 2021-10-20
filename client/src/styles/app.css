@@ -67,3 +67,29 @@ height: 55px;
 .eventureBtn{
     width: 80%;
 }
+
+#addEntryDiv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}
+
+.likeBtn{
+    margin-bottom: 10px;
+    height: 100%;
+    width: 100%;
+    padding-bottom: 0px;
+    padding-top: 5px;
+}
+
+#likeBtnDiv{
+    width: 25%;
+    padding-bottom: 2px;
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin-bottom: 10px;
+}

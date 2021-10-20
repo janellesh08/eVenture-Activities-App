@@ -64,7 +64,7 @@ const activityItemFriends = () => {
                     
                     
                     <Card>
-                        <Card.Img variant="top" src="/images/3.png" />
+                        <Card.Img variant="top" src="/images/6.png" />
                         <Card.Body>
                             <Card.Title>{couplesActivity.activity}</Card.Title>
                             <Card.Text>
@@ -76,7 +76,7 @@ const activityItemFriends = () => {
                         </Card.Footer> */}
                     </Card>
                     <Card>
-                        <Card.Img variant="top" src="/images/murdermystery.png" />
+                        <Card.Img variant="top" src="/images/5.png" />
                         <Card.Body>
                             <Card.Title>{friendsActivity.activity}</Card.Title>
                             <Card.Text>

@@ -1,5 +1,12 @@
 import { useState } from 'react'
-import { Container, Button } from 'react-bootstrap'
+import { Container, Button, InputGroup, FormControl, Form, Alert } from 'react-bootstrap'
+import UploadImageButton from './UploadImageButton'
+import Like from './Like'
+import UploadVideoButton from './UploadVideoButton'
+
+
+
+
 
 
 function AddJournalEntry(props) {
@@ -8,9 +15,12 @@ function AddJournalEntry(props) {
         activityId: localStorage.getItem('activityId'),
         activity: localStorage.getItem('activity')
     })
-    
+
+    const [rating, setRating] = useState(0)
+
+
     const handleOnChange = (e) => {
-        
+
         setJournal({
             ...journal,
             [e.target.name]: e.target.value
@@ -18,11 +28,16 @@ function AddJournalEntry(props) {
     }
 
     const loadActivity = () => {
-       fetch(`http://localhost:8080/api/activities`) 
+        fetch(`http://localhost:8080/api/activities`)
     }
 
 
+
+
+
     const handleSave = () => {
+
+
 
         fetch(`http://localhost:8080/api/add-journal-entry/${props.activityId}`, {
             method: 'POST',
@@ -40,8 +55,8 @@ function AddJournalEntry(props) {
 
 
     return (
-        <Container fluid>
-            <h1>Add a Journal Entry</h1>
+        <Container id="addEntryDiv" fluid>
+            {/* <h1>Add a Journal Entry</h1>
             <label>Add an image</label>
             <input type="text" name="image" onChange={handleOnChange} placeholder="Upload an image"></input>
             <label>Add a video</label>
@@ -50,15 +65,28 @@ function AddJournalEntry(props) {
             <input type="text" name="rating" onChange={handleOnChange}
             placeholder="Enter activity rating"></input>
             <label>Journal Entry</label>
-            {/* <input type="text" name= "entry" onChange={handleOnChange} placeholder="Enter journal entry"></input> */}
-            <textarea name="entry" onChange={handleOnChange} style = {{width:"400px", height:"200px"}} placeholder="Enter journal entry"></textarea>
-            <Button variant="secondary" onClick={handleSave}>Submit</Button>{' '}
+             <textarea name="entry" onChange={handleOnChange} style = {{width:"400px", height:"200px"}} placeholder="Enter journal entry"></textarea>
+            <Button variant="secondary" onClick={handleSave}>Submit</Button>{' '} */}
 
+            <h1>Add a Journal Entry</h1>
+            <Alert variant="info">
+                Here you can add additional information about your eVenture. Talk about the experience.
+                Upload pictures or videos to add a visual to look back on in the future. You can also give
+                the eVenture a star rating for future reference!
+            </Alert>
 
+            <InputGroup>
+                <InputGroup.Text >Log your experience here!</InputGroup.Text>
+                <FormControl name="entry" onChange={handleOnChange} as="textarea" aria-label="With textarea" />
+            </InputGroup>
+            <UploadImageButton />
+            <UploadVideoButton />
+            <Like />
+            <Button onClick={handleSave} >Save</Button>
         </Container>
 
     )
 
 }
 
-export default AddJournalEntry
+export default AddJournalEntry;

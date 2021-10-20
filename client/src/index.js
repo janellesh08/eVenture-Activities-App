@@ -17,6 +17,7 @@ import EventuresPage from './pages/eVenturesPage';
 import JournalDetails from './components/JournalDetails';
 import AddJournalEntry from './components/AddJournalEntry';
 
+
 const reducer = combineReducers({
   fetchActivityRed: fetchActivitiesReducer,
   authRed: AuthenticatedReducer
