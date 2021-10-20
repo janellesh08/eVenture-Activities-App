@@ -16,7 +16,19 @@ const models = require('./models')
 
 // import jsonwebtoken package (DB)
 const jwt = require('jsonwebtoken')
+
 const { sequelize } = require('./models')
+
+// import multer package for file upload
+const multer = require('multer')
+const upload = multer({ dest: 'uploads/' })
+
+const fs = require('fs')
+const util = require('util')
+const unlinkFile = util.promisify(fs.unlink)
+
+// import functions for Amazon S3(Simple Storage Service)
+const { uploadFile, getFileStream } = require('./middleware/s3')
 
 app.use(cors())
 app.use(express.json())
@@ -93,12 +105,22 @@ app.get('/api/journal-entries-info/:activityId', (req, res) => {
     })
 })
 
+// upload image to Amazon S3 bucket
+app.post('/images', upload.single('image'), async (req, res) => {
+    const file = req.file
+    const result = await uploadFile(file)
+    
+    console.log(result)
+    res.send({imagePath: result.Location})
+    await unlinkFile(file.path)
+})
 
 
 // add journal entry
 app.post('/api/add-journal-entry', (req, res) => {
-    const { entry, image, video, rating, activityId, userId, public } = req.body.journal
+    const { entry, video, image, rating, activityId, userId, public } = req.body.journal
     
+
 
     let journalEntry = models.Journal.build({
         entry: entry,
