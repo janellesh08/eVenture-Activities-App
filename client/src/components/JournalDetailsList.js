@@ -13,12 +13,9 @@ function JournalDetailsList(props) {
             if (journal.rating === 1) {
             return (
                 <div>
-                    <h2>{journal.users.first_name}</h2>
+                    <h2>{journal.users ? journal.users.first_name : ""}</h2>
                     <p>{journal.entry}</p>
                     <img src={journal.image}/>
-                    {/* <video width = "500px" controls >
-                        <source src ={journal.video} type= >
-                            </video> */}
                     <p>{element}{journal.rating}</p>
     
     
@@ -27,12 +24,10 @@ function JournalDetailsList(props) {
             } else {
                 return (
                     <div>
-                    <h2>{journal.users.first_name}</h2>
+                    <h2>{journal.users ? journal.users.first_name : ""}</h2>
                     <p>{journal.entry}</p>
                     <img src={journal.image}/>
-                    {/* <video width = "500px" controls >
-                        <source src ={journal.video} type= >
-                            </video> */}
+                   
                         
     
                 </div>

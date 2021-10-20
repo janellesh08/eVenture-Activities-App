@@ -19,7 +19,14 @@ const fetchActivitiesReducer = (state=initialState, action) => {
                 ...state,
                 myActivities: state.myActivities.concat(action.payload)
             }
-        case 'ACTIVITY_LOADED':
+
+        case 'MY_JOURNAL_ENTRIES_LOADED':
+            return {
+                ...state,
+                activity: action.payload
+            }
+        
+        case 'All_JOURNAL_ENTRIES_LOADED':
             return {
                 ...state,
                 activity: action.payload
