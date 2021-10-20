@@ -1,9 +1,10 @@
 import { useState } from "react"
-import { Col, Container, Form, Row, Button, Card, Alert} from "react-bootstrap"
+import { Col, Container, Form, Row, Button, Card} from "react-bootstrap"
 import { connect } from "react-redux"
 import * as actionCreators from  '../store/creators/actionCreators'
 import { priceIcon, participantIcon, timeOfDayIcon, durationIcon, locationIcon } from '../components/Icon'
 import TwistModal from "./TwistModal"
+import '../styles/eVenturesPage.css'
 
 
 
@@ -20,7 +21,7 @@ function EventuresList(props) {
                     <Card.Text>
                         {activity.description}
                     </Card.Text>
-                    <Button  class="eventureBtn" variant="secondary" onClick={() => handleAddMyActivity(activity)}>Add to My eVentures</Button>{' '}
+                    <button class="eventureBtn" onClick={() => handleAddMyActivity(activity)}>Add to My eVentures</button>{' '}
                     <TwistModal/>
                 </Card.Body>
             </Card>
@@ -69,7 +70,7 @@ function EventuresList(props) {
                     <Card.Text>
                         {activity.description}
                     </Card.Text>
-                    <Button  class="eventureBtn" variant="secondary" onClick={() => handleAddMyActivity(activity)}>Add to My eVentures</Button>{' '}
+                    <button  class="eventureBtn" onClick={() => handleAddMyActivity(activity)}>Add to My eVentures</button>{' '}
                     <TwistModal/>
                 </Card.Body>
             </Card>
@@ -95,7 +96,7 @@ function EventuresList(props) {
                         <Card.Text>
                             {activity.description}
                         </Card.Text>
-                        <Button  class="eventureBtn" variant="secondary" onClick={() => handleAddMyActivity(activity)}>Add to My eVentures</Button>{' '}
+                        <button  class="eventureBtn" onClick={() => handleAddMyActivity(activity)}>Add to My eVentures</button>{' '}
                         <TwistModal/>
                     </Card.Body>
                 </Card>

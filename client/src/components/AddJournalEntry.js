@@ -59,6 +59,10 @@ function AddJournalEntry(props) {
                 // }
             })
     }
+    
+    function Alert () {
+        alert("Your photo is uploading please be patient!")
+    }
 
 
     return (
@@ -73,12 +77,10 @@ function AddJournalEntry(props) {
                         onChange={e => setFile(e.target.files[0])} 
                         accept='image/*'
                         placeholder="Upload an image"></input>
-                        <button type='submit'>submit</button>
+                        <button type='submit' onClick = {Alert}>submit</button>
                     </form>
                         {image && <img src={image} style={{width: 250}}/>}
             </div>
-            <label>Add a video</label>
-            <input type="file" name="video" onChange={handleOnChange} placeholder="Upload a video"></input>
             <label>Add a rating</label>
             <input type="text" name="rating" onChange={handleOnChange}
             placeholder="Enter activity rating"></input>
