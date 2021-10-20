@@ -97,7 +97,7 @@ app.get('/api/journal-entries-info/:activityId', (req, res) => {
 
 // add journal entry
 app.post('/api/add-journal-entry', (req, res) => {
-    const { entry, image, video, rating, activityId, userId, public } = req.body.journal
+    const { entry, image, video, rating, activityId, userId, public, likes } = req.body.journal
     
 
     let journalEntry = models.Journal.build({
@@ -112,8 +112,13 @@ app.post('/api/add-journal-entry', (req, res) => {
     })
     journalEntry.save()
     .then(savedEntry => {
-    
-        res.json({success: true, journalId: savedEntry.id, public: savedEntry.public})
+        models.Activity.update(
+            {likes: likes + rating}, 
+            {where: {activityId: activityId}}
+        ).then(updatedActivity => {
+            res.json({success: true, journalId: savedEntry.id, public: savedEntry.public})
+        })
+        
     })
 })
 
