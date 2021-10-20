@@ -67,3 +67,18 @@ height: 55px;
 .eventureBtn{
     width: 80%;
 }
+
+.journalImage{
+    height: 30%;
+    width: 10%;
+}
+
+.journalItemDiv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+    border-bottom: solid black 2px;
+}

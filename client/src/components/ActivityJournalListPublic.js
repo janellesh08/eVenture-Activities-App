@@ -36,13 +36,13 @@ function ActivityJournalListPublic(props) {
         if (activity.likes > 0) {
             return (
 
-                <>
+                <div class="journalItemDiv" >
                 
                 <h1>{activity.activity}</h1>
                 <p>{element}{activity.likes}</p>
                 <JournalDetailsList journals = {activity.journals}/>
                 
-                </>
+                </div>
             )
         } else {
             return (

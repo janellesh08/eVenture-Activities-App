@@ -12,9 +12,9 @@ function AddJournalEntry(props) {
 
     const [journal, setJournal] = useState({
         userId: localStorage.getItem('userId'),
-        activityId: props.match.params.activityId
+        activityId: props.match.params.activityId,
+        rating: 0
     })
-    const [activity, setActivity] = useState({})
 
     const handleOnChange = (e) => {
         setJournal({
@@ -49,11 +49,7 @@ function AddJournalEntry(props) {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({
-                // userId: localStorage.getItem('userId'),
-                // activityId: props.match.params.activityId,
-                journal
-            })
+            body: JSON.stringify({journal})
         }).then(response => response.json())
             .then(result => {
                 console.log(result)
@@ -66,17 +62,8 @@ function AddJournalEntry(props) {
             })
     }
 
-    const addOne=() => {
+    const addOne = () => {
         journal.rating = 1
-       
-        setActivity({
-            ...activity,
-           likes: activity.likes 
-          
-        })
-        
-    console.log(activity.likes)
-
     }
     
 
