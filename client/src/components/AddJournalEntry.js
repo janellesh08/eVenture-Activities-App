@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { Container, Button } from 'react-bootstrap'
-import { ReactDOM } from 'react-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
@@ -69,12 +68,17 @@ function AddJournalEntry(props) {
 
     const addOne=() => {
         journal.rating = 1
+       
         setActivity({
             ...activity,
-           likes: activity.likes + journal.rating
+           likes: activity.likes
+          
         })
-    }
+        
+    console.log(activity.likes)
 
+    }
+    
 
     return (
         <Container fluid>
@@ -97,6 +101,7 @@ function AddJournalEntry(props) {
             <label>Like the activity</label>
             <form style={{display: "inline"}}
                 ><button type="button" onClick={addOne}>
+                    {/* //  ><button type="button" > */}
                 <span class="button__text">Like</span>
                 <span class="button__icon">
                     {element}

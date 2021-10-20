@@ -114,7 +114,7 @@ app.post('/api/add-journal-entry', (req, res) => {
     .then(savedEntry => {
         models.Activity.update(
             {likes: likes + rating}, 
-            {where: {activityId: activityId}}
+            {where: {id: activityId}}
         ).then(updatedActivity => {
             res.json({success: true, journalId: savedEntry.id, public: savedEntry.public})
         })

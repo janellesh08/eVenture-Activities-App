@@ -23,7 +23,8 @@ module.exports = (sequelize, DataTypes) => {
     price_range: DataTypes.STRING,
     duration_range: DataTypes.STRING,
     participants: DataTypes.STRING,
-    type: DataTypes.STRING
+    type: DataTypes.STRING,
+    likes: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Activity',
