@@ -26,6 +26,7 @@ function AddJournalEntry(props) {
         const formData = new FormData()
         formData.append('image', file)
         
+        
         const result = await axios.post('http://localhost:8080/images', formData, {headers: {'Content-Type': 'multipart/form-data'}})
         console.log(result.data)
         setImage(result.data.imagePath)
@@ -36,8 +37,21 @@ function AddJournalEntry(props) {
     }
 
 
-    const handleSave = () => {
+    const handleSave = async () => {
 
+        const formData = new FormData()
+        formData.append('image', file)
+        formData.append('journal', journal)
+
+        console.log(formData)
+
+        const result = await axios.post('http://localhost:8080/api/add-journal-entry', formData, {headers: {'Content-Type': 'multipart/form-data'}})
+        console.log(result)
+        if (result.data.success && result.data.public ) {
+            //props.history.push(`/activity-journal-entries/${props.match.params.activityId}`)
+        } 
+
+        /*
         fetch(`http://localhost:8080/api/add-journal-entry`, {
             method: 'POST',
             headers: {
@@ -58,6 +72,8 @@ function AddJournalEntry(props) {
                 //     props.history.push
                 // }
             })
+
+        */
     }
 
 

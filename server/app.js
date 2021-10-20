@@ -117,10 +117,12 @@ app.post('/images', upload.single('image'), async (req, res) => {
 
 
 // add journal entry
-app.post('/api/add-journal-entry', (req, res) => {
+app.post('/api/add-journal-entry', upload.single('image'), (req, res) => {
+
+    console.log(req.body.journal)
     const { entry, video, image, rating, activityId, userId, public } = req.body.journal
     
-
+    
 
     let journalEntry = models.Journal.build({
         entry: entry,
@@ -135,7 +137,7 @@ app.post('/api/add-journal-entry', (req, res) => {
     journalEntry.save()
     .then(savedEntry => {
     
-        res.json({success: true, journalId: savedEntry.id, public: savedEntry.public})
+        res.send({success: true, journalId: savedEntry.id, public: savedEntry.public})
     })
 })
 
