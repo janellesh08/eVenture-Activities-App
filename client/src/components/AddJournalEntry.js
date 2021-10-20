@@ -31,10 +31,10 @@ function AddJournalEntry(props) {
 
         const formData = new FormData()
         formData.append('image', file)
-
-        const result = await axios.post('/images', formData, { headers: { 'Content-Type': 'multipart/form-data' } })
+        
+        const result = await axios.post('http://localhost:8080/images', formData, {headers: {'Content-Type': 'multipart/form-data'}})
         console.log(result.data)
-        // setImage(result.data.imagePath)
+        setImage(result.data.imagePath)
     }
 
     // const loadActivity = () => {
@@ -92,9 +92,9 @@ function AddJournalEntry(props) {
                         onChange={e => setFile(e.target.files[0])}
                         accept='image/*'
                         placeholder="Upload an image"></input>
-                    <button type='submit'>submit</button>
-                </form>
-                {/* {imagePath && <img src={imagePath}>} */}
+                        <button type='submit'>submit</button>
+                    </form>
+                        {image && <img src={image} style={{width: 250}}/>}
             </div>
             <label>Add a video</label>
             <input type="file" name="video" onChange={handleOnChange} placeholder="Upload a video"></input>
