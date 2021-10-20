@@ -117,32 +117,36 @@ app.post('/images', upload.single('image'), async (req, res) => {
 
 
 // add journal entry
-app.post('/api/add-journal-entry', upload.single('image'), async (req, res) => {
 
-    const { entry, rating, activityId, userId, public } = req.body
-    
+app.post('/api/add-journal-entry', upload.single('image'), async(req, res) => {
+    const { entry, rating, activityId, userId, public } = req.body.journal
+
     const file = req.file
     const result = await uploadFile(file)
-
-    let journalEntry = models.Journal.build({
-        entry: entry,
-        image: result.Location,
-        video: null,
-        rating: rating,
-        activity_id: activityId,
-        user_id: userId,
-        public: public
-
-    })
-    journalEntry.save()
-    .then(savedEntry => {
-        models.Activity.update(
-            {likes: likes + rating}, 
-            {where: {id: activityId}}
-        ).then(updatedActivity => {
-            res.send({success: true, journalId: savedEntry.id, public: savedEntry.public})
+    
+    models.Activity.findOne({
+        where: {
+           id: activityId,
+        }
+    }).then(activity => {
+        let journalEntry = models.Journal.build({
+            entry: entry,
+            image: result.Location,
+            video: null,
+            rating: rating,
+            activity_id: activityId,
+            user_id: userId,
+            public: public
         })
-        
+        journalEntry.save()
+        .then(savedEntry => {
+            models.Activity.update(
+                {likes: activity.likes + rating}, 
+                {where: {id: activityId}}
+            ).then(updatedActivity => {
+                res.json({success: true, journalId: savedEntry.id, public: savedEntry.public})
+            })  
+        })
     })
     await unlinkFile(file.path)
 })
