@@ -76,9 +76,6 @@ function AddJournalEntry(props) {
         alert("Your photo is uploading please be patient!")
     }
 
-    const addOne=() => {
-        journal.rating = 1
-
 
 
     return (
