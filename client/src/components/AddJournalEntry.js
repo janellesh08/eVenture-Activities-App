@@ -68,17 +68,18 @@ function AddJournalEntry(props) {
         console.log(result)
         if (result.data.success && result.data.public) {
             props.history.push(`/activity-journal-entries/${props.match.params.activityId}`)
-
+        } else {
+            props.history.push(`/my-activity-journal-entries/${props.match.params.activityId}/${localStorage.getItem('userId')}`)
         }
+
+     
     }
 
     function imageAlert() {
         alert("Your photo is uploading please be patient!")
     }
 
-    const addOne=() => {
-        journal.rating = 1
-
+    
 
 
     return (
