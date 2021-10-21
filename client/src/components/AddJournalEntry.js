@@ -99,7 +99,7 @@ function AddJournalEntry(props) {
           
         // })
         
-    console.log(activity.likes)
+    // console.log(activity.likes)
 
     }
     
