@@ -119,9 +119,8 @@ function AddJournalEntry(props) {
                     </form>
                         {image && <img src={image} style={{width: 250}}/>}
             </div>
-            <label>Add a video</label>
-            <input type="file" name="video" onChange={handleOnChange} placeholder="Upload a video"></input>
-            <label>Like the activity</label>
+            
+        
             <form style={{display: "inline"}}
                 ><button type="button" onClick={addOne}>
                     {/* //  ><button type="button" > */}
