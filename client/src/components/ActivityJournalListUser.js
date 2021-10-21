@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 
 
 
+
 function ActivityJournalListUser(props) {
 
     
@@ -21,10 +22,11 @@ function ActivityJournalListUser(props) {
     const loadJournalEntries = () => {
         fetch(`http://localhost:8080/api/journal-entries-info/${props.match.params.activityId}/${localStorage.getItem('userId')}`)
         .then(response => response.json())
-        .then(result => {
-            setActivity(result)
+        .then(response => {
+            setActivity(response)
+            console.log(response)
+    
             
-
         })
     }
         return (
@@ -32,8 +34,8 @@ function ActivityJournalListUser(props) {
             <>
             
             <h1>{activity.activity}</h1>
-           
-            <JournalDetailsList journals = {activity.journals}/>
+           {activity.journals.length== 0 ? <button onClick={()=>props.history.push(`/add-journal-entry/${activity.id}`)}>Add a Journal Entry</button> :   <JournalDetailsList journals = {activity.journals}/>}
+          
             
             </>
 
@@ -41,6 +43,5 @@ function ActivityJournalListUser(props) {
 
     }
 
-   
 
 export default ActivityJournalListUser

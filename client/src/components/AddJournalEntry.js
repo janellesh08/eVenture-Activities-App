@@ -130,7 +130,7 @@ function AddJournalEntry(props) {
             
             </button></form>
             <label>Journal Entry</label>
-            {/* <input type="text" name= "entry" onChange={handleOnChange} placeholder="Enter journal entry"></input> */}
+            
             <textarea name="entry" onChange={handleOnChange} style={{ width: "400px", height: "200px" }} placeholder="Enter journal entry"></textarea>
             <label>Public or private journal entry</label>
             <select name="public" defaultValue={""} onChange={handleOnChange}>

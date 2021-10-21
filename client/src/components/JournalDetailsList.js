@@ -12,13 +12,10 @@ function JournalDetailsList(props) {
         const journalInfo = props.journals.map(journal => {
             if (journal.rating === 1) {
             return (
-                <div class="journalItemDiv">
-                    <h2>{journal.users.first_name}</h2>
+                <div>
+                    <h2>{journal.users ? journal.users.first_name : ""}</h2>
                     <p>{journal.entry}</p>
-                    <img class="journalImage" src={journal.image}/>
-                    {/* <video width = "500px" controls >
-                        <source src ={journal.video} type= >
-                            </video> */}
+                    <img src={journal.image}/>
                     <p>{element}{journal.rating}</p>
     
     
@@ -27,12 +24,10 @@ function JournalDetailsList(props) {
             } else {
                 return (
                     <div>
-                    <h2>{journal.users.first_name}</h2>
+                    <h2>{journal.users ? journal.users.first_name : ""}</h2>
                     <p>{journal.entry}</p>
                     <img src={journal.image}/>
-                    {/* <video width = "500px" controls >
-                        <source src ={journal.video} type= >
-                            </video> */}
+                   
                         
     
                 </div>

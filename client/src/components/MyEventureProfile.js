@@ -14,6 +14,14 @@ function MyEventureProfile(props) {
         props.history.push(`/add-journal-entry/${id}`)
     }
 
+    const viewMyJournalEntries = (id) => {
+        props.history.push(`/my-activity-journal-entries/${id}/${localStorage.getItem('userId')}`)
+    }
+
+    const viewAllJournalEntries = (id => {
+        props.history.push(`/activity-journal-entries/${id}`)
+    })
+
     const loadMyEventures = () => {
 
         fetch(`http://localhost:8080/api/my-eventures/${localStorage.getItem('userId')}`)
@@ -24,6 +32,7 @@ function MyEventureProfile(props) {
     }
 
     const activityItems = myActivities.map((myActivity) => {
+        console.log(myActivity)
         return <li key={myActivity.id}>
 
             <Card border="secondary" style={{ width: '18rem' }}>
@@ -34,6 +43,10 @@ function MyEventureProfile(props) {
                         {myActivity.activity.description}
                     </Card.Text>
                     <Button variant="secondary" onClick={() => onCreateJournalEntry(myActivity.activity_id)}>Create a Journal Entry</Button>{' '}
+                    
+                    <Button variant="secondary" onClick={() => viewMyJournalEntries(myActivity.activity_id)}>View My Journal Entries</Button>{' '}
+
+                    <Button variant="secondary" onClick={() => viewAllJournalEntries(myActivity.activity_id)}>View Public Journal Entries</Button>{' '}
                 </Card.Body>
             </Card>
             <br />

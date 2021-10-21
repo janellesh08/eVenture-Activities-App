@@ -56,7 +56,7 @@ app.get('/api/journal-entries/:userId', (req, res) => {
 })
 
 
-// journal details page- see only user's private entries
+// journal details page- see only user's entries
 app.get('/api/journal-entries-info/:activityId/:userId', (req, res) => {
     const activityId = req.params.activityId
     const userId = req.params.userId
@@ -68,11 +68,14 @@ app.get('/api/journal-entries-info/:activityId/:userId', (req, res) => {
         include: [
             {
                 model: models.Journal, as: 'journals',
-                where: { user_id: userId}
+                where: { user_id: userId},
+                required: false
+
             }
         ]
 
     }).then(activity => {
+        console.log(activity)
         res.json(activity)
     })
 })
@@ -94,8 +97,8 @@ app.get('/api/journal-entries-info/:activityId', (req, res) => {
                 where: {public:true},
                 include: [{model: models.User, as: 'users'}
 
-                ]
-                
+                ],
+                required: false
             },
             
         ]
@@ -179,7 +182,9 @@ app.get('/api/my-eventures/:userId',(req, res) => {
         where: {user_id: userId},
         include: [
             {model: models.User, as: 'users'},
-            {model: models.Activity, as: 'activity'}
+            {model: models.Activity, as: 'activity'},
+            
+        
         ]
     })
     .then(myActivities => {
