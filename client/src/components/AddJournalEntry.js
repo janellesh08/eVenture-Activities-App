@@ -6,7 +6,6 @@ import axios from 'axios'
 
 const element = <FontAwesomeIcon icon={faHeart} />
 
-// ReactDOM.render(element, document.body)
 
 function AddJournalEntry(props) {
 
@@ -15,7 +14,7 @@ function AddJournalEntry(props) {
         activityId: props.match.params.activityId,
         rating: 0
     })
-    // const [activity, setActivity] = useState({})
+    
 
     const handleOnChange = (e) => {
         setJournal({
@@ -39,11 +38,6 @@ function AddJournalEntry(props) {
         setImage(result.data.imagePath)
     }
 
-    // const loadActivity = () => {
-    //    fetch(`http://localhost:8080/api/activities`) 
-    // }
-
-
     const handleSave = async () => {
 
         const formData = new FormData()
@@ -61,29 +55,6 @@ function AddJournalEntry(props) {
             props.history.push(`/activity-journal-entries/${props.match.params.activityId}`)
         } 
 
-        /*
-        fetch(`http://localhost:8080/api/add-journal-entry`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                // userId: localStorage.getItem('userId'),
-                // activityId: props.match.params.activityId,
-                journal
-            })
-        }).then(response => response.json())
-            .then(result => {
-                console.log(result)
-                if (result.success && result.public) {
-                    props.history.push(`/activity-journal-entries/${props.match.params.activityId}`)
-                }
-                // else {
-                //     props.history.push
-                // }
-            })
-
-        */
     }
     
     function Alert () {
@@ -92,14 +63,6 @@ function AddJournalEntry(props) {
 
     const addOne=() => {
         journal.rating = 1
-       
-        // setActivity({
-        //     ...activity,
-        //    likes: activity.likes 
-          
-        // })
-        
-    console.log(activity.likes)
 
     }
     
@@ -122,7 +85,6 @@ function AddJournalEntry(props) {
             </div>
             <form style={{display: "inline"}}
                 ><button type="button" onClick={addOne}>
-                    {/* //  ><button type="button" > */}
                 <span class="button__text">Like</span>
                 <span class="button__icon">
                     {element}
