@@ -120,7 +120,6 @@ app.post('/images', upload.single('image'), async (req, res) => {
 
 
 // add journal entry
-
 app.post('/api/add-journal-entry', upload.single('image'), async(req, res) => {
     const { entry, rating, activityId, userId, public } = req.body
 
@@ -148,10 +147,12 @@ app.post('/api/add-journal-entry', upload.single('image'), async(req, res) => {
                 {where: {id: activityId}}
             ).then(updatedActivity => {
                 res.json({success: true, journalId: savedEntry.id, public: savedEntry.public})
+                
             })  
         })
     })
-    await unlinkFile(file.path)
+    unlinkFile(file.path)
+    
 })
 
 

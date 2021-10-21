@@ -18,7 +18,6 @@ import ActivityJournalListUser from './components/ActivityJournalListUser';
 import AddJournalEntry from './components/AddJournalEntry';
 import ActivityJournalListPublic from './components/ActivityJournalListPublic';
 
-
 import requireAuth from './components/requireAuth';
 
 const reducer = combineReducers({
@@ -29,6 +28,10 @@ const reducer = combineReducers({
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 const store = createStore(reducer, composeEnhancers(applyMiddleware(thunk)))
 
+const token = localStorage.getItem('jsonwebtoken')
+if(token){
+  store.dispatch({type: 'ON_LOGIN'})
+}
 
 ReactDOM.render(
   <React.StrictMode>
