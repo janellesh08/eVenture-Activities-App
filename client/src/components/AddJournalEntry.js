@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { Container, Button } from 'react-bootstrap'
+import { useState, Component } from 'react'
+import { Container, Button, Alert } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
@@ -14,7 +14,14 @@ function AddJournalEntry(props) {
         activityId: props.match.params.activityId,
         rating: 0
     })
-    
+
+    const [isLiked, setIsLiked] = useState(false)
+
+    const toggle = () => {
+        setIsLiked(!isLiked);
+        addOne(isLiked)
+    }
+
 
     const handleOnChange = (e) => {
         setJournal({
@@ -31,12 +38,20 @@ function AddJournalEntry(props) {
 
         const formData = new FormData()
         formData.append('image', file)
-        
-        
-        const result = await axios.post('http://localhost:8080/images', formData, {headers: {'Content-Type': 'multipart/form-data'}})
+
+
+        const result = await axios.post('http://localhost:8080/images', formData, { headers: { 'Content-Type': 'multipart/form-data' } })
         console.log(result.data)
         setImage(result.data.imagePath)
     }
+
+
+    const addOne = (isLiked) => {
+        if (isLiked) {
+            journal.rating = 1
+        }
+    }
+
 
     const handleSave = async () => {
 
@@ -47,30 +62,33 @@ function AddJournalEntry(props) {
         formData.append('activityId', journal.activityId)
         formData.append('public', journal.public)
         formData.append('rating', journal.rating)
-        
 
-        const result = await axios.post('http://localhost:8080/api/add-journal-entry', formData, {headers: {'Content-Type': 'multipart/form-data'}})
+
+        const result = await axios.post('http://localhost:8080/api/add-journal-entry', formData, { headers: { 'Content-Type': 'multipart/form-data' } })
         console.log(result)
-        if (result.data.success && result.data.public ) {
+        if (result.data.success && result.data.public) {
             props.history.push(`/activity-journal-entries/${props.match.params.activityId}`)
-        } 
 
+        }
     }
-    
-    function Alert () {
+
+    function imageAlert() {
         alert("Your photo is uploading please be patient!")
     }
 
     const addOne=() => {
         journal.rating = 1
 
-    }
-    
+
 
     return (
-        <Container fluid>
+        <Container id="addEntryContainer" fluid>
             <h1>Add a Journal Entry</h1>
-            <div className='imageupload'>
+            <Alert variant="info">
+                Here you can add additional information about your eVenture. Talk about your experience and add images if you like.
+                You can make your journal entries private or public to share your experience with other users!
+            </Alert>
+            <div className='imageUpload'>
                 <label>Add an image</label>
                 <form onSubmit={submit}>
                     <input
@@ -79,28 +97,33 @@ function AddJournalEntry(props) {
                         onChange={e => setFile(e.target.files[0])}
                         accept='image/*'
                         placeholder="Upload an image"></input>
-                        <button type='submit' onClick = {Alert}>submit</button>
-                    </form>
-                        {image && <img src={image} style={{width: 250}}/>}
+                    <button type='submit' onClick={imageAlert}>submit</button>
+                </form>
+                {image && <img src={image} style={{ width: 250 }} />}
             </div>
-            <form style={{display: "inline"}}
-                ><button type="button" onClick={addOne}>
-                <span class="button__text">Like</span>
-                <span class="button__icon">
-                    {element}
-                </span>
-            
-            </button></form>
-            <label>Journal Entry</label>
-            
-            <textarea name="entry" onChange={handleOnChange} style={{ width: "400px", height: "200px" }} placeholder="Enter journal entry"></textarea>
-            <label>Public or private journal entry</label>
-            <select name="public" defaultValue={""} onChange={handleOnChange}>
+
+
+            <label id="entryLabel" >Journal Entry</label>
+
+            <textarea name="entry" onChange={handleOnChange} style={{ width: "400px", height: "200px" }} placeholder="Log your experience here."></textarea>
+
+            <select id="public" name="public" defaultValue={""} onChange={handleOnChange}>
+
                 <option value="" disabled hidden>Public or Private</option>
                 <option value='true'>Public</option>
                 <option value='false'>Private</option>
             </select>
-            <Button variant="secondary" onClick={handleSave}>Submit</Button>{' '}
+
+            <p>Love this eVenture? Click the heart below!</p>
+
+            <div onClick={toggle} id="likeBtnDiv">
+                {isLiked === false ? (
+                    <img class="likeBtn" src="/images/8.png"></img>
+                ) :
+                    (<img class="likeBtn" src="/images/7.png"></img>)}
+            </div>
+
+            <Button id="entrySubmitBtn" variant="secondary" onClick={handleSave}>Submit</Button>{' '}
 
 
         </Container>

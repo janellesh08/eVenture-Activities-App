@@ -82,3 +82,43 @@ height: 55px;
     text-align: center;
     border-bottom: solid black 2px;
 }
+
+#addEntryContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.imageUpload{
+    text-align: center;
+    margin: 25px;
+}
+
+#entryLabel{
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+#public{
+    margin: 25px;
+}
+
+#entrySubmitBtn{
+    margin-bottom: 25px;
+}
+
+#likeBtnDiv{
+    cursor: pointer;
+   
+   height: 30px; 
+   width: 30px;
+   margin-bottom: 20px;
+}
+
+.likeBtn{
+    height: 100%;
+    width: 100%;
+}
+
+
+
