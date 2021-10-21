@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from'react'
-import JournalDetailsList from './JournalDetailsList'
-import { connect } from 'react-redux'
+import JournalDetailsListUser from './JournalDetailsListUser'
+
 
 
 
@@ -34,10 +34,12 @@ function ActivityJournalListUser(props) {
             <>
             
             <h1>{activity.activity}</h1>
-           {activity.journals.length== 0 ? <button onClick={()=>props.history.push(`/add-journal-entry/${activity.id}`)}>Add a Journal Entry</button> :   <JournalDetailsList journals = {activity.journals}/>}
+           {activity.journals.length== 0 ? <button onClick={()=>props.history.push(`/add-journal-entry/${activity.id}`)}>Add a Journal Entry</button> :   <JournalDetailsListUser journals = {activity.journals} onJournalDeleted={() => loadJournalEntries()}/>}
+
+           </>
           
             
-            </>
+            
 
         ) 
 

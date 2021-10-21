@@ -4,8 +4,13 @@ import { useState, useEffect } from 'react'
 import '../styles/myActivities.css'
 
 function MyEventureProfile(props) {
-    // const userId = localStorage.getItem('userId')
+    
+    
+
     const [myActivities, setMyActivities] = useState([])
+
+
+    console.log(props)
 
     useEffect(() => {
         loadMyEventures()
@@ -32,8 +37,20 @@ function MyEventureProfile(props) {
         })
     }
 
+
+    const handleMyActivityDelete = (myActivityId) => {
+        fetch(`http://localhost:8080/api/my-eventure/${myActivityId}`, {
+            method: 'DELETE'
+        }).then(response => response.json())
+        .then(result => {
+            loadMyEventures()
+        })
+
+    }
+
+
     const activityItems = myActivities.map((myActivity) => {
-        console.log(myActivity)
+        
         return <li key={myActivity.id}>
 
             <Card border="secondary" style={{ width: '18rem' }}>
@@ -50,6 +67,10 @@ function MyEventureProfile(props) {
 
                     <Button variant='primary' className = 'viewPublicJournalEntryBtn' onClick={() => viewAllJournalEntries(myActivity.activity_id)}>View Public Journal Entries</Button>{' '}
                     </Container>
+
+
+                    <Button variant="secondary" onClick={() => handleMyActivityDelete(myActivity.id)}>Delete</Button>{' '}
+
                 </Card.Body>
             </Card>
             <br />
@@ -71,13 +92,6 @@ function MyEventureProfile(props) {
 
 }
 
-// const mapStateToProps = (state) => {
-//     return {
-//         myActivities: state.fetchActivityRed.myActivities
 
-//     }
-// }
- 
-// export default connect(mapStateToProps)(MyEventureProfile)
 
 export default MyEventureProfile

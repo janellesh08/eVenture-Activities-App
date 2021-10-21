@@ -120,7 +120,6 @@ app.post('/images', upload.single('image'), async (req, res) => {
 
 
 // add journal entry
-
 app.post('/api/add-journal-entry', upload.single('image'), async(req, res) => {
     const { entry, rating, activityId, userId, public } = req.body
 
@@ -148,10 +147,12 @@ app.post('/api/add-journal-entry', upload.single('image'), async(req, res) => {
                 {where: {id: activityId}}
             ).then(updatedActivity => {
                 res.json({success: true, journalId: savedEntry.id, public: savedEntry.public})
+                
             })  
         })
     })
-    await unlinkFile(file.path)
+    unlinkFile(file.path)
+    
 })
 
 
@@ -170,6 +171,20 @@ app.post('/api/add-my-eventure', (req, res) => {
     myActivity.save()
     .then(savedMyActivity => {
         res.json({success: true, myActivityId: savedMyActivity.id})
+    })
+})
+
+
+// delete an eventure from my activities profile
+app.delete('/api/my-eventure/:id', (req, res) => {
+    const id = req.params.id
+
+    models.MyActivity.destroy({
+        where: {
+            id: id
+        }
+    }).then(myActivities => {
+        res.json({success: true})
     })
 })
 
@@ -196,8 +211,7 @@ app.get('/api/my-eventures/:userId',(req, res) => {
 
 
 
-
-
+// delete a journal entry from user's journal detail page
 app.delete('/api/journal-entries/:id', (req, res) => {
     const id = req.params.id
 
