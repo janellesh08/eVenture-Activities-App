@@ -16,7 +16,7 @@ function JournalDetailsList(props) {
                     <h2>{journal.users ? journal.users.first_name : ""}</h2>
                     <p>{journal.entry}</p>
                     <img src={journal.image}/>
-                    <p>{element}{journal.rating}</p>
+                    <p>{element}</p>
     
     
                 </div>
