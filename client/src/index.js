@@ -44,7 +44,7 @@ ReactDOM.render(
             <Route path='/my-eventures' component={requireAuth(MyEventureProfile)} />
             <Route path='/add-new-eventure' component={requireAuth(AddNewEventure)} />
             <Route path='/all-eventures' component={requireAuth(EventuresPage)} />
-            {/* <Route path='/journal-details' component={requireAuth(JournalDetails)}/> */}
+           
             <Route path='/add-journal-entry/:activityId' component={requireAuth(AddJournalEntry)}/>
             <Route path='/Login' component={Login} />
             <Route path='/SignUp' component={SignUp} />
