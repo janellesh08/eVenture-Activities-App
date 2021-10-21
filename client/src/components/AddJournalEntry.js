@@ -6,7 +6,6 @@ import axios from 'axios'
 
 const element = <FontAwesomeIcon icon={faHeart} />
 
-// ReactDOM.render(element, document.body)
 
 function AddJournalEntry(props) {
 
@@ -15,12 +14,14 @@ function AddJournalEntry(props) {
         activityId: props.match.params.activityId,
         rating: 0
     })
+
     const [isLiked, setIsLiked] = useState(false)
 
     const toggle = () => {
         setIsLiked(!isLiked);
         addOne(isLiked)
     }
+
 
     const handleOnChange = (e) => {
         setJournal({
@@ -44,13 +45,12 @@ function AddJournalEntry(props) {
         setImage(result.data.imagePath)
     }
 
+
     const addOne = (isLiked) => {
         if (isLiked) {
             journal.rating = 1
         }
     }
-
-
 
 
     const handleSave = async () => {
@@ -68,12 +68,16 @@ function AddJournalEntry(props) {
         console.log(result)
         if (result.data.success && result.data.public) {
             props.history.push(`/activity-journal-entries/${props.match.params.activityId}`)
+
         }
     }
 
     function imageAlert() {
         alert("Your photo is uploading please be patient!")
     }
+
+    const addOne=() => {
+        journal.rating = 1
 
 
 
@@ -104,6 +108,7 @@ function AddJournalEntry(props) {
             <textarea name="entry" onChange={handleOnChange} style={{ width: "400px", height: "200px" }} placeholder="Log your experience here."></textarea>
 
             <select id="public" name="public" defaultValue={""} onChange={handleOnChange}>
+
                 <option value="" disabled hidden>Public or Private</option>
                 <option value='true'>Public</option>
                 <option value='false'>Private</option>
