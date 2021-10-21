@@ -7,7 +7,7 @@ function TwistModal(props){
     const [twist, setTwist] = useState({})
 
     const fetchTwistItem = () => {
-        fetch('http://localhost:8080/api/twists')
+        fetch('https://eventures-app.herokuapp.com/api/twists')
             .then(response => { return response.json() })
             .then(twist => {
                 setTwist(twist)

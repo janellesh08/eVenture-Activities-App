@@ -29,7 +29,7 @@ function MyEventureProfile(props) {
 
     const loadMyEventures = () => {
 
-        fetch(`http://localhost:8080/api/my-eventures/${localStorage.getItem('userId')}`)
+        fetch(`https://eventures-app.herokuapp.com/api/my-eventures/${localStorage.getItem('userId')}`)
     .then(response => response.json())
         .then(myActivities => {
             setMyActivities(myActivities)
@@ -38,7 +38,7 @@ function MyEventureProfile(props) {
 
 
     const handleMyActivityDelete = (myActivityId) => {
-        fetch(`http://localhost:8080/api/my-eventure/${myActivityId}`, {
+        fetch(`https://eventures-app.herokuapp.com/api/my-eventure/${myActivityId}`, {
             method: 'DELETE'
         }).then(response => response.json())
         .then(result => {
