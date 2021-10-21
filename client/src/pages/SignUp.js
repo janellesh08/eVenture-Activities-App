@@ -23,7 +23,7 @@ function SignUp(props) {
     }
 
     const signUp = () => {
-        fetch('http://localhost:8080/api/register', {
+        fetch('https://eventures-app.herokuapp.com/api/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

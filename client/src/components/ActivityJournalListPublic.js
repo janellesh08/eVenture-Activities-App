@@ -21,7 +21,7 @@ function ActivityJournalListPublic(props) {
     
     const loadJournalEntries = () => {
         
-        fetch(`http://localhost:8080/api/journal-entries-info/${props.match.params.activityId}`)
+        fetch(`https://eventures-app.herokuapp.com/api/journal-entries-info/${props.match.params.activityId}`)
         .then(response => response.json())
         .then(activity => {
            

@@ -22,7 +22,7 @@ function Login(props) {
     }
 
     const login = () => {
-        fetch('http://localhost:8080/api/login', {
+        fetch('https://eventures-app.herokuapp.com/api/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -48,7 +48,7 @@ function Login(props) {
     const handleLoginAsGuest = () => {
         const body = { email: 'guest@guest.com', password: 'adminPassword' }
 
-        fetch('http://localhost:8080/api/login', {
+        fetch('https://eventures-app.herokuapp.com/api/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

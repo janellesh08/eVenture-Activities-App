@@ -14,10 +14,10 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "username": "sxqvlvms",
+    "password": "itf3nRfPq1r14uN8mftoIxwFPBz22Lmt",
+    "database": "sxqvlvms",
+    "host": "fanny.db.elephantsql.com",
+    "dialect": "postgres"
   }
 }

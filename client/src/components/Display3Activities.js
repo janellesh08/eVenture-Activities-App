@@ -16,7 +16,7 @@ function Display3Activities(){
 
 
 const activityItemSolo = () => {
-    fetch('http://localhost:8080/api/activities/Solo')
+    fetch('https://eventures-app.herokuapp.com/api/activities/Solo')
     .then(response => { return response.json()})
     .then(soloActivity => {
         setSoloActivity(soloActivity)
@@ -24,7 +24,7 @@ const activityItemSolo = () => {
 }
 
 const activityItemCouple = () => {
-    fetch('http://localhost:8080/api/activities/Couple')
+    fetch('https://eventures-app.herokuapp.com/api/activities/Couple')
     .then(response => { return response.json()})
     .then(couplesActivity => {
         setCouplesActivity(couplesActivity)
@@ -32,7 +32,7 @@ const activityItemCouple = () => {
 }
 
 const activityItemFriends = () => {
-    fetch('http://localhost:8080/api/activities/Friends')
+    fetch('https://eventures-app.herokuapp.com/api/activities/Friends')
     .then(response => { return response.json()})
     .then(friendsActivity => {
         setFriendsActivity(friendsActivity)
