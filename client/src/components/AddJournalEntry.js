@@ -79,7 +79,6 @@ function AddJournalEntry(props) {
         alert("Your photo is uploading please be patient!")
     }
 
-    
 
 
     return (

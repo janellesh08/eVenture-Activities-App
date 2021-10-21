@@ -50,7 +50,7 @@ const activityItemFriends = () => {
                 
                 <CardGroup id="cardGroup">
                     <Card>
-                        <Card.Img variant="top" src="/images/2.png" />
+                        <Card.Img variant="top" src="/images/magic.png" />
                         <Card.Body>
                             <Card.Title>{soloActivity.activity}</Card.Title>
                             <Card.Text>
