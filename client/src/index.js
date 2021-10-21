@@ -17,8 +17,6 @@ import EventuresPage from './pages/eVenturesPage';
 import ActivityJournalListUser from './components/ActivityJournalListUser';
 import AddJournalEntry from './components/AddJournalEntry';
 import ActivityJournalListPublic from './components/ActivityJournalListPublic';
-import ActivityJournalPage from './pages/ActivityJournalPage';
-import * as actionType from './store/actions/actionTypes'
 
 import requireAuth from './components/requireAuth';
 
@@ -44,13 +42,11 @@ ReactDOM.render(
             <Route exact path='/' component={HomePage} />
             <Route path='/about' component={About} />
             
-            <Route path='/activity-journal-entries/:activityId' component= {ActivityJournalListPublic}/>
-            <Route path='/activity-journal-page/:activityId' component={ActivityJournalPage}/>
+            <Route path='/activity-journal-entries/:activityId' component= {requireAuth(ActivityJournalListPublic)}/>
             <Route path='/my-activity-journal-entries/:activityId/:userId' component ={requireAuth(ActivityJournalListUser)}/>
             <Route path='/my-eventures' component={requireAuth(MyEventureProfile)} />
             <Route path='/add-new-eventure' component={requireAuth(AddNewEventure)} />
             <Route path='/all-eventures' component={requireAuth(EventuresPage)} />
-           
             <Route path='/add-journal-entry/:activityId' component={requireAuth(AddJournalEntry)}/>
             <Route path='/Login' component={Login} />
             <Route path='/SignUp' component={SignUp} />
