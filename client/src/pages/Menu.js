@@ -12,6 +12,8 @@ function Menu(props) {
 
     const handleLogout = () => {
         localStorage.removeItem('jsonwebtoken')
+        localStorage.removeItem('firstName')
+        localStorage.removeItem('userId')
         props.onLogout()
     }
 
