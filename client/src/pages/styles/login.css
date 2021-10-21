@@ -10,17 +10,27 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    max-width: 85em;
        
 }
 
 .loginBtn {
-    background-color:#004AAD ;
-    color: #FF60BF;
+    background-color:white  ;
+    color:#004AAD !important;
     font-family: sans-serif;
     height: 50px;
-    width: 80%;
-    font-size:20px;
+    width: 25%;
+    font-size:100%;
     border-radius: 25px;
+    border:#FF60BF 2px solid;
+    margin: 10px;
+    transition-duration: 0.4s;
+    padding: 2px;
+}
+
+.loginBtn:hover{
+    background-color: #0dcaf0; 
+    color: white;
 }
 .loginHeader {
     font-weight: bolder;
@@ -55,4 +65,30 @@
 .loginText {
     text-align: center;
     
+}
+
+.loginImage {
+    max-width: 341px !important;
+
+
+}
+
+.emailInput {
+    max-width: 400px !important;
+}
+
+.loginheader {
+    font-size: 60px;
+}
+
+.headerDiv {
+    text-align: -webkit-center;
+}
+
+.loginImageDiv {
+    text-align: -webkit-center;
+}
+
+.mb-3 {
+    text-align: -webkit-center !important;
 }
