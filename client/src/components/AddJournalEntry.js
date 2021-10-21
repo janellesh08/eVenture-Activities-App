@@ -12,9 +12,10 @@ function AddJournalEntry(props) {
 
     const [journal, setJournal] = useState({
         userId: localStorage.getItem('userId'),
-        activityId: props.match.params.activityId
+        activityId: props.match.params.activityId,
+        rating: 0
     })
-    const [activity, setActivity] = useState({})
+    // const [activity, setActivity] = useState({})
 
     const handleOnChange = (e) => {
         setJournal({
@@ -92,11 +93,11 @@ function AddJournalEntry(props) {
     const addOne=() => {
         journal.rating = 1
        
-        setActivity({
-            ...activity,
-           likes: activity.likes 
+        // setActivity({
+        //     ...activity,
+        //    likes: activity.likes 
           
-        })
+        // })
         
     console.log(activity.likes)
 
@@ -119,7 +120,15 @@ function AddJournalEntry(props) {
                     </form>
                         {image && <img src={image} style={{width: 250}}/>}
             </div>
-         
+            <form style={{display: "inline"}}
+                ><button type="button" onClick={addOne}>
+                    {/* //  ><button type="button" > */}
+                <span class="button__text">Like</span>
+                <span class="button__icon">
+                    {element}
+                </span>
+            
+            </button></form>
             <label>Journal Entry</label>
             
             <textarea name="entry" onChange={handleOnChange} style={{ width: "400px", height: "200px" }} placeholder="Enter journal entry"></textarea>

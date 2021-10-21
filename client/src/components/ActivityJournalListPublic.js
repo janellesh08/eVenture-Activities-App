@@ -35,13 +35,13 @@ function ActivityJournalListPublic(props) {
         if (activity.likes > 0) {
             return (
 
-                <>
+                <div class="journalItemDiv" >
                 
                 <h1>{activity.activity}</h1>
                 <p>{element}{activity.likes}</p>
                 {activity.journals.length== 0 ? <button onClick={()=>props.history.push(`/add-journal-entry/${activity.id}`)}>Add a Journal Entry</button> :   <JournalDetailsList journals = {activity.journals}/>}
                 
-                </>
+                </div>
             )
         } else {
             return (
