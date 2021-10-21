@@ -174,6 +174,20 @@ app.post('/api/add-my-eventure', (req, res) => {
 })
 
 
+// delete an eventure from my activities profile
+app.delete('/api/my-eventure/:id', (req, res) => {
+    const id = req.params.id
+
+    models.MyActivity.destroy({
+        where: {
+            id: id
+        }
+    }).then(myActivities => {
+        res.json({success: true})
+    })
+})
+
+
 app.get('/api/my-eventures/:userId',(req, res) => {
 
     const userId = req.params.userId
@@ -196,8 +210,7 @@ app.get('/api/my-eventures/:userId',(req, res) => {
 
 
 
-
-
+// delete a journal entry from user's journal detail page
 app.delete('/api/journal-entries/:id', (req, res) => {
     const id = req.params.id
 
