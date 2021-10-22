@@ -1,7 +1,7 @@
 import { Navbar, Nav, Container } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import '../styles/app.css'
 import { connect } from 'react-redux'
 import * as actionCreator from '../store/creators/actionCreators'
@@ -22,7 +22,7 @@ function Menu(props) {
         <div>
             <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
                 <Container id="navBarContainer">
-                <NavLink id="logoNavLink" to="/" className="nav-link"> <img id="menu-logo" src="/images/logo.png" alt="image" /></NavLink>
+                <NavLink id="logoNavLink" to="/" className="nav-link"> <img id="menu-logo" src="/images/logo.png" alt="" /></NavLink>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">

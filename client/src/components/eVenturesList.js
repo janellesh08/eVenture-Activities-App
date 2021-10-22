@@ -14,7 +14,7 @@ function EventuresList(props) {
 
         return <li className = 'eVenturesList' key={activity.id}>
          
-            <Card border="secondary" style={{ width: '25rem' }}>
+            <Card border="secondary" >
                 <Card.Header className = 'activityCardHeader'>{priceIcon(activity.price_range)}{participantIcon(activity.participants)}{timeOfDayIcon(activity.time_of_day)}{durationIcon(activity.duration_range)}{locationIcon(activity.location)}</Card.Header>
                 <Card.Body>
                     <Card.Title>{activity.activity}</Card.Title>
@@ -52,7 +52,7 @@ function EventuresList(props) {
 
         let filteredActivities = props.activities.filter((item) => {
             for (var key in filter) {
-                if (item[key] === undefined || item[key] != filter[key]) {
+                if (item[key] === undefined || item[key] !== filter[key]) {
                     return false
                 }
             }

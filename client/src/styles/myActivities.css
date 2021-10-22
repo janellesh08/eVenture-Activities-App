@@ -56,6 +56,21 @@
 
 }
 
+.deleteActivityBtn {
+    background-color:white  ;
+    color: crimson !important;
+    font-family: sans-serif;
+    height: 50px;
+    width: 60%;
+    font-size:100%;
+    border-radius: 25px;
+    border:red 2px solid;
+    margin: 10px;
+    transition-duration: 0.4s;
+    padding: 2px;
+
+}
+
 .createJournalEntryBtn:hover {
     background-color: #0dcaf0; /* Green */
   color: white;
@@ -73,6 +88,16 @@
   color: white;
 
 
+}
+
+.deleteActivityBtn:hover{
+    background-color: lightgray;
+    color: red;
+    font-weight: bold;
+}
+
+.activityBtns {
+    text-align: center;
 }
 
 

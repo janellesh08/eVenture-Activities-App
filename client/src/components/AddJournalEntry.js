@@ -1,10 +1,8 @@
-import { useState, Component } from 'react'
-import { Container, Button, Alert } from 'react-bootstrap'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHeart } from '@fortawesome/free-solid-svg-icons'
+import { useState, Component, useEffect } from 'react'
+import { Container, Button, Alert, Form } from 'react-bootstrap'
 import axios from 'axios'
 
-const element = <FontAwesomeIcon icon={faHeart} />
+
 
 
 function AddJournalEntry(props) {
@@ -19,8 +17,21 @@ function AddJournalEntry(props) {
 
     const toggle = () => {
         setIsLiked(!isLiked);
-        addOne(isLiked)
     }
+
+    useEffect(() => {
+        if(isLiked){
+            setJournal({
+                ...journal,
+                rating: 1
+            })
+        } else {
+            setJournal({
+                ...journal,
+                rating: 0
+            })
+        }
+    }, [isLiked])
 
 
     const handleOnChange = (e) => {
@@ -36,6 +47,8 @@ function AddJournalEntry(props) {
     const submit = async event => {
         event.preventDefault()
 
+        alert("Your photo is uploading please be patient!")
+
         const formData = new FormData()
         formData.append('image', file)
 
@@ -45,12 +58,6 @@ function AddJournalEntry(props) {
         setImage(result.data.imagePath)
     }
 
-
-    const addOne = (isLiked) => {
-        if (isLiked) {
-            journal.rating = 1
-        }
-    }
 
 
     const handleSave = async () => {
@@ -75,11 +82,6 @@ function AddJournalEntry(props) {
      
     }
 
-    function imageAlert() {
-        alert("Your photo is uploading please be patient!")
-    }
-
-
 
     return (
         <Container id="addEntryContainer" fluid>
@@ -89,17 +91,20 @@ function AddJournalEntry(props) {
                 You can make your journal entries private or public to share your experience with other users!
             </Alert>
             <div className='imageUpload'>
-                <label>Add an image</label>
-                <form onSubmit={submit}>
-                    <input
+
+                <Form.Group controlId="formFile" className="mb-3">
+                <Form.Label className = 'addImageHeader'>Add an image</Form.Label>
+                <Form.Control 
                         type="file"
                         filename={file}
                         onChange={e => setFile(e.target.files[0])}
                         accept='image/*'
-                        placeholder="Upload an image"></input>
-                    <button type='submit' onClick={imageAlert}>submit</button>
-                </form>
+                        placeholder="Upload an image"
+                        onSubmit={submit}/>
+                    <Button varient = 'primary' className = 'addJournalEntryBtn'type='submit' onClick={submit}>upload photo</Button>
                 {image && <img src={image} style={{ width: 250 }} />}
+                </Form.Group>
+                
             </div>
 
 
@@ -118,12 +123,12 @@ function AddJournalEntry(props) {
 
             <div onClick={toggle} id="likeBtnDiv">
                 {isLiked === false ? (
-                    <img class="likeBtn" src="/images/8.png"></img>
+                    <img className ="likeBtn" src="/images/8.png" alt=''></img>
                 ) :
-                    (<img class="likeBtn" src="/images/7.png"></img>)}
+                    (<img className ="likeBtn" src="/images/7.png" alt=''></img>)}
             </div>
 
-            <Button id="entrySubmitBtn" variant="secondary" onClick={handleSave}>Submit</Button>{' '}
+            <Button id="entrySubmitBtn" variant="secondary" onClick={handleSave}>Submit Journal Entry</Button>{' '}
 
 
         </Container>
