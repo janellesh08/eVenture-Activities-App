@@ -41,6 +41,7 @@ function ActivityJournalListPublic(props) {
                     <h1 id="acitivtyTitle">{activity.activity}</h1>
                     <p><span id="heart">{element}</span>{activity.likes}</p>
                 </div>
+                
                 {activity.journals.length === 0 ? <button id="addEntryButton" onClick={() => props.history.push(`/add-journal-entry/${activity.id}`)}>Add a Journal Entry</button> : <JournalDetailsList journals={activity.journals} />}
 
             </div>
@@ -48,12 +49,12 @@ function ActivityJournalListPublic(props) {
     } else {
         return (
 
-            <>
+            <div class="journalItemDiv" >
 
                 <h1 id="acitivtyTitle">{activity.activity}</h1>
                 {activity.journals.length === 0 ? <button id="addEntryButton" onClick={() => props.history.push(`/add-journal-entry/${activity.id}`)}>Add a Journal Entry</button> : <JournalDetailsList journals={activity.journals} />}
 
-            </>
+                </div>
         )
     }
 

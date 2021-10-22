@@ -185,9 +185,7 @@
        width:88%;
     }
 
-    /* #journalRatingHeart {
-        position: relative;
-    } */
+   
 
     #journalDeleteButton {
         position: relative;
@@ -225,6 +223,12 @@
         
 
     }
+    #journalUserFirstName {
+        font-size: 1.9em;
+    }
+    
+    
+
 
 }
 

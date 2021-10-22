@@ -1,11 +1,17 @@
 
+#journalItemDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 #acitivtyTitle {
     margin: auto;
     margin-top: 5%;
     margin-bottom: 50px;
     text-align: center;
     font-size: 3rem; 
-    margin-right: 20px;
+    
 }
 
 
@@ -16,14 +22,17 @@
 
 #heart {
     color: red;
+    margin-left: 20px;
 }
+
+
 
 #addEntryButton {
     margin-top: 200px;
     margin-bottom: 200px;
-    margin-left: 40%;
+   
 
-    width: 20%;
+    width: 250px;
     height: 50px;
 
     background-color:#0dcaf0;
@@ -36,71 +45,22 @@
 }
 
 @media only screen and (max-width: 1024px) {
-   #addEntryButtonDiv {
-       margin: auto;
-       display: flex;
-       justify-content: center;
-       align-items: center;
 
-   }
    
     #addEntryButton {
         margin:auto;
         margin-top: 100px;
         margin-bottom: 100px;
-        margin-left: 38%;
+       
        
     
         width: fit-content;
-        height: 50px;
         font-size: 1em;
         padding: 10px 40px;
     }
 }
 
-@media only screen and (max-width: 786px) {
-    #addEntryButton {
-        margin:auto;
-        margin-top: 100px;
-        margin-bottom: 100px;
-        margin-left: 35%;
-       
-    
-        width: fit-content;
-        height: 50px;
-        font-size: 1em;
-        padding: 10px 40px;
-    }
-}
-@media only screen and (max-width: 540px) {
-    #addEntryButton {
-        margin:auto;
-        margin-top: 100px;
-        margin-bottom: 100px;
-        margin-left: 28%;
-       
-    
-        width: fit-content;
-        height: 50px;
-        font-size: 1em;
-        padding: 10px 40px;
-    }
-}
 
-@media only screen and (max-width: 475px) {
-    #addEntryButton {
-        margin:auto;
-        margin-top: 100px;
-        margin-bottom: 100px;
-        margin-left: 23%;
-       
-    
-        width: fit-content;
-        height: 50px;
-        font-size: 1em;
-        padding: 10px 40px;
-    }
-}
 
 @media only screen and (max-width: 375px){
     #acitivtyTitle{
@@ -108,40 +68,10 @@
         margin: auto;
         margin-top: 30px;
     }
-    #addEntryButton {
-        margin:auto;
-        margin-top: 100px;
-        margin-bottom: 100px;
-        margin-left: 20%;
-       
-    
-        width: fit-content;
-        height: 50px;
-        font-size: 1em;
-        padding: 10px 40px;
-    }
-}
-
-
-@media only screen and (max-width: 360px) {
-    #acitivtyTitle{
-        font-size: 2.25rem;
-    }
-
-    #addEntryButton {
-        margin:auto;
-        margin-top: 100px;
-        margin-bottom: 100px;
-        margin-left: 18%;
-       
-    
-        width: fit-content;
-        height: 50px;
-        font-size: 1em;
-        padding: 10px 40px;
-    }
 
 }
+
+
 
 @media only screen and (max-width: 280px) {
 
@@ -163,7 +93,7 @@
         margin:auto;
         margin-top: 100px;
         margin-bottom: 100px;
-        margin-left: 15%;
+     
        
     
         width: fit-content;
