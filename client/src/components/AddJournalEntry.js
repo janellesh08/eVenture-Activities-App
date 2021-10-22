@@ -1,5 +1,5 @@
 import { useState, Component } from 'react'
-import { Container, Button, Alert } from 'react-bootstrap'
+import { Container, Button, Alert, Form } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
@@ -89,17 +89,20 @@ function AddJournalEntry(props) {
                 You can make your journal entries private or public to share your experience with other users!
             </Alert>
             <div className='imageUpload'>
-                <label>Add an image</label>
-                <form onSubmit={submit}>
-                    <input
+                <Form>
+                <Form.Group controlId="formFile" className="mb-3">
+                <Form.Label className = 'addImageHeader'>Add an image</Form.Label>
+                <Form.Control 
                         type="file"
                         filename={file}
                         onChange={e => setFile(e.target.files[0])}
                         accept='image/*'
-                        placeholder="Upload an image"></input>
-                    <button type='submit' onClick={imageAlert}>submit</button>
-                </form>
+                        placeholder="Upload an image"
+                        onSubmit={submit}/>
+                    <Button varient = 'primary' className = 'addJournalEntryBtn'type='submit' onClick={imageAlert}>upload photo</Button>
                 {image && <img src={image} style={{ width: 250 }} />}
+                </Form.Group>
+                </Form>
             </div>
 
 
@@ -123,7 +126,7 @@ function AddJournalEntry(props) {
                     (<img class="likeBtn" src="/images/7.png"></img>)}
             </div>
 
-            <Button id="entrySubmitBtn" variant="secondary" onClick={handleSave}>Submit</Button>{' '}
+            <Button id="entrySubmitBtn" variant="secondary" onClick={handleSave}>Submit Journal Entry</Button>{' '}
 
 
         </Container>
