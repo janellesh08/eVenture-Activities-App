@@ -199,6 +199,10 @@ input-file-upload-button {
     align-items: center;
 }
 
+.img-thumbnail{
+    width: 25%;
+}
+
 
 .iconDiv{
     width: 100%;
