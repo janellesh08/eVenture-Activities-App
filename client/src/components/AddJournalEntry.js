@@ -49,6 +49,8 @@ function AddJournalEntry(props) {
     const submit = async event => {
         event.preventDefault()
 
+        alert("Your photo is uploading please be patient!")
+
         const formData = new FormData()
         formData.append('image', file)
 
@@ -82,11 +84,6 @@ function AddJournalEntry(props) {
      
     }
 
-    function imageAlert() {
-        alert("Your photo is uploading please be patient!")
-    }
-
-
 
     return (
         <Container id="addEntryContainer" fluid>
@@ -96,7 +93,7 @@ function AddJournalEntry(props) {
                 You can make your journal entries private or public to share your experience with other users!
             </Alert>
             <div className='imageUpload'>
-                <Form>
+                
                 <Form.Group controlId="formFile" className="mb-3">
                 <Form.Label className = 'addImageHeader'>Add an image</Form.Label>
                 <Form.Control 
@@ -106,10 +103,10 @@ function AddJournalEntry(props) {
                         accept='image/*'
                         placeholder="Upload an image"
                         onSubmit={submit}/>
-                    <Button varient = 'primary' className = 'addJournalEntryBtn'type='submit' onClick={imageAlert}>upload photo</Button>
+                    <Button varient = 'primary' className = 'addJournalEntryBtn'type='submit' onClick={submit}>upload photo</Button>
                 {image && <img src={image} style={{ width: 250 }} />}
                 </Form.Group>
-                </Form>
+                
             </div>
 
 
