@@ -5,16 +5,25 @@
 App Link:
 
 ## App Description:
+Welcome to eVentures! No more tedious planning for fun and exciting activities for you and anyone else to enjoy. Just give us a little information like your price range and the number of participants and we will do the planning for you. We even offer a random twist as a way to spice up the fun! eVentures was created with all of the details in mind so that you can focus on what really matters. The fun!!!
 
-(insert description here)
+
 
 ## Motivation:
 
-(insert motivation here)
+The motivation of the eVenture app was We can all agree that boredom is the worst, right? Friends coming over? Family in town? At home alone with no idea what to do with yourself? The problem is that when we get some of that elusive "free time", we don't really have a plan for it. Coming up with fun things to do at the last minute is way more difficult than one would expect. You have to consider so many variables when planning that it can feel like an arduous task. If you can relate then you've come to the right place!
 
 ## Features:
 
-(highlight features here)
+-Create an eVenture account
+-Filter activities
+-Pick an Activity
+-Choose a random twist
+-Add a journal entry
+-Like Option for Activities you enjoy
+-Add an image to your journal entry
+-Make Journal entries Public/Private
+-Share and view other journal entries
 
 ## Built with:
 
