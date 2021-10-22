@@ -15,15 +15,15 @@ The motivation of the eVenture app was We can all agree that boredom is the wors
 
 ## Features:
 
--Create an eVenture account
--Filter activities
--Pick an Activity
--Choose a random twist
--Add a journal entry
--Like Option for Activities you enjoy
--Add an image to your journal entry
--Make Journal entries Public/Private
--Share and view other journal entries
+* Create an eVenture account
+* Filter activities
+* Pick an Activity
+* Choose a random twist
+* Add a journal entry
+* Like Option for Activities you enjoy
+* Add an image to your journal entry
+* Make Journal entries Public/Private
+* Share and view other journal entries
 
 ## Built with:
 
