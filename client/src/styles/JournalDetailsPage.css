@@ -1,0 +1,278 @@
+#journalEntryLiDiv {
+    border: solid 1px rgb(83, 83, 87);
+    border-radius: 10px;
+    margin: auto;
+    margin-bottom: 70px;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+}
+
+#nameAndDateDiv {
+    display: flex;
+    padding: 50px 7%;
+    justify-content:space-between;
+
+}
+
+#journalEntryDate {
+    text-align: right;
+    
+}
+
+#imageAndEntryDiv {
+    display: flex;
+    margin: auto;
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 60px;
+}
+
+#journalUserFirstName {
+    font-size: 2.5em;
+}
+
+#journalEntryDate {
+    font-size: 1.5em;
+}
+
+
+
+#journalEntryImage {
+    width: 42%;
+    margin-right: 40px;
+}
+
+#journalEntry {
+    border: solid 1px rgb(83, 83, 87);
+    border-radius: 10px;
+    width: 42%;
+    padding: 30px;
+    padding-bottom: 70px;
+    height: fit-content;
+    font-size: 1.1em;
+    text-align: left;
+}
+
+#journalRatingHeart {
+    color: red;
+    margin: auto;
+    margin-bottom: 50px;
+}
+
+#journalDeleteButton {
+    border: 1px solid rgb(5, 132, 206);
+    border-radius: 20px;
+    background-color: none ;
+    font: black ;
+    position: absolute;
+    right: 7%;
+    bottom: 8%;
+    padding: 10px;
+    width: 120px;
+    font-size: 1.25em;
+}
+
+@media only screen and (min-width: 1025px) {
+    #journalDeleteButton:hover {
+        background-color:#0dcaf0;
+        color: blue;
+    
+    }
+}
+
+@media only screen and (max-width: 1025px) {
+    #journalEntryDiv {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: none;
+     }
+     
+ 
+     #journalEntryDate {
+         margin: auto;
+     }
+ 
+     #journalEntryImage {
+         width: 88%;
+         margin: auto;
+         
+     }
+ 
+     #nameAndDateDiv {
+         display: flex;
+         flex-direction: column;
+        
+     }
+ 
+     #journalUserFirstName {
+         margin-top: 0;
+     }
+ 
+     #imageAndEntryDiv {
+         display: flex;
+         flex-direction: column-reverse;
+         margin: auto;
+         width: 100%;
+         justify-content: center;
+         align-items: center;
+         margin-bottom: 30px;
+     }
+ 
+     #journalEntry {
+        width:88%;
+        margin-bottom: 30px;
+     }
+ 
+     #journalRatingHeart {
+         position: relative;
+     }
+ 
+     #journalDeleteButton {
+         position: absolute;
+         bottom: 20px;
+         margin-top: 20px;
+         
+     }
+
+}
+
+@media only screen and (max-width: 600px) {
+    #journalEntryDiv {
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+       align-items: center;
+       position: none;
+    }
+    
+
+    #journalEntryDate {
+        margin: auto;
+    }
+
+    #journalEntryImage {
+        width: 88%;
+        margin: auto;
+        
+    }
+
+    #nameAndDateDiv {
+        display: flex;
+        flex-direction: column;
+       
+    }
+
+    #journalUserFirstName {
+        margin-top: 0;
+    }
+
+    #imageAndEntryDiv {
+        display: flex;
+        flex-direction: column-reverse;
+        margin: auto;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 30px;
+    }
+
+    #journalEntry {
+       width:88%;
+    }
+
+    /* #journalRatingHeart {
+        position: relative;
+    } */
+
+    #journalDeleteButton {
+        position: relative;
+        margin: auto;
+        margin-left: 43%;
+        margin-bottom: 20px;
+        
+
+    }
+
+}
+
+@media only screen and (max-width: 490px) {
+    #journalDeleteButton {
+        position: relative;
+        margin: auto;
+        margin-left: 40%;
+        margin-bottom: 20px;
+        
+
+    }
+
+}
+
+
+
+
+
+@media only screen and (max-width: 386px) {
+    #journalDeleteButton {
+        position: relative;
+        margin: auto;
+        margin-left: 34%;
+        margin-bottom: 20px;
+        
+
+    }
+
+}
+
+@media only screen and (max-width: 376px) {
+    #journalDeleteButton {
+        position: relative;
+        margin: auto;
+        margin-left: 37%;
+        margin-bottom: 20px;
+        
+
+    }
+
+}
+
+@media only screen and (max-width: 321px) {
+    #journalDeleteButton {
+        position: relative;
+        margin: auto;
+        margin-left: 34%;
+        margin-bottom: 20px;
+        
+
+    }
+
+}
+
+@media only screen and (max-width: 281px) {
+
+    #journalEntryDate {
+        font-size: 1.2rem;
+    }
+
+    #journalEntry {
+        font-size: .9rem;
+        padding: 15px;
+        padding-bottom: 30px;
+        
+    }
+
+
+    #journalDeleteButton {
+        position: relative;
+        margin: auto;
+        margin-left: 30%;
+        margin-bottom: 20px;
+        
+
+    }
+
+}
