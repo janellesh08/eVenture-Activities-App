@@ -10,18 +10,26 @@ function Footer() {
         <Card id="footerCard" className="text-center">
             <Card.Header>Let's Connect!</Card.Header>
             <Card.Body id="cardBody">
-                <Card.Title>Find us on social media</Card.Title>
-                <Container>
-                    <Row id="socialIconContainer">
+                <h5>Meet the Devs</h5>
+                <h7 id="h7">Click the icons to learn more about us.</h7>
+                <Container id="contributors">
+                    <Row id="iconContainer">
                         <Col class="iconDiv" xs={6} md={4}>
-                            <Image  class="icon-img" src="/images/facebook-plain.svg" thumbnail />
+                           <a href="https://www.janelleshines.me/"> <Image  class="icon-img" src="/images/groupFaces/1.png" thumbnail /></a>
+                        
+                        
+                           <a href="https://github.com/Kharharee"> <Image  class="icon-img" src="/images/groupFaces/2.png" thumbnail /></a>
+                        
+                        
+                           <a href="https://www.david-burrell.me/"> <Image  class="icon-img" src="/images/groupFaces/3.png" thumbnail /></a>
+                        
+                        
+                           <a href="https://jenniferdeyoung.dev/"> <Image  class="icon-img" src="/images/groupFaces/4.png" thumbnail /></a>
+                        
+                        
+                           <a href=" https://www.jenifer-ine.me/"> <Image  class="icon-img" src="/images/groupFaces/5.png" thumbnail /></a>
                         </Col>
-                        <Col class="iconDiv" xs={6} md={4}>
-                            <Image class="icon-img" src="/images/instagram.jpeg" thumbnail />
-                        </Col>
-                        <Col class="iconDiv" xs={6} md={4}>
-                            <Image class="icon-img" src="/images/twitter-original.svg" thumbnail />
-                        </Col>
+                        
                     </Row>
                 </Container>
             </Card.Body>
