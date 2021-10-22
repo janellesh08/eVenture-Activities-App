@@ -1,7 +1,11 @@
 
 import { useState, useEffect } from'react'
-import JournalDetailsListUser from './JournalDetailsListUser'
+import JournalDetailsList from './JournalDetailsList'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHeart } from '@fortawesome/free-solid-svg-icons'
+import '../styles/ActivityJournalList.css'
 
+const element = <FontAwesomeIcon icon={faHeart} size = '2x' />
 
 
 
@@ -29,19 +33,37 @@ function ActivityJournalListUser(props) {
             
         })
     }
+
+    if (activity.likes > 0) {
+        return (
+
+            <div class="journalItemDiv" >
+                <div id="activtyTitleAndHeartDiv">
+                    <h1 id="acitivtyTitle">{activity.activity}</h1>
+                    <p><span id="heart">{element}</span>{activity.likes}</p>
+                </div>
+                
+                {activity.journals.length === 0 ? <div id="addEntryButtonDiv"> <button id="addEntryButton" onClick={() => props.history.push(`/add-journal-entry/${activity.id}`)}>Add a Journal Entry</button></div> : <JournalDetailsList journals={activity.journals} onJournalDeleted={() => loadJournalEntries()}/>}
+                
+            </div>
+        )
+    } else {
         return (
 
             <>
             
-            <h1>{activity.activity}</h1>
-           {activity.journals.length== 0 ? <button onClick={()=>props.history.push(`/add-journal-entry/${activity.id}`)}>Add a Journal Entry</button> :   <JournalDetailsListUser journals = {activity.journals} onJournalDeleted={() => loadJournalEntries()}/>}
+            <h1 id="acitivtyTitle">{activity.activity}</h1>
+            <div id="addEntryButtonDiv"></div>
+           {activity.journals.length== 0 ? <div id="addEntryButtonDiv"> <button id="addEntryButton" onClick={() => props.history.push(`/add-journal-entry/${activity.id}`)}>Add a Journal Entry</button></div>  :   <JournalDetailsList journals = {activity.journals} onJournalDeleted={() => loadJournalEntries()}/>}
 
            </>
-          
-            
+                     
             
 
         ) 
+    }
+
+       
 
     }
 

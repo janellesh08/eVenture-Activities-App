@@ -1,0 +1,176 @@
+
+#acitivtyTitle {
+    margin: auto;
+    margin-top: 5%;
+    margin-bottom: 50px;
+    text-align: center;
+    font-size: 3rem; 
+    margin-right: 20px;
+}
+
+
+#activtyTitleAndHeartDiv {
+    display: flex;
+    align-items: center;
+}
+
+#heart {
+    color: red;
+}
+
+#addEntryButton {
+    margin-top: 200px;
+    margin-bottom: 200px;
+    margin-left: 40%;
+
+    width: 20%;
+    height: 50px;
+
+    background-color:#0dcaf0;
+    color: #004AAD;
+    font-family: sans-serif;
+    height: 60px;
+    font-size:1.5em;
+    border-radius: 25px;
+    border: none;
+}
+
+@media only screen and (max-width: 1024px) {
+   #addEntryButtonDiv {
+       margin: auto;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+
+   }
+   
+    #addEntryButton {
+        margin:auto;
+        margin-top: 100px;
+        margin-bottom: 100px;
+        margin-left: 38%;
+       
+    
+        width: fit-content;
+        height: 50px;
+        font-size: 1em;
+        padding: 10px 40px;
+    }
+}
+
+@media only screen and (max-width: 786px) {
+    #addEntryButton {
+        margin:auto;
+        margin-top: 100px;
+        margin-bottom: 100px;
+        margin-left: 35%;
+       
+    
+        width: fit-content;
+        height: 50px;
+        font-size: 1em;
+        padding: 10px 40px;
+    }
+}
+@media only screen and (max-width: 540px) {
+    #addEntryButton {
+        margin:auto;
+        margin-top: 100px;
+        margin-bottom: 100px;
+        margin-left: 28%;
+       
+    
+        width: fit-content;
+        height: 50px;
+        font-size: 1em;
+        padding: 10px 40px;
+    }
+}
+
+@media only screen and (max-width: 475px) {
+    #addEntryButton {
+        margin:auto;
+        margin-top: 100px;
+        margin-bottom: 100px;
+        margin-left: 23%;
+       
+    
+        width: fit-content;
+        height: 50px;
+        font-size: 1em;
+        padding: 10px 40px;
+    }
+}
+
+@media only screen and (max-width: 375px){
+    #acitivtyTitle{
+        font-size: 2.25rem;
+        margin: auto;
+        margin-top: 30px;
+    }
+    #addEntryButton {
+        margin:auto;
+        margin-top: 100px;
+        margin-bottom: 100px;
+        margin-left: 20%;
+       
+    
+        width: fit-content;
+        height: 50px;
+        font-size: 1em;
+        padding: 10px 40px;
+    }
+}
+
+
+@media only screen and (max-width: 360px) {
+    #acitivtyTitle{
+        font-size: 2.25rem;
+    }
+
+    #addEntryButton {
+        margin:auto;
+        margin-top: 100px;
+        margin-bottom: 100px;
+        margin-left: 18%;
+       
+    
+        width: fit-content;
+        height: 50px;
+        font-size: 1em;
+        padding: 10px 40px;
+    }
+
+}
+
+@media only screen and (max-width: 280px) {
+
+    #activtyTitleAndHeartDiv {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #acitivtyTitle{
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+
+    #heart {
+        margin-bottom: 10px;
+    }
+
+    #addEntryButton {
+        margin:auto;
+        margin-top: 100px;
+        margin-bottom: 100px;
+        margin-left: 15%;
+       
+    
+        width: fit-content;
+        height: 50px;
+        font-size: .9em;
+        padding: 10px 35px;
+    }
+
+}
+

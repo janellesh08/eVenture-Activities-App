@@ -52,35 +52,29 @@ const activityItemFriends = () => {
                     <Card>
                         <Card.Img variant="top" src="/images/magic.png" />
                         <Card.Body>
-                            <Card.Title>{soloActivity.activity}</Card.Title>
+                            <Card.Title>Magic</Card.Title>
                             <Card.Text>
-                                {soloActivity.description}
+                            Search YouTube to learn how to do a magic trick with a deck of cards.
                             </Card.Text>
                         </Card.Body>
-                        {/* <Card.Footer>
-                            <small className="text-muted">Try a solo eVenture!</small>
-                        </Card.Footer> */}
                     </Card>
                     
                     
                     <Card>
                         <Card.Img variant="top" src="/images/3.png" />
                         <Card.Body>
-                            <Card.Title>{couplesActivity.activity}</Card.Title>
+                            <Card.Title>Book Scavenger Hunt</Card.Title>
                             <Card.Text>
-                                {couplesActivity.description}
+                            Go to your local library. Create a list of clues/ parameters for each book you want your significant other to find.  Trade clue sheets and see who can find all the books first.  
                             </Card.Text>
                         </Card.Body>
-                        {/* <Card.Footer>
-                            <small className="text-muted">This eVenture was made for couples!</small>
-                        </Card.Footer> */}
                     </Card>
                     <Card>
                         <Card.Img variant="top" src="/images/murdermystery.png" />
                         <Card.Body>
-                            <Card.Title>{friendsActivity.activity}</Card.Title>
+                            <Card.Title>Murder Mystery Party</Card.Title>
                             <Card.Text>
-                                {friendsActivity.description}
+                            Host a murder mystery party. Create an array of characters for your guest and solve the unsolved crimes.
                             </Card.Text>
                         </Card.Body>
                         {/* <Card.Footer>
