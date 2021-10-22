@@ -17,7 +17,7 @@ function EventuresPage(props) {
 
     return (
         <div>
-            <Container>
+            <Container className='activityContainer'>
                 <h1>Find an Activity!</h1>
 
                 <EventuresList />

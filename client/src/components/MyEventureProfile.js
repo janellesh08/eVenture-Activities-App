@@ -1,6 +1,7 @@
 // import { connect } from 'react-redux'
-import {  Card, Button } from 'react-bootstrap'
+import {  Card, Button, Container } from 'react-bootstrap'
 import { useState, useEffect } from 'react'
+import '../styles/myActivities.css'
 
 function MyEventureProfile(props) {
     
@@ -29,7 +30,7 @@ function MyEventureProfile(props) {
 
     const loadMyEventures = () => {
 
-        fetch(`http://localhost:8080/api/my-eventures/${localStorage.getItem('userId')}`)
+        fetch(`https://eventures-app.herokuapp.com/api/my-eventures/${localStorage.getItem('userId')}`)
     .then(response => response.json())
         .then(myActivities => {
             setMyActivities(myActivities)
@@ -38,7 +39,7 @@ function MyEventureProfile(props) {
 
 
     const handleMyActivityDelete = (myActivityId) => {
-        fetch(`http://localhost:8080/api/my-eventure/${myActivityId}`, {
+        fetch(`https://eventures-app.herokuapp.com/api/my-eventure/${myActivityId}`, {
             method: 'DELETE'
         }).then(response => response.json())
         .then(result => {
@@ -59,13 +60,17 @@ function MyEventureProfile(props) {
                     <Card.Text>
                         {myActivity.activity.description}
                     </Card.Text>
-                    <Button variant="secondary" onClick={() => onCreateJournalEntry(myActivity.activity_id)}>Create a Journal Entry</Button>{' '}
+                    <Container flex className ='activityBtns'>
+                    <Button variant='primary' className = 'createJournalEntryBtn' onClick={() => onCreateJournalEntry(myActivity.activity_id)}>Create a Journal Entry</Button>{' '}
                     
-                    <Button variant="secondary" onClick={() => viewMyJournalEntries(myActivity.activity_id)}>View My Journal Entries</Button>{' '}
+                    <Button  variant='primary' className = 'viewMyJournalEntryBtn' onClick={() => viewMyJournalEntries(myActivity.activity_id)}>View My Journal Entries</Button>{' '}
 
-                    <Button variant="secondary" onClick={() => viewAllJournalEntries(myActivity.activity_id)}>View Public Journal Entries</Button>{' '}
+                    <Button variant='primary' className = 'viewPublicJournalEntryBtn' onClick={() => viewAllJournalEntries(myActivity.activity_id)}>View Public Journal Entries</Button>{' '}
+                    </Container>
+
 
                     <Button variant="secondary" onClick={() => handleMyActivityDelete(myActivity.id)}>Delete</Button>{' '}
+
                 </Card.Body>
             </Card>
             <br />
@@ -74,10 +79,14 @@ function MyEventureProfile(props) {
 
         return (
             <div>
-                <h1>My Activites</h1>
+                <Container fluid className = 'myActivitiesHeader'>
+                   <label className = 'activityHeader'>My Activites</label>
+                </Container>
+                <Container fluid className = 'myActivities'>
                 <ul>
                     {activityItems}
                 </ul>
+                </Container>
             </div>
         )
 

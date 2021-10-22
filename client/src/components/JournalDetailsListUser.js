@@ -10,7 +10,7 @@ function JournalDetailsListUser(props) {
     
 
     const handleJournalDelete = (id) => {
-        fetch(`http://localhost:8080/api/journal-entries/${id}`, {
+        fetch(`https://eventures-app.herokuapp.com/api/journal-entries/${id}`, {
             method: 'DELETE' 
         }).then(response => response.json())
         .then(result => {

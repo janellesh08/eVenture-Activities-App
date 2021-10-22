@@ -16,7 +16,7 @@ function Display3Activities(){
 
 
 const activityItemSolo = () => {
-    fetch('http://localhost:8080/api/activities/Solo')
+    fetch('https://eventures-app.herokuapp.com/api/activities/Solo')
     .then(response => { return response.json()})
     .then(soloActivity => {
         setSoloActivity(soloActivity)
@@ -24,7 +24,7 @@ const activityItemSolo = () => {
 }
 
 const activityItemCouple = () => {
-    fetch('http://localhost:8080/api/activities/Couple')
+    fetch('https://eventures-app.herokuapp.com/api/activities/Couple')
     .then(response => { return response.json()})
     .then(couplesActivity => {
         setCouplesActivity(couplesActivity)
@@ -32,7 +32,7 @@ const activityItemCouple = () => {
 }
 
 const activityItemFriends = () => {
-    fetch('http://localhost:8080/api/activities/Friends')
+    fetch('https://eventures-app.herokuapp.com/api/activities/Friends')
     .then(response => { return response.json()})
     .then(friendsActivity => {
         setFriendsActivity(friendsActivity)
@@ -50,37 +50,31 @@ const activityItemFriends = () => {
                 
                 <CardGroup id="cardGroup">
                     <Card>
-                        <Card.Img variant="top" src="/images/2.png" />
+                        <Card.Img variant="top" src="/images/magic.png" />
                         <Card.Body>
-                            <Card.Title>{soloActivity.activity}</Card.Title>
+                            <Card.Title>Magic</Card.Title>
                             <Card.Text>
-                                {soloActivity.description}
+                            Search YouTube to learn how to do a magic trick with a deck of cards.
                             </Card.Text>
                         </Card.Body>
-                        {/* <Card.Footer>
-                            <small className="text-muted">Try a solo eVenture!</small>
-                        </Card.Footer> */}
                     </Card>
                     
                     
                     <Card>
                         <Card.Img variant="top" src="/images/3.png" />
                         <Card.Body>
-                            <Card.Title>{couplesActivity.activity}</Card.Title>
+                            <Card.Title>Book Scavenger Hunt</Card.Title>
                             <Card.Text>
-                                {couplesActivity.description}
+                            Go to your local library. Create a list of clues/ parameters for each book you want your significant other to find.  Trade clue sheets and see who can find all the books first.  
                             </Card.Text>
                         </Card.Body>
-                        {/* <Card.Footer>
-                            <small className="text-muted">This eVenture was made for couples!</small>
-                        </Card.Footer> */}
                     </Card>
                     <Card>
                         <Card.Img variant="top" src="/images/murdermystery.png" />
                         <Card.Body>
-                            <Card.Title>{friendsActivity.activity}</Card.Title>
+                            <Card.Title>Murder Mystery Party</Card.Title>
                             <Card.Text>
-                                {friendsActivity.description}
+                            Host a murder mystery party. Create an array of characters for your guest and solve the unsolved crimes.
                             </Card.Text>
                         </Card.Body>
                         {/* <Card.Footer>

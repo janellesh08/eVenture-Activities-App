@@ -1,8 +1,7 @@
 import { useState } from 'react'
 import { connect } from 'react-redux'
-import {Container, Card} from 'react-bootstrap'
+import { Container, Image, Button, Form } from 'react-bootstrap'
 import SnowLake from './styles/images/snowLake.jpg'
-import ZCooking from './styles/images/zCooking.jpg'
 import '../pages/styles/login.css'
 
 
@@ -23,7 +22,7 @@ function Login(props) {
     }
 
     const login = () => {
-        fetch('http://localhost:8080/api/login', {
+        fetch('https://eventures-app.herokuapp.com/api/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -45,11 +44,11 @@ function Login(props) {
                 }
             })
     }
-    
+
     const handleLoginAsGuest = () => {
         const body = { email: 'guest@guest.com', password: 'adminPassword' }
 
-        fetch('http://localhost:8080/api/login', {
+        fetch('https://eventures-app.herokuapp.com/api/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -73,37 +72,41 @@ function Login(props) {
 
 
     return (
-        <Container className='loginDiv'fluid>
-            <div className='inputDiv'>
-                <Card>
-                    <Card.Header>Login</Card.Header>
-                    <Card.Img variant="top" src={SnowLake} />
-                    <Card.Body>
-                        <Card.Text className='loginText'>
-                            <label className='loginLabel'>User Email</label>
-                            <br></br>
-                            <input name='email' type='text' placeholder='Enter User Email Here' onChange={handleOnChange} />
-                            <br></br>
-                            <br></br>
-                            <label className='loginLabel'>Password</label>
-                            <br></br>
-                            <input name='password' type='password' placeholder='Enter Password' onChange={handleOnChange} />
-                            <br></br>
-                            <br></br>
-                            <div className='loginbuttondiv'>
-                            <button className ='loginBtn'onClick={login}>Login</button>
-                             {errormsg?<p>{errormsg}</p>: ''}
-                             <br></br>
-                            <button className ='loginBtn'onClick={handleLoginAsGuest}>Login as Guest</button>
-                            </div>
-                        </Card.Text>
-                    </Card.Body>
-                </Card>
-            </div>
-        </Container>
-            )
-
     
+        <>
+            <Container fluid >
+                <div className='headerDiv'>
+                <label className='loginheader'>Login</label>
+                </div>
+                <div className='loginImageDiv'>
+                <Image className='loginImage' src={SnowLake} rounded/>
+                </div>
+                     <Form>
+                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                            <Form.Label className='loginLabel'>User Email</Form.Label>
+                                 <br></br>
+                            <Form.Control name='email' className = 'emailInput'type='text' placeholder='Enter User Email Here' onChange={handleOnChange} />
+                                <br></br>
+                                <br></br>
+                            <Form.Label className='loginLabel'>Password</Form.Label>
+                                <br></br>
+                            <Form.Control name='password' className = 'emailInput' type='password' placeholder='Enter Password' onChange={handleOnChange} />
+                                <br></br>
+                                <br></br>
+                            <div className='loginbuttondiv'>
+                                 <Button variant='primary' className='loginBtn' onClick={login}>Login</Button>
+                                {errormsg ? <p>{errormsg}</p> : ''}
+                                <br></br>
+                                <Button variant='primary' className='loginBtn' onClick={handleLoginAsGuest}>Login as Guest</Button>
+                            </div>
+                        </Form.Group>
+                    </Form>
+                    </Container>
+        </>
+    
+    )
+
+
 }
 
 const mapDispatchToProps = (dispatch) => {
