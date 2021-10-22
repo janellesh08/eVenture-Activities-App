@@ -31,7 +31,7 @@ function Login(props) {
         }).then((response) => response.json())
             .then(result => {
                 console.log(result);
-                if (result.success == true) {
+                if (result.success === true) {
                     const token = result.token
                     localStorage.setItem('jsonwebtoken', token)
                     localStorage.setItem('firstName', result.user.first_name)

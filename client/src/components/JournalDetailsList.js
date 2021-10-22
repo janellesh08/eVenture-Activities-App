@@ -27,7 +27,7 @@ function JournalDetailsList(props) {
                     <p id="journalEntryDate">{moment(props.journals.createdAt).format("MMMM Do YYYY")}</p>
                 </div>
                 <div id="imageAndEntryDiv">
-                    <img id="journalEntryImage" src={journal.image} />
+                    <img id="journalEntryImage" src={journal.image} alt=''  />
                     <p id="journalEntry">{journal.entry}</p>
                 </div>
 

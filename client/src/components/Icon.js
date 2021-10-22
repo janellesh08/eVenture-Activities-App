@@ -1,5 +1,4 @@
 import Free from '../pages/styles/images/Free.png'
-import Inexpensive from '../pages/styles/images/Inexpensive.png'
 import Moderatley_Expensive from '../pages/styles/images/Moderately_Expensive.png'
 import Expensive from '../pages/styles/images/Expensive.png'
 import Solo from '../pages/styles/images/Solo.png'
@@ -23,13 +22,13 @@ import Outside_Home from '../pages/styles/images/Outside_Home.png'
 export const priceIcon = (price) => {
     switch(price){
         case 'Free':
-            return <img className='iconimg' src={Free} />
+            return <img className='iconimg'src={Free} alt=''  />
         case '$':
-            return <img className='iconimg' src={Cheap} />
+            return <img className='iconimg' src={Cheap} alt=''  />
         case '$$':
-            return <img className='iconimg' src={Moderatley_Expensive} />
+            return <img className='iconimg' src={Moderatley_Expensive} alt=''  />
         case '$$$':
-            return <img className='iconimg' src={Expensive} />
+            return <img className='iconimg' src={Expensive} alt='' />
         default:
             return <h1>{price}</h1>
     }
@@ -38,13 +37,13 @@ export const priceIcon = (price) => {
 export const participantIcon = (participants) => {
     switch(participants){
         case 'Solo':
-            return <img className='iconimg' src={Solo} />
+            return <img className='iconimg' src={Solo} alt=''  />
         case 'Couple':
-            return <img className='iconimg' src={Couple} />
+            return <img className='iconimg' src={Couple} alt=''  />
         case 'Friends':
-            return <img className='iconimg' src={Friends} />
+            return <img className='iconimg' src={Friends} alt=''  />
         case 'Family':
-            return <img className='iconimg' src={Family} />
+            return <img className='iconimg' src={Family} alt=''  />
         default:
             return <h1>{participants}</h1>
     }
@@ -53,13 +52,13 @@ export const participantIcon = (participants) => {
 export const timeOfDayIcon = (time) => {
     switch(time){
         case 'Morning':
-            return <img className='iconimg' src={Morning} />
+            return <img className='iconimg' src={Morning} alt=''  />
         case 'Afternoon':
-            return <img className='iconimg' src={Afternoon} />
+            return <img className='iconimg' src={Afternoon} alt=''  />
         case 'Evening':
-            return <img className='iconimg' src={Evening} />
+            return <img className='iconimg' src={Evening} alt=''  />
         case 'Anytime':
-            return <img className='iconimg' src={Anytime} />
+            return <img className='iconimg' src={Anytime} alt=''  />
         default:
             return <h1>{time}</h1>
     }
@@ -68,15 +67,15 @@ export const timeOfDayIcon = (time) => {
 export const durationIcon = (duration) => {
     switch(duration){
         case '0 - 30 mins':
-            return <img className='iconimg' src={zerothirty} />
+            return <img className='iconimg' src={zerothirty} alt=''  />
         case '30 mins - 1hr':
-            return <img className='iconimg' src={thirtytoonehour} />
+            return <img className='iconimg' src={thirtytoonehour} alt=''  />
         case '1hr - 2hrs':
-            return <img className='iconimg' src={onetotwohours} />
+            return <img className='iconimg' src={onetotwohours} alt=''  />
         case '2hrs - 4hrs':
-            return <img className='iconimg' src={twotofourhours} />
+            return <img className='iconimg' src={twotofourhours} alt=''  />
         case '4hrs +':
-            return <img className='iconimg' src={fourhoursplus} />
+            return <img className='iconimg' src={fourhoursplus} alt=''  />
         default:
             return <h1>{duration}</h1>
     }
@@ -85,9 +84,9 @@ export const durationIcon = (duration) => {
 export const locationIcon = (location) => {
     switch(location){
         case 'At Home':
-            return <img className='iconimg' src={Home} />
+            return <img className='iconimg' src={Home} alt=''  />
         case 'Outside of the Home':
-            return <img className='iconimg' src={Outside_Home} />
+            return <img className='iconimg' src={Outside_Home} alt=''  />
         default:
             return <h1>{location}</h1>
     }

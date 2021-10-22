@@ -1,7 +1,7 @@
-import { Navbar, Nav, Container, Card, Button, Row, Col, Image } from 'react-bootstrap'
+import {Container, Card, Row, Col, Image } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom'
+
 import '../styles/app.css'
 
 function Footer() {
@@ -14,20 +14,20 @@ function Footer() {
                 <h7 id="h7">Click the icons to learn more about us.</h7>
                 <Container id="contributors">
                     <Row id="iconContainer">
-                        <Col class="iconDiv" xs={6} md={4}>
-                           <a href="https://www.janelleshines.me/"> <Image  class="icon-img" src="/images/groupFaces/1.png" thumbnail /></a>
+                        <Col className ="iconDiv" xs={6} md={4}>
+                           <a href="https://www.janelleshines.me/"> <Image  className="icon-img" src="/images/groupFaces/1.png" thumbnail /></a>
                         
                         
-                           <a href="https://github.com/Kharharee"> <Image  class="icon-img" src="/images/groupFaces/2.png" thumbnail /></a>
+                           <a href="https://github.com/Kharharee"> <Image  className="icon-img" src="/images/groupFaces/2.png" thumbnail /></a>
                         
                         
-                           <a href="https://www.david-burrell.me/"> <Image  class="icon-img" src="/images/groupFaces/3.png" thumbnail /></a>
+                           <a href="https://www.david-burrell.me/"> <Image  className="icon-img" src="/images/groupFaces/3.png" thumbnail /></a>
                         
                         
-                           <a href="https://jenniferdeyoung.dev/"> <Image  class="icon-img" src="/images/groupFaces/4.png" thumbnail /></a>
+                           <a href="https://jenniferdeyoung.dev/"> <Image  className="icon-img" src="/images/groupFaces/4.png" thumbnail /></a>
                         
                         
-                           <a href=" https://www.jenifer-ine.me/"> <Image  class="icon-img" src="/images/groupFaces/5.png" thumbnail /></a>
+                           <a href=" https://www.jenifer-ine.me/"> <Image  className="icon-img" src="/images/groupFaces/5.png" thumbnail /></a>
                         </Col>
                         
                     </Row>
