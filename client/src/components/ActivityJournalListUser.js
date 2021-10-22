@@ -54,7 +54,7 @@ function ActivityJournalListUser(props) {
             
             <h1 id="acitivtyTitle">{activity.activity}</h1>
             <div id="addEntryButtonDiv"></div>
-           {activity.journals.length== 0 ? <div id="addEntryButtonDiv"> <button id="addEntryButton" onClick={() => props.history.push(`/add-journal-entry/${activity.id}`)}>Add a Journal Entry</button></div>  :   <JournalDetailsList journals = {activity.journals} onJournalDeleted={() => loadJournalEntries()}/>}
+           {activity.journals.length === 0 ? <div id="addEntryButtonDiv"> <button id="addEntryButton" onClick={() => props.history.push(`/add-journal-entry/${activity.id}`)}>Add a Journal Entry</button></div>  :   <JournalDetailsList journals = {activity.journals} onJournalDeleted={() => loadJournalEntries()}/>}
 
            </>
                      

@@ -51,7 +51,7 @@ function ActivityJournalListPublic(props) {
             <>
 
                 <h1 id="acitivtyTitle">{activity.activity}</h1>
-                {activity.journals.length == 0 ? <button id="addEntryButton" onClick={() => props.history.push(`/add-journal-entry/${activity.id}`)}>Add a Journal Entry</button> : <JournalDetailsList journals={activity.journals} />}
+                {activity.journals.length === 0 ? <button id="addEntryButton" onClick={() => props.history.push(`/add-journal-entry/${activity.id}`)}>Add a Journal Entry</button> : <JournalDetailsList journals={activity.journals} />}
 
             </>
         )

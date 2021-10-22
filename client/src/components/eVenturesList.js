@@ -52,7 +52,7 @@ function EventuresList(props) {
 
         let filteredActivities = props.activities.filter((item) => {
             for (var key in filter) {
-                if (item[key] === undefined || item[key] != filter[key]) {
+                if (item[key] === undefined || item[key] !== filter[key]) {
                     return false
                 }
             }

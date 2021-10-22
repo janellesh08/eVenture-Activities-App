@@ -1,10 +1,8 @@
 import { useState, Component, useEffect } from 'react'
 import { Container, Button, Alert, Form } from 'react-bootstrap'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHeart } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
 
-const element = <FontAwesomeIcon icon={faHeart} />
+
 
 
 function AddJournalEntry(props) {
@@ -125,9 +123,9 @@ function AddJournalEntry(props) {
 
             <div onClick={toggle} id="likeBtnDiv">
                 {isLiked === false ? (
-                    <img class="likeBtn" src="/images/8.png"></img>
+                    <img className ="likeBtn" src="/images/8.png" alt=''></img>
                 ) :
-                    (<img class="likeBtn" src="/images/7.png"></img>)}
+                    (<img className ="likeBtn" src="/images/7.png" alt=''></img>)}
             </div>
 
             <Button id="entrySubmitBtn" variant="secondary" onClick={handleSave}>Submit Journal Entry</Button>{' '}
