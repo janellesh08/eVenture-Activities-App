@@ -110,7 +110,7 @@ function AddJournalEntry(props) {
 
             <label id="entryLabel" >Journal Entry</label>
 
-            <textarea name="entry" onChange={handleOnChange} style={{ width: "400px", height: "200px" }} placeholder="Log your experience here."></textarea>
+            <textarea id="journalEntryTextBox" name="entry" onChange={handleOnChange}  placeholder="Log your experience here."></textarea>
 
             <select id="public" name="public" defaultValue={""} onChange={handleOnChange}>
 

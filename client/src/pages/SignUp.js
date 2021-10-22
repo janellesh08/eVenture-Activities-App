@@ -58,7 +58,7 @@ function SignUp(props) {
                                 <Form.Label className = 'signuplabel'>Email</Form.Label>
                                 <Form.Control  className='signupInput' name='email' type='text' placeholder='Enter email' onChange={handleOnChange} />
                                 <Form.Label className = 'signuplabel'>Password</Form.Label>
-                                <Form.Control className='signupInput' name='password' type='password' placeholder='Enter first password' onChange={handleOnChange} />
+                                <Form.Control className='signupInput' name='password' type='password' placeholder='Enter password' onChange={handleOnChange} />
                              <Button variant='primary' className='signupBtn' onClick={signUp}>Sign Me Up!</Button>{' '}
                             {errormsg ? <p>{errormsg}</p> : ''}
                             </Form.Group>

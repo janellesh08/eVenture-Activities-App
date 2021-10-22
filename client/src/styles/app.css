@@ -171,7 +171,7 @@ input-file-upload-button {
     color: #004AAD !important;
     font-family: sans-serif !important;
     height: 30% !important;
-    width: 25% !important;
+    width: 25% ;
     font-size:100% !important;
     border-radius: 25px !important;
     border:#FF60BF 2px solid;
@@ -220,6 +220,31 @@ input-file-upload-button {
     padding-bottom: 10px;
 }
 
+#journalEntryTextBox {
+    width:90%;
+    height:250px;
+    margin-top: 40px;
+    }
 
+/* @media only screen and (max-width: 768px) {
+    #journalEntryTextBox {
+    width:90%;
+    height:250px;
+    
+    }
 
+} */
+
+@media only screen and (max-width: 600px) {
+
+    #entrySubmitBtn {
+    width: 200px;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    
+    
+    
+    }
+
+}
 
