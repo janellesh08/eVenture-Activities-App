@@ -66,11 +66,10 @@ function MyEventureProfile(props) {
                     <Button  variant='primary' className = 'viewMyJournalEntryBtn' onClick={() => viewMyJournalEntries(myActivity.activity_id)}>View My Journal Entries</Button>{' '}
 
                     <Button variant='primary' className = 'viewPublicJournalEntryBtn' onClick={() => viewAllJournalEntries(myActivity.activity_id)}>View Public Journal Entries</Button>{' '}
+                    
+
+                    <Button variant="secondary" className = 'deleteActivityBtn'onClick={() => handleMyActivityDelete(myActivity.id)}>Delete Activity</Button>{' '}
                     </Container>
-
-
-                    <Button variant="secondary" onClick={() => handleMyActivityDelete(myActivity.id)}>Delete</Button>{' '}
-
                 </Card.Body>
             </Card>
             <br />

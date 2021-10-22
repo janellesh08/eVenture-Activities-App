@@ -20,6 +20,11 @@ ul {
     justify-content: space-between;
 }
 
+.eVenturesList 
+{
+    max-width: 25rem;
+}
+
 .eventureBtn {
 
     background-color:#0dcaf0 !important;
@@ -27,7 +32,7 @@ ul {
     font-family: sans-serif !important;
     height: 50px !important;
     width: 80% !important;
-    font-size:20px !important;
+    font-size:16px !important;
     border-radius: 25px !important;
     border: none !important;
 }
@@ -80,9 +85,9 @@ ul {
 
 @media only screen and (max-width: 768px) {
 
-    .eVenturesList {
+    /* .eVenturesList {
         width: 10rem;
-    }
+    } */
 
     .filterDropdown {
         display: block;
@@ -96,11 +101,11 @@ ul {
     }
 
     .activityContainer{
-        max-width: 80%;
+        max-width: 100%;
     }
 
     .activitiesUL {
-        max-width: 80%;
+        max-width: 100%;
 
     }
    
