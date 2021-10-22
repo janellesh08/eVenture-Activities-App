@@ -121,10 +121,11 @@ app.post('/images', upload.single('image'), async (req, res) => {
 
 // add journal entry
 app.post('/api/add-journal-entry', upload.single('image'), async(req, res) => {
-    const { entry, rating, activityId, userId, public } = req.body
+    const { entry, activityId, userId, public } = req.body
 
     const file = req.file
     const result = await uploadFile(file)
+    const rating = parseInt(req.body.rating)
     
     models.Activity.findOne({
         where: {
@@ -143,7 +144,7 @@ app.post('/api/add-journal-entry', upload.single('image'), async(req, res) => {
         journalEntry.save()
         .then(savedEntry => {
             models.Activity.update(
-                {likes: activity.likes + rating}, 
+                {likes: activity.likes += rating}, 
                 {where: {id: activityId}}
             ).then(updatedActivity => {
                 res.json({success: true, journalId: savedEntry.id, public: savedEntry.public})
