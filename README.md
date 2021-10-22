@@ -38,11 +38,13 @@ The motivation of the eVenture app was We can all agree that boredom is the wors
 #### Back-End Technology:
 * [Node.js](https://nodejs.org/en/about/)
 * [Express](https://expressjs.com/)
+* [Sequelize](https://sequelize.org/master/)
 
 #### Database:
 
 * [ElephantSQL](https://www.elephantsql.com/)
 * [PostgreSQL](https://www.postgresql.org/)
+* [Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html)
 
 ## Contributors:
 
