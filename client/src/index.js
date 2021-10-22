@@ -9,7 +9,6 @@ import thunk from 'redux-thunk'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import BaseLayout from './pages/BaseLayout';
 import About from './pages/About';
-import AddNewEventure from './pages/AddNewEventure';
 import fetchActivitiesReducer from './store/reducers/FetchActivitiesReducer';
 import AuthenticatedReducer from './store/reducers/AuthenticatedReducer';
 import MyEventureProfile from './components/MyEventureProfile';
@@ -45,7 +44,6 @@ ReactDOM.render(
             <Route path='/activity-journal-entries/:activityId' component= {requireAuth(ActivityJournalListPublic)}/>
             <Route path='/my-activity-journal-entries/:activityId/:userId' component ={requireAuth(ActivityJournalListUser)}/>
             <Route path='/my-eventures' component={requireAuth(MyEventureProfile)} />
-            <Route path='/add-new-eventure' component={requireAuth(AddNewEventure)} />
             <Route path='/all-eventures' component={requireAuth(EventuresPage)} />
             <Route path='/add-journal-entry/:activityId' component={requireAuth(AddJournalEntry)}/>
             <Route path='/Login' component={Login} />
