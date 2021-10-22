@@ -58,7 +58,7 @@ function SignUp(props) {
                     <input name='password' type='password' placeholder='Enter first password' onChange={handleOnChange} />
                     <br></br>
                     <br></br>
-                    <button onClick={signUp}>Sign Me Up!</button>{' '}
+                    <button id="signUpButton" onClick={signUp}>Sign Me Up!</button>{' '}
                     {errormsg ? <p>{errormsg}</p> : ''}
                 </div>
             </body>
