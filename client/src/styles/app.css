@@ -120,5 +120,58 @@ height: 55px;
     width: 100%;
 }
 
+.addJournalEntryBtn {
+    background-color:white;
+    color: #004AAD !important;
+    font-family: sans-serif !important;
+    height: 50px !important;
+    width: 80% !important;
+    font-size:100% !important;
+    border-radius: 25px !important;
+    border:#0dcaf0 2px solid;
+    margin: 10px;
+    transition-duration: 0.4s;
+    padding: 2px;
+}
+
+.addJournalEntryBtn:hover {
+    background-color: #0dcaf0; /* Green */
+    color: white;
+
+}
+
+input-file-upload-button {
+    background-color:#FF60BF !important ;
+    color:#004AAD ;
+    font-family: sans-serif;
+    height: 50px;
+    width: 80%;
+    font-size:20px;
+    border-radius: 25px;
+    border: none;
+}
+
+.addImageHeader {
+    font-size: 30px;
+}
+
+#entrySubmitBtn {
+    background-color:white;
+    color: #004AAD !important;
+    font-family: sans-serif !important;
+    height: 30% !important;
+    width: 25% !important;
+    font-size:100% !important;
+    border-radius: 25px !important;
+    border:#FF60BF 2px solid;
+    margin: 10px;
+    transition-duration: 0.4s;
+    padding: 2px;
+}
+
+#entrySubmitBtn:hover {
+    background-color: #FF60BF; 
+    color: white;
+}
 
 

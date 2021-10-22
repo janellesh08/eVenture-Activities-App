@@ -14,7 +14,7 @@ function EventuresList(props) {
 
         return <li className = 'eVenturesList' key={activity.id}>
          
-            <Card border="secondary" style={{ width: '25rem' }}>
+            <Card border="secondary" >
                 <Card.Header className = 'activityCardHeader'>{priceIcon(activity.price_range)}{participantIcon(activity.participants)}{timeOfDayIcon(activity.time_of_day)}{durationIcon(activity.duration_range)}{locationIcon(activity.location)}</Card.Header>
                 <Card.Body>
                     <Card.Title>{activity.activity}</Card.Title>
