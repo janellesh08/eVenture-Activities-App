@@ -1,4 +1,4 @@
-import { useState, Component } from 'react'
+import { useState, Component, useEffect } from 'react'
 import { Container, Button, Alert, Form } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart } from '@fortawesome/free-solid-svg-icons'
@@ -19,8 +19,21 @@ function AddJournalEntry(props) {
 
     const toggle = () => {
         setIsLiked(!isLiked);
-        addOne(isLiked)
     }
+
+    useEffect(() => {
+        if(isLiked){
+            setJournal({
+                ...journal,
+                rating: 1
+            })
+        } else {
+            setJournal({
+                ...journal,
+                rating: 0
+            })
+        }
+    }, [isLiked])
 
 
     const handleOnChange = (e) => {
@@ -45,12 +58,6 @@ function AddJournalEntry(props) {
         setImage(result.data.imagePath)
     }
 
-
-    const addOne = (isLiked) => {
-        if (isLiked) {
-            journal.rating = 1
-        }
-    }
 
 
     const handleSave = async () => {

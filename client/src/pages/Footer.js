@@ -15,19 +15,19 @@ function Footer() {
                 <Container id="contributors">
                     <Row id="iconContainer">
                         <Col class="iconDiv" xs={6} md={4}>
-                           <a href="https://www.janelleshines.me/"> <Image  class="icon-img" src="/images/groupFaces/1.png" thumbnail /></a>
+                           <a href="https://www.janelleshines.me/" target='_blank' > <Image  class="icon-img" src="/images/groupFaces/1.png" thumbnail /></a>
                         
                         
-                           <a href="https://github.com/Kharharee"> <Image  class="icon-img" src="/images/groupFaces/2.png" thumbnail /></a>
+                           <a href="https://github.com/Kharharee" target='_blank' > <Image  class="icon-img" src="/images/groupFaces/2.png" thumbnail /></a>
                         
                         
-                           <a href="https://www.david-burrell.me/"> <Image  class="icon-img" src="/images/groupFaces/3.png" thumbnail /></a>
+                           <a href="https://www.david-burrell.me/" target='_blank' > <Image  class="icon-img" src="/images/groupFaces/3.png" thumbnail /></a>
                         
                         
-                           <a href="https://jenniferdeyoung.dev/"> <Image  class="icon-img" src="/images/groupFaces/4.png" thumbnail /></a>
+                           <a href="https://jenniferdeyoung.dev/" target='_blank' > <Image  class="icon-img" src="/images/groupFaces/4.png" thumbnail /></a>
                         
                         
-                           <a href=" https://www.jenifer-ine.me/"> <Image  class="icon-img" src="/images/groupFaces/5.png" thumbnail /></a>
+                           <a href=" https://www.jenifer-ine.me/" target='_blank' > <Image  class="icon-img" src="/images/groupFaces/5.png" thumbnail /></a>
                         </Col>
                         
                     </Row>
