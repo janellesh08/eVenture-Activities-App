@@ -11,7 +11,7 @@ function Footer() {
             <Card.Header>Let's Connect!</Card.Header>
             <Card.Body id="cardBody">
                 <h5>Meet the Devs</h5>
-                <h7 id="h7">Click the icons to learn more about us.</h7>
+                <p id="h7">Click the icons to learn more about us.</p>
                 <Container id="contributors">
                     <Row id="iconContainer">
                         <Col class="iconDiv" xs={6} md={4}>

@@ -96,7 +96,7 @@ function AddJournalEntry(props) {
                 You can make your journal entries private or public to share your experience with other users!
             </Alert>
             <div className='imageUpload'>
-                <Form>
+            
                 <Form.Group controlId="formFile" className="mb-3">
                 <Form.Label className = 'addImageHeader'>Add an image</Form.Label>
                 <Form.Control 
@@ -109,7 +109,7 @@ function AddJournalEntry(props) {
                     <Button varient = 'primary' className = 'addJournalEntryBtn'type='submit' onClick={imageAlert}>upload photo</Button>
                 {image && <img src={image} style={{ width: 250 }} />}
                 </Form.Group>
-                </Form>
+                
             </div>
 
 
