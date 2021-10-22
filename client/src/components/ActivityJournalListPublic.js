@@ -21,16 +21,16 @@ function ActivityJournalListPublic(props) {
 
 
     const loadJournalEntries = () => {
+        
+        fetch(`https://eventures-app.herokuapp.com/api/journal-entries-info/${props.match.params.activityId}`)
+        .then(response => response.json())
+        .then(activity => {
+           
+        setActivity(activity)
+        
+            
 
-        fetch(`http://localhost:8080/api/journal-entries-info/${props.match.params.activityId}`)
-            .then(response => response.json())
-            .then(activity => {
-
-                setActivity(activity)
-
-
-
-            })
+        })
     }
 
     if (activity.likes > 0) {

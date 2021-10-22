@@ -1,7 +1,7 @@
 
 
 .filterMenu{
-    background-color: #FFAF82;
+    background-color: #FDE28B;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     margin-bottom: 20px;
     padding: 10px;
@@ -22,13 +22,14 @@ ul {
 
 .eventureBtn {
 
-    background-color:#004AAD ;
-    color: #FF60BF !important;
-    font-family: sans-serif;
-    height: 50px;
-    width: 80%;
-    font-size:20px;
-    border-radius: 25px;
+    background-color:#0dcaf0 !important;
+    color: #004AAD !important;
+    font-family: sans-serif !important;
+    height: 50px !important;
+    width: 80% !important;
+    font-size:20px !important;
+    border-radius: 25px !important;
+    border: none !important;
 }
 
 .twistBtn {
@@ -39,9 +40,71 @@ ul {
     width: 80%;
     font-size:20px;
     border-radius: 25px;
+    border: none;
 
 }
 
 #twistBtnDiv {
     padding: 1%;
+    text-align: center;
+}
+
+.filterBtn {
+    background-color:#0dcaf0 !important;
+    color: #004AAD !important;
+    font-family: sans-serif;
+    height: 50px;
+    width: 70%;
+    font-size:20px;
+    border-radius: 25px;
+    border: none;
+
+}
+
+.card-title {
+    font-size: 35px !important;
+    text-align: left;
+}
+
+.card-text {
+    text-align: left;
+}
+
+.buttonDiv {
+    text-align: center ;
+}
+
+.filterBtns {
+    display: flex;
+}
+
+@media only screen and (max-width: 768px) {
+
+    .eVenturesList {
+        width: 10rem;
+    }
+
+    .filterDropdown {
+        display: block;
+        
+    }
+
+    .filterBtn {
+
+        font-size:15px;
+
+    }
+
+    .activityContainer{
+        max-width: 80%;
+    }
+
+    .activitiesUL {
+        max-width: 80%;
+
+    }
+   
+
+    
+
 }

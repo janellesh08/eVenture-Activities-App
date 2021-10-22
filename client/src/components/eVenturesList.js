@@ -21,7 +21,9 @@ function EventuresList(props) {
                     <Card.Text>
                         {activity.description}
                     </Card.Text>
-                    <button class="eventureBtn" onClick={() => handleAddMyActivity(activity)}>Add to My eVentures</button>{' '}
+                    <Container fluid className = 'buttonDiv'>
+                    <Button variant = 'primary' className="eventureBtn" onClick={() => handleAddMyActivity(activity)}>Add to My eVentures</Button>{' '}
+                    </Container >
                     <TwistModal/>
                 </Card.Body>
             </Card>
@@ -30,8 +32,7 @@ function EventuresList(props) {
     })), setActivityItems] = useState()
     const [filter, setFilter] = useState({})
 
-    const [buttonPopup, setButtonPopup] = useState(false)
-
+    
     function handleAddMyActivity (activity) {
 
         alert("Your eVenture has been added!")
@@ -70,7 +71,9 @@ function EventuresList(props) {
                     <Card.Text>
                         {activity.description}
                     </Card.Text>
-                    <button  class="eventureBtn" onClick={() => handleAddMyActivity(activity)}>Add to My eVentures</button>{' '}
+                    <Container fluid className = 'buttonDiv'>
+                    <Button variant = 'primary'  className="eventureBtn" onClick={() => handleAddMyActivity(activity)}>Add to My eVentures</Button>{' '}
+                    </Container >
                     <TwistModal/>
                 </Card.Body>
             </Card>
@@ -92,11 +95,13 @@ function EventuresList(props) {
                 <Card border="secondary" style={{ width: '25rem' }}>
                     <Card.Header className = 'activityCardHeader'>{priceIcon(activity.price_range)}{participantIcon(activity.participants)}{timeOfDayIcon(activity.time_of_day)}{durationIcon(activity.duration_range)}{locationIcon(activity.location)}</Card.Header>
                     <Card.Body>
-                        <Card.Title>{activity.activity}</Card.Title>
+                        <Card.Title className = 'cardTitle'>{activity.activity}</Card.Title>
                         <Card.Text>
                             {activity.description}
                         </Card.Text>
-                        <button  class="eventureBtn" onClick={() => handleAddMyActivity(activity)}>Add to My eVentures</button>{' '}
+                        <Container fluid className = 'buttonDiv'>
+                        <Button variant = 'primary'  className="eventureBtn" onClick={() => handleAddMyActivity(activity)}>Add to My eVentures</Button>{' '}
+                        </Container >
                         <TwistModal/>
                     </Card.Body>
                 </Card>
@@ -117,9 +122,9 @@ function EventuresList(props) {
 
     return (
         <div>
-            <Container className='filterMenu'>
+            <Container flex className='filterMenu'>
                 <h4>Filter</h4>
-                <Row>
+                <Row className='filterDropdown'>
                     <Col>
                     
                         <Form.Label column lg={2}>Type</Form.Label>
@@ -203,16 +208,18 @@ function EventuresList(props) {
                     </Col>
                 </Row>
                 <Row>
+                    <Container flex className = 'filterBtns'>
                     <Col className='text-center mt-3'>
-                    <Button variant='info' onClick={handleApplyFilter} >Apply Filter</Button>
+                    <Button variant = 'primary'  className ='filterBtn' onClick={handleApplyFilter} >Apply Filter</Button>
                     </Col>
                     <Col className='text-center mt-3'>
-                    <Button variant='info' onClick={handleResetFilter} >Reset Filter</Button>
+                    <Button  variant = 'primary'  className ='filterBtn'  onClick={handleResetFilter} >Reset Filter</Button>
                     </Col>
+                    </Container>
                 </Row>
 
             </Container>
-            <Container>
+            <Container className='activitiesUL'>
                 <ul>
                     {activityItems}
                 </ul>

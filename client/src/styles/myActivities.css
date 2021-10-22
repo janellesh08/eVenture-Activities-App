@@ -1,0 +1,78 @@
+.activityHeader {
+    font-size: 60px !important;
+}
+
+.myActivitiesHeader {
+    margin: 10px;
+    text-align: center;
+
+}
+ .myActivities{
+     display: flex;
+     justify-content: space-between;
+ }
+.createJournalEntryBtn {
+    background-color:white;
+    color: #004AAD !important;
+    font-family: sans-serif !important;
+    height: 50px !important;
+    width: 80% !important;
+    font-size:100% !important;
+    border-radius: 25px !important;
+    border:#0dcaf0 2px solid;
+    margin: 10px;
+    transition-duration: 0.4s;
+    padding: 2px;
+
+}
+
+.viewMyJournalEntryBtn {
+    background-color:white  ;
+    color:#004AAD !important;
+    font-family: sans-serif;
+    height: 50px;
+    width: 80%;
+    font-size:100%;
+    border-radius: 25px;
+    border:#FF60BF 2px solid;
+    margin: 10px;
+    transition-duration: 0.4s;
+    padding: 2px;
+
+}
+
+.viewPublicJournalEntryBtn {
+    background-color:white;
+    color: #004AAD !important;
+    font-family: sans-serif !important;
+    height: 50px !important;
+    width: 80% !important;
+    font-size:100% !important;
+    border-radius: 25px !important;
+    border:#0dcaf0 2px solid;
+    margin: 10px;
+    transition-duration: 0.4s;
+    padding: 2px;
+
+}
+
+.createJournalEntryBtn:hover {
+    background-color: #0dcaf0; /* Green */
+  color: white;
+
+
+}
+.viewMyJournalEntryBtn:hover{
+    background-color: #FF60BF; /* Green */
+  color: white;
+
+
+}
+.viewPublicJournalEntryBtn:hover{
+    background-color: #0dcaf0; /* Green */
+  color: white;
+
+
+}
+
+

@@ -40,7 +40,7 @@ function AddJournalEntry(props) {
         formData.append('image', file)
 
 
-        const result = await axios.post('http://localhost:8080/images', formData, { headers: { 'Content-Type': 'multipart/form-data' } })
+        const result = await axios.post('https://eventures-app.herokuapp.com/images', formData, { headers: { 'Content-Type': 'multipart/form-data' } })
         console.log(result.data)
         setImage(result.data.imagePath)
     }
@@ -64,7 +64,7 @@ function AddJournalEntry(props) {
         formData.append('rating', journal.rating)
 
 
-        const result = await axios.post('http://localhost:8080/api/add-journal-entry', formData, { headers: { 'Content-Type': 'multipart/form-data' } })
+        const result = await axios.post('https://eventures-app.herokuapp.com/api/add-journal-entry', formData, { headers: { 'Content-Type': 'multipart/form-data' } })
         console.log(result)
         if (result.data.success && result.data.public) {
             props.history.push(`/activity-journal-entries/${props.match.params.activityId}`)
@@ -79,7 +79,6 @@ function AddJournalEntry(props) {
         alert("Your photo is uploading please be patient!")
     }
 
-    
 
 
     return (

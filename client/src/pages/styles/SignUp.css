@@ -1,47 +1,51 @@
 .signuplabel {
-    padding: 20px;
+    padding: 10px;
 }
 
-Container fluid {
-    display: flex;
-    flex-direction: column;
-    
-    
-}
 
-#signUpButton {
-    background-color:#004AAD ;
-    color: #FF60BF;
+.signupBtn {
+    background-color:white  ;
+    color:#004AAD !important;
     font-family: sans-serif;
-    font-weight: bolder;
     height: 50px;
-    width: 150px;
-    font-size:20px;
+    width: 25%;
+    font-size:100%;
+    font-weight: bold;
     border-radius: 25px;
+    border:#FF60BF 2px solid;
+    margin: 10px;
+    transition-duration: 0.4s;
+    padding: 2px;
+}
+
+.signupBtn:hover {
+    background-color: #0dcaf0; 
+    color: white;
+}
+.signupHeaderDiv{
+    text-align: -webkit-center;
 }
 
 .signUpheader {
-    font-weight: bolder;
-    font-style:italic;
+    font-size: 40px;
+    text-align: center;
+}
 
+.signupImage {
+    text-align: -webkit-center;
 }
 
 .inputDiv {
-    display: flex;
-    flex-direction: column;
-    width:30%;
-    padding: 30px;
-    border-radius: 10px;
-    font-family: sans-serif; 
-    font-weight: bolder;
-    font-size: large;
+   margin: auto;
     
 }
-
-
 
 .signupBody {
     background-image: url("https://source.unsplash.com/my1mDMraGf0");
     background-size: cover;
-    
+   
+}
+
+.signupInput {
+    max-width: 400px;
 }

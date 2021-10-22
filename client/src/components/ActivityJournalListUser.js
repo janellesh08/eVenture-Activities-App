@@ -24,7 +24,7 @@ function ActivityJournalListUser(props) {
 
     
     const loadJournalEntries = () => {
-        fetch(`http://localhost:8080/api/journal-entries-info/${props.match.params.activityId}/${localStorage.getItem('userId')}`)
+        fetch(`https://eventures-app.herokuapp.com/api/journal-entries-info/${props.match.params.activityId}/${localStorage.getItem('userId')}`)
         .then(response => response.json())
         .then(response => {
             setActivity(response)
