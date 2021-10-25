@@ -2,7 +2,7 @@
 
 ## App: eVentures - Find new activites to try with friends, family, or on your own
 
-App Link:
+App Link: https://eventurefun.surge.sh/
 
 ## App Description:
 Welcome to eVentures! No more tedious planning for fun and exciting activities for you and anyone else to enjoy. Just give us a little information like your price range and the number of participants and we will do the planning for you. We even offer a random twist as a way to spice up the fun! eVentures was created with all of the details in mind so that you can focus on what really matters. The fun!!!
