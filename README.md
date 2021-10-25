@@ -23,7 +23,7 @@ We can all agree that boredom is the worst, right? Friends coming over? Family i
 * Like Option for Activities you enjoy
 * Add an image to your journal entry
 * Make Journal entries Public/Private
-* Share and view other journal entries
+* Share and view other users' journal entries
 
 ## Built with:
 
