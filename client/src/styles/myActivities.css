@@ -11,6 +11,11 @@
      display: flex;
      justify-content: space-between;
  }
+
+ .myEventureList {
+
+    max-width: 25rem;
+ }
 .createJournalEntryBtn {
     background-color:white;
     color: #004AAD !important;
