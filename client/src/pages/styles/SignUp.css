@@ -49,3 +49,27 @@
 .signupInput {
     max-width: 400px;
 }
+
+@media only screen and (max-width: 768px) {
+
+    .signupBtn {
+        background-color:white  ;
+        color:#004AAD !important;
+        font-family: sans-serif;
+        height: 50px;
+        width: 75%;
+        font-size:100%;
+        font-weight: bold;
+        border-radius: 25px;
+        border:#FF60BF 2px solid;
+        margin: 10px;
+        transition-duration: 0.4s;
+        padding: 2px;
+    }
+
+    .signupBtn:hover {
+        background-color: #0dcaf0; 
+        color: white;
+    }
+
+}
