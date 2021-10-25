@@ -94,10 +94,10 @@ function Login(props) {
                                 <br></br>
                                 <br></br>
                             <div className='loginbuttondiv'>
-                                 <Button variant='primary' className='loginBtn' onClick={login}>Login</Button>
+                                 <Button variant='primary' className='loginBtn' onClick={login}>Log in</Button>
                                 {errormsg ? <p>{errormsg}</p> : ''}
                                 <br></br>
-                                <Button variant='primary' className='loginBtn' onClick={handleLoginAsGuest}>Login as Guest</Button>
+                                <Button variant='primary' className='loginBtn' onClick={handleLoginAsGuest}>Log in as Guest</Button>
                             </div>
                         </Form.Group>
                     </Form>

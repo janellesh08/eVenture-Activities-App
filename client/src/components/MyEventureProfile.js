@@ -51,9 +51,9 @@ function MyEventureProfile(props) {
 
     const activityItems = myActivities.map((myActivity) => {
         
-        return <li key={myActivity.id}>
+        return <li className = 'myEventureList' key={myActivity.id}>
 
-            <Card border="secondary" style={{ width: '18rem' }}>
+            <Card border="secondary">
                 
                 <Card.Body>
                     <Card.Title>{myActivity.activity.activity}</Card.Title>
