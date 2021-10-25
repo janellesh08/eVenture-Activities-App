@@ -17,13 +17,15 @@ We can all agree that boredom is the worst, right? Friends coming over? Family i
 
 * Create an eVenture account
 * Filter activities
-* Pick an Activity
+* Pick an activity and add it to your My eVentures profile page
 * Choose a random twist
 * Add a journal entry
-* Like Option for Activities you enjoy
+* Ability to "like" an eVenture 
 * Add an image to your journal entry
-* Make Journal entries Public/Private
-* Share and view other users' journal entries
+* Option to make Journal entries public or private
+* View other users' journal entries
+* Delete an activity from your My eVentures profile page
+* Delete a journal entry from your My Journal Entries page
 
 ## Built with:
 
