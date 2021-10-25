@@ -15,17 +15,45 @@ We can all agree that boredom is the worst, right? Friends coming over? Family i
 
 ## Features:
 
-* Create an eVenture account
+* Create an eVenture account!
+<img width="1372" alt="Screen Shot 2021-10-25 at 4 39 44 PM" src="https://user-images.githubusercontent.com/53192026/138767855-d82590c5-fc4f-4af3-af69-c661eafd2da9.png">
+
+
 * Filter activities
+<img width="1372" alt="Screen Shot 2021-10-25 at 4 40 59 PM" src="https://user-images.githubusercontent.com/53192026/138767770-ed5febfc-0c53-420c-8403-e36da6eff9c7.png">
+
 * Pick an activity and add it to your My eVentures profile page
+<img width="968" alt="Screen Shot 2021-10-25 at 4 43 20 PM" src="https://user-images.githubusercontent.com/53192026/138768043-edba33ae-03e4-4d82-a2a0-f566f1251fbb.png">
+
 * Choose a random twist
+<img width="968" alt="Screen Shot 2021-10-25 at 4 44 32 PM" src="https://user-images.githubusercontent.com/53192026/138768129-7098dc9f-59c8-4b56-a1e2-25c5946f2da5.png">
+
 * Add a journal entry
+<img width="297" alt="Screen Shot 2021-10-25 at 4 47 20 PM" src="https://user-images.githubusercontent.com/53192026/138768473-c9185ce8-a837-4444-b919-aa0cba7dbd8b.png">
+
+
 * Ability to "like" an eVenture 
+<img width="650" alt="Screen Shot 2021-10-25 at 4 46 31 PM" src="https://user-images.githubusercontent.com/53192026/138768383-2faff1a2-5a78-4c49-8345-856725072fdc.png">
+
 * Add an image to your journal entry
+<img width="558" alt="Screen Shot 2021-10-25 at 4 49 52 PM" src="https://user-images.githubusercontent.com/53192026/138768839-35aea33e-6180-447b-98d0-da70f288135e.png">
+
 * Option to make Journal entries public or private
+<img width="1387" alt="Screen Shot 2021-10-25 at 4 50 38 PM" src="https://user-images.githubusercontent.com/53192026/138768926-0caab367-c700-4744-bcc7-d1609f5d8408.png">
+
 * View other users' journal entries
+<img width="1387" alt="Screen Shot 2021-10-25 at 4 53 28 PM" src="https://user-images.githubusercontent.com/53192026/138769266-8b68cecc-9849-4d4d-8cfd-36861520af7d.png">
+
 * Delete an activity from your My eVentures profile page
+<img width="303" alt="Screen Shot 2021-10-25 at 4 54 06 PM" src="https://user-images.githubusercontent.com/53192026/138769328-5a317a63-e14a-4cc2-a3c1-668e1af0ee52.png">
+
 * Delete a journal entry from your My Journal Entries page
+<img width="1390" alt="Screen Shot 2021-10-25 at 4 54 41 PM" src="https://user-images.githubusercontent.com/53192026/138769401-f9d00635-9caf-4bfa-bf72-8a9124e30fd3.png">
+
+
+## Demo Video
+https://www.youtube.com/watch?v=eo2zU591mmk
+
 
 ## Built with:
 
